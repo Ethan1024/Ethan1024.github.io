@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-20T14:07:30.335Z</updated>
+  <updated>2021-10-20T14:22:01.456Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>test4</title>
+    <link href="http://example.com/2021/10/20/test4/"/>
+    <id>http://example.com/2021/10/20/test4/</id>
+    <published>2021-10-20T14:08:50.000Z</published>
+    <updated>2021-10-20T14:22:01.456Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="test4"><a href="#test4" class="headerlink" title="test4"></a>test4</h2><p><img src="/2021/10/20/test4/4.jpg" alt="阿祖，收手吧外面全是警察"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;test4&quot;&gt;&lt;a href=&quot;#test4&quot; class=&quot;headerlink&quot; title=&quot;test4&quot;&gt;&lt;/a&gt;test4&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/2021/10/20/test4/4.jpg&quot; alt=&quot;阿祖，收手吧外面全是警察&quot;&gt;&lt;/p&gt;</summary>
+      
+    
+    
+    
+    <category term="头像" scheme="http://example.com/categories/%E5%A4%B4%E5%83%8F/"/>
+    
+    <category term="图片" scheme="http://example.com/categories/%E5%A4%B4%E5%83%8F/%E5%9B%BE%E7%89%87/"/>
+    
+    <category term="壁纸" scheme="http://example.com/categories/%E5%A4%B4%E5%83%8F/%E5%9B%BE%E7%89%87/%E5%A3%81%E7%BA%B8/"/>
+    
+    
+    <category term="蒙面猫猫" scheme="http://example.com/tags/%E8%92%99%E9%9D%A2%E7%8C%AB%E7%8C%AB/"/>
+    
+    <category term="吴彦祖" scheme="http://example.com/tags/%E5%90%B4%E5%BD%A6%E7%A5%96/"/>
+    
+    <category term="胖橘" scheme="http://example.com/tags/%E8%83%96%E6%A9%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>test3</title>
     <link href="http://example.com/2021/10/20/test3/"/>
     <id>http://example.com/2021/10/20/test3/</id>
     <published>2021-10-20T13:36:43.000Z</published>
-    <updated>2021-10-20T14:07:30.335Z</updated>
+    <updated>2021-10-20T14:20:30.072Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/2021/10/20/test3/3.jpg" alt="航空"></p>]]></content>
     
@@ -34,6 +66,12 @@
     
     
     
+    <category term="壁纸" scheme="http://example.com/categories/%E5%A3%81%E7%BA%B8/"/>
+    
+    
+    <category term="航空" scheme="http://example.com/tags/%E8%88%AA%E7%A9%BA/"/>
+    
+    <category term="蓝天" scheme="http://example.com/tags/%E8%93%9D%E5%A4%A9/"/>
     
   </entry>
   
@@ -42,7 +80,7 @@
     <link href="http://example.com/2021/10/20/test2/"/>
     <id>http://example.com/2021/10/20/test2/</id>
     <published>2021-10-20T13:19:00.000Z</published>
-    <updated>2021-10-20T13:34:50.063Z</updated>
+    <updated>2021-10-20T14:21:05.369Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/2021/10/20/test2/1.jpg" alt="黑衣抽烟男"></p>]]></content>
     
@@ -55,10 +93,18 @@
     
     
     
-    <category term="tupian" scheme="http://example.com/categories/tupian/"/>
+    <category term="图片" scheme="http://example.com/categories/%E5%9B%BE%E7%89%87/"/>
+    
+    <category term="壁纸" scheme="http://example.com/categories/%E5%9B%BE%E7%89%87/%E5%A3%81%E7%BA%B8/"/>
+    
+    <category term="头像" scheme="http://example.com/categories/%E5%9B%BE%E7%89%87/%E5%A3%81%E7%BA%B8/%E5%A4%B4%E5%83%8F/"/>
     
     
-    <category term="pic" scheme="http://example.com/tags/pic/"/>
+    <category term="吴赫" scheme="http://example.com/tags/%E5%90%B4%E8%B5%AB/"/>
+    
+    <category term="黑衣" scheme="http://example.com/tags/%E9%BB%91%E8%A1%A3/"/>
+    
+    <category term="抽烟" scheme="http://example.com/tags/%E6%8A%BD%E7%83%9F/"/>
     
   </entry>
   
