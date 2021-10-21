@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-20T14:22:01.456Z</updated>
+  <updated>2021-10-21T11:23:35.340Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,68 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>YOLO算法在windows下训练自己的数据集</title>
+    <link href="http://example.com/2021/10/21/YOLO%E7%AE%97%E6%B3%95%E5%9C%A8windows%E4%B8%8B%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/"/>
+    <id>http://example.com/2021/10/21/YOLO%E7%AE%97%E6%B3%95%E5%9C%A8windows%E4%B8%8B%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/</id>
+    <published>2021-10-21T11:20:00.000Z</published>
+    <updated>2021-10-21T11:23:35.340Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="YOLO算法在windows下训练自己的数据集"><a href="#YOLO算法在windows下训练自己的数据集" class="headerlink" title="YOLO算法在windows下训练自己的数据集"></a>YOLO算法在windows下训练自己的数据集</h3><ul><li>背景基础<ul><li>已有在官方权重下，YOLOV3算法在识别物体上的测试效果</li><li>特定数据集的制作与训练实现特有的目标检测</li></ul></li><li>目的<ul><li>伤员目标的检测</li></ul></li><li>方法  <a href="https://blog.csdn.net/congcong7267/article/details/82981084">(1条消息) win10下yolov3训练自己的数据集_congcong7267的博客-CSDN博客</a><ul><li>训练自己的数据集、<ul><li>每种物体采集大概两三百张照片（距离、背景、光线）</li><li>标注图片中的目标，制作数据集</li><li>打开win10终端，cd进入darknet-master\build\darknet\x64，darknet.exe detector train data/obj.data yolo-obj.cfg darknet53.conv.74 开始训练</li></ul></li><li>生成权重文件移植到树莓派上进行测试<ul><li>backup文件下最后一个权重文件复制到build\darknet\x64\</li><li>打开win10终端，cd进入然后运行darknet-master\build\darknet\x64路径</li><li>输入：darknet.exe detector test data/obj.data yolo-obj.cfg yolo-obj_100.weights（olo-obj_100.weights为训练好的权重名）</li><li>终端会提醒你输入图片路径，然后你输入测试图片的绝对路径即可看到效果</li></ul></li></ul></li><li>实践  <a href="https://blog.csdn.net/congcong7267/article/details/82981084">(2条消息) win10下yolov3训练自己的数据集_congcong7267的博客-CSDN博客</a><ul><li>新建yolo-obj.cfg文件，将batch 改成64 ：batch=64，subdivisions=64<ul><li>在Darknet中，batch和subdivisions是结合使用的，例如设置batch=64，subdivisions=16，表示训练的过程中将一次性加载64张图片进内存，然后分16次完成前向传播，意思是每次4张，前向传播的循环过程中累加loss求平均，待64张图片都完成前向传播后，再一次性后传更新参数。(<a href="https://zhuanlan.zhihu.com/p/91587361">yolov3.cfg参数说明及调参经验 - 知乎 (zhihu.com)</a>)</li></ul></li><li>在build\darknet\x64\data\下新建obj.names文件，写入自己的类名<ul><li>  <img src="https://api2.mubu.com/v3/document_image/70fa4c70-c6ff-4ce4-8466-b545569d3448-1995134.jpg"></li></ul></li><li>在build\darknet\x64\data\下新建obj.data文件<ul><li>  <img src="https://api2.mubu.com/v3/document_image/8beaa8bd-abc0-4a83-ab1d-7566e368442f-1995134.jpg"></li></ul></li><li>制作数据集<ul><li>图片批量顺序命名py脚本<ul><li>  <img src="https://api2.mubu.com/v3/document_image/17b4a336-e2d7-4566-83f2-f468af9acdb2-1995134.jpg"></li></ul></li><li>使用labelimg标注图片中的目标，生成xml文件</li><li>使用py脚本将xml文件转为txt文件<ul><li>  <img src="https://api2.mubu.com/v3/document_image/13f0934f-6041-4bf9-97ce-bbc3ea74f417-1995134.jpg"></li></ul></li><li>将所有样本图片及对应的的txt文件)放到：build\darknet\x64\data\obj\</li><li>在build\darknet\x64\data\下新建train.txt，训练图片的路径放入文件<ul><li>  <img src="https://api2.mubu.com/v3/document_image/75481850-e194-4fe2-8f7f-7e37ba9926a9-1995134.jpg"></li><li>  <img src="https://api2.mubu.com/v3/document_image/6dc36e99-f601-4ded-9332-ade4de302ae5-1995134.jpg"></li></ul></li></ul></li><li>将darknet的预训练权重放入build\darknet\x64  <a href="https://pan.baidu.com/s/1Gdo2gj1bggjUtW9CyYkIpQ">预训练权重文件</a> 密码：x5ht</li><li>在\darknet路径下修改网络配置文件Makefile<ul><li>对比官方makefile修改：（其中C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.4/ 为自己的CUDA安装路径）  （<a href="https://pan.baidu.com/s/1PYKf-47WAgl9Jqs_d-Sx3w">下载链接</a> 提取码：jh1i））<ul><li>GPU=1 CUDNN=1</li><li>NVCC=C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.4/bin/nvcc</li><li>COMMON+= -DGPU -I/C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.4/include</li><li>LDFLAGS+= -L/C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.4/lib -lcuda -lcudart -lcublas -lcurand</li></ul></li></ul></li><li>打开cmd，cd进入darknet-master\build\darknet\x64路径，输入：darknet.exe detector train data/obj.data yolo-obj.cfg darknet53.conv.74 开始训练</li><li>avg loss接近0.XX且变化不大时可停止训练，将x64\backup下的weight文件复制到\x64下，cd进入darknet-master\build\darknet\x64路径运行darknet.exe detector test data/obj.data yolo-obj.cfg yolo-obj_last.weights，程序会提示输入待检测图片的路径。</li></ul></li><li>结果<ul><li>纵坐标平均loss（误差）接近0.545，即变化不大时可停止训练。横坐标batch（每batch（64）个样本更新一次参数）<ul><li><img src="https://api2.mubu.com/v3/document_image/9d13e9f1-0210-46de-a2f9-049b44dced72-1995134.jpg"></li><li>在YOLOv3中，Loss分为三个部分:<ul><li>1、一个是x、y、w、h部分带来的误差，也就是bbox带来的loss</li><li>2、一个是置信度带来的误差，也就是obj带来的loss</li><li>3、最后一个是类别带来的误差，也就是class带来的loss</li></ul></li><li>检测效果测试：训练时的数据集90%是野外图像数据，，对比使用官方权重与自己训练的数据集检测目标时，由于检测结果受到样本数量的影响两者检测结果均不为理想。<ul><li>  <img src="https://api2.mubu.com/v3/document_image/b8d92392-4611-4df4-ae95-5785dcd0a57d-1995134.jpg"></li><li>  <img src="https://api2.mubu.com/v3/document_image/8a2b8445-e813-40a3-9eb0-634136c5b403-1995134.jpg"></li><li>  <img src="https://api2.mubu.com/v3/document_image/32153f95-4c39-43d3-a7ac-4a265ffce2f2-1995134.jpg"></li></ul></li></ul></li><li>avg loss（误差）接近0.219时，基本不再变化<ul><li><img src="https://api2.mubu.com/v3/document_image/32e3faf5-64ec-4f8f-ab4c-0b62f5789f21-1995134.jpg"></li><li>检测结果<ul><li>  <img src="https://api2.mubu.com/v3/document_image/896b339c-e6c6-4da3-87bb-f068aa9f8071-1995134.jpg"></li><li>  <img src="https://api2.mubu.com/v3/document_image/9c031abe-524b-416e-ab72-c18a2cbeb9a6-1995134.jpg"></li><li>  <img src="https://api2.mubu.com/v3/document_image/49ee54bf-5529-4721-b86b-26c59cfef737-1995134.jpg"></li></ul></li></ul></li><li>参数分析：<ul><li><img src="https://api2.mubu.com/v3/document_image/bbe5e7cf-266c-4e84-ab45-21b6869aeba4-1995134.jpg"></li><li>1623： 当前训练的迭代次数;</li><li>0.215670： 总体的 Loss(损失）;</li><li>0.232835 avg： 平均 Loss, 这个数值应该越低越好, 一般来说, 一旦这个数值低于 0.060730 avg 就可以终止训练了;</li><li>0.001000 rate： 当前的学习率, 在.cfg文件中定义的;</li><li>9.07000 seconds： 当前批次训练花费的总时间;</li><li>  103875 images： 这一行最后的这个数值是 9798*64 的大小, 表示到目前为止, 参与训练的图片的总量.</li></ul></li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;YOLO算法在windows下训练自己的数据集&quot;&gt;&lt;a href=&quot;#YOLO算法在windows下训练自己的数据集&quot; class=&quot;headerlink&quot; title=&quot;YOLO算法在windows下训练自己的数据集&quot;&gt;&lt;/a&gt;YOLO算法在windows下训练</summary>
+      
+    
+    
+    
+    <category term="深度学习" scheme="http://example.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="windos" scheme="http://example.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/windos/"/>
+    
+    
+    <category term="YOLO" scheme="http://example.com/tags/YOLO/"/>
+    
+    <category term="目标识别检测" scheme="http://example.com/tags/%E7%9B%AE%E6%A0%87%E8%AF%86%E5%88%AB%E6%A3%80%E6%B5%8B/"/>
+    
+    <category term="训练数据集" scheme="http://example.com/tags/%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE%E9%9B%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于YOLO的目标识别检测</title>
+    <link href="http://example.com/2021/10/21/%E5%9F%BA%E4%BA%8EYOLO%E7%9A%84%E7%9B%AE%E6%A0%87%E8%AF%86%E5%88%AB%E6%A3%80%E6%B5%8B/"/>
+    <id>http://example.com/2021/10/21/%E5%9F%BA%E4%BA%8EYOLO%E7%9A%84%E7%9B%AE%E6%A0%87%E8%AF%86%E5%88%AB%E6%A3%80%E6%B5%8B/</id>
+    <published>2021-10-21T10:04:50.000Z</published>
+    <updated>2021-10-21T11:23:33.322Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="基于YOLO的目标识别检测"><a href="#基于YOLO的目标识别检测" class="headerlink" title="基于YOLO的目标识别检测"></a>基于YOLO的目标识别检测</h2><ul><li>性能目标：<ul><li>目标识别准确率大于90%</li><li>机载相机的有效地空检测距离大于10米</li><li>所选取相机能实现自主或结合机载电脑实时处理目标识别</li></ul></li></ul><hr><ul><li><p>感受下基于树莓派的YOLO目标检测算法（可见光）：</p><ul><li><p>  <img src="https://api2.mubu.com/v3/document_image/94481330-678e-4519-aac9-d11a63f06636-1995134.jpg"></p></li><li><p><img src="https://api2.mubu.com/v3/document_image/6d81dcb5-5fbb-4147-9853-ae14145098d9-1995134.jpg"></p></li><li><p><a href="https://blog.csdn.net/tMb8Z9Vdm66wH68VX1/article/details/104831844?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162971033316780269896247%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=162971033316780269896247&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v29_ecpm-2-104831844.first_rank_v2_pc_rank_v29&utm_term=%E6%A0%91%E8%8E%93%E6%B4%BEYOLO%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95&spm=1018.2226.3001.4187">独家 | 在树莓派+Movidius NCS上运用YOLO和Tiny-YOLO完成目标检测（附代码下载）_数据派THU-CSDN博客</a></p><ul><li>  <img src="https://api2.mubu.com/v3/document_image/e589f8d8-e481-40a3-9d42-cf322728e0f2-1995134.jpg"></li></ul></li><li><p><a href="https://blog.csdn.net/weixin_43878078/article/details/103893426">在树莓派4使用YOLO v3 Tiny进行实时对象检测_weixin_43878078的博客-CSDN博客_树莓派yolo目标检测</a></p><ul><li>  <img src="https://api2.mubu.com/v3/document_image/5c234c70-8695-44b8-b07d-55033a6660d5-1995134.jpg"></li></ul></li></ul></li></ul><hr><ul><li>方法论证与实践  <a href="https://blog.csdn.net/weixin_43878078/article/details/103893426">(1条消息) 在树莓派4使用YOLO v3 Tiny进行实时对象检测_weixin_43878078的博客-CSDN博客_树莓派yolo目标检测</a><ul><li>YOLO算法在树莓派3B+、4B上实现<ul><li>步骤<ul><li>准备Python和Pi相机</li><li>安装 Ninja Building tool（控制编译的工具，它相对于Makefile这套工具更注重于编译速度）</li><li>安装修改后的 NNPACK（加速神经网络计算的加速包，NNPACK可以在多核CPU平台上提高卷积层计算性能）</li><li>安装darknet-nnpack（目的是给树莓派配置yolo模型，Darknet是一个小众的深度学习框架）</li></ul></li><li>存在问题<ul><li>安装完成，使用树莓派摄像头进行测试。从摄像头获取图像，通过YOLO算法实时的识别物体类别，使用usb摄像头会比CSI（Camera Serial Interface）接口的摄像头慢很多。无法识别摄像头，原因可能是：<ul><li>①摄像头硬件有问题</li><li>②树莓派上的摄像头驱动等存在问题。</li></ul></li></ul></li></ul></li><li>YOLOV3在Windows10（OpenCV3.4+CUDA11.4（CUDNN）+VisualStudio2017）下的实现  <a href="https://blog.csdn.net/KID_yuan/article/details/88380269">(1条消息) Windows10+YOLOV3+VisualStudio2017最新版本超详细过程_【秋名鱼酱的博客】-CSDN博客_win yolov3</a><ul><li>步骤<ul><li>安装最新版本的cuda和cudnn（CUDA是NVIDIA推出的用于自家GPU的并行计算框架，CUDNN是NVIDIA打造的针对深度神经网络的加速库，是一个用于深层神经网络的GPU加速库）</li><li>安装OpenCV3.4（通过OpenCV调用dll实时检测）</li><li>安装vs2017（使用本身2017对YOLOV3中的darknet项目文件进行编译）</li></ul></li><li>测试<ul><li>在测试效果之前还需要添加以下官网上下载训练好的权重文件  权重文件保存的就是训练好的网络各层的权值，也就是通过训练集训练出来的。训练好之后，应用时只要加载权值就可以，不再需要训练集了</li><li>输入检测程序命令，实现对JPG、avi文件以及调用摄像头的实时目标检测</li></ul></li></ul></li></ul></li></ul><hr><ul><li>实验结果<ul><li>使用官方提供的权重文件检测对一下目标进行检测<ul><li>  <img src="https://api2.mubu.com/v3/document_image/d6d875e2-c7da-40e7-a2c7-d7a04bf65ede-1995134.jpg"></li><li><img src="https://api2.mubu.com/v3/document_image/a2bdeb98-0720-4375-bc44-21affad3737a-1995134.jpg"></li><li><a href="https://www.bilibili.com/video/BV1Xv411A7Lj">视频检测效果</a></li></ul></li></ul></li></ul><hr><ul><li>制作训练集<ul><li>YOLO有自己训练好的数据集，在YOLO v2 中，数据集可检测的类别达9000种以上，但是9000毕竟不是全部，它能涵盖大部分的物体识别，但是可能对于某些用户来说是不够的，所以我们需要学习它的数据集制作方法。</li><li>数据集分为以下几个部分：<ul><li>1.数据集的搜集，这一部分主要是在网上搜集整理相关数据集的图片，比如我要做某种猫的数据集，我需要上网上查找这种猫的图片；我需要做自己做的手工艺品的数据集，那我需要自己拍摄等等。</li><li>2.数据集的标注，计算机去认识一个物体，需要人去告诉他，哪个物体，是什么。就像我们在小时候，我们的父母会一点一点耐心教我们，什么是桌子，什么是椅子，什么是筷子，什么是树，什么是花……数据集的标注就是一个“教授”的过程。</li><li>3.数据集的训练，不是别人一教，你就能学会的，你需要不断地练习，比如说话，小时候父母不厌其烦的教我们；比如写汉字，中国人最应该骄傲的就是我们学会了世界上最难的一门语言，并且能够熟练应用。这就是因为我们从上学开始，老师就教我们写字，一写就是好几十遍……计算机也是如此，想让计算机明白什么是花，什么是自行车，就要让他“训练”，让他学会。</li><li>  4.数据集的应用，我们学会说话，学会认识物体，目的就是为了应用，学会说话，我们可以交流，认识自行车，是我们能够方便交通……数据集也一样，训练好的数据集的目的就是为了应用，或者说，我们训练数据集是因为我们需要应用这个数据集，例如，我们需要检测人流量，首先我们需要识别人，当然现在就有很多人体识别的算法，如果我们要采用数据集来识别，我们需要先制作一个数据集，然后在应用数据集完成我们需要的功能</li></ul></li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;基于YOLO的目标识别检测&quot;&gt;&lt;a href=&quot;#基于YOLO的目标识别检测&quot; class=&quot;headerlink&quot; title=&quot;基于YOLO的目标识别检测&quot;&gt;&lt;/a&gt;基于YOLO的目标识别检测&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;性能目标：&lt;ul&gt;
+&lt;li&gt;目标识别准确</summary>
+      
+    
+    
+    
+    <category term="深度学习" scheme="http://example.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="树莓派" scheme="http://example.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+    
+    <category term="训练集" scheme="http://example.com/tags/%E8%AE%AD%E7%BB%83%E9%9B%86/"/>
+    
+    <category term="目标识别" scheme="http://example.com/tags/%E7%9B%AE%E6%A0%87%E8%AF%86%E5%88%AB/"/>
+    
+    <category term="YOLO" scheme="http://example.com/tags/YOLO/"/>
+    
+  </entry>
   
   <entry>
     <title>test4</title>
