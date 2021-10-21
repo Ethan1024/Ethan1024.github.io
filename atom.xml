@@ -79,11 +79,11 @@
   </entry>
   
   <entry>
-    <title>test4</title>
+    <title>戴面具的猫</title>
     <link href="http://example.com/2021/10/20/test4/"/>
     <id>http://example.com/2021/10/20/test4/</id>
     <published>2021-10-20T14:08:50.000Z</published>
-    <updated>2021-10-20T14:22:01.456Z</updated>
+    <updated>2021-10-21T11:28:25.573Z</updated>
     
     <content type="html"><![CDATA[<h2 id="test4"><a href="#test4" class="headerlink" title="test4"></a>test4</h2><p><img src="/2021/10/20/test4/4.jpg" alt="阿祖，收手吧外面全是警察"></p>]]></content>
     
@@ -95,11 +95,7 @@
     
     
     
-    <category term="头像" scheme="http://example.com/categories/%E5%A4%B4%E5%83%8F/"/>
-    
-    <category term="图片" scheme="http://example.com/categories/%E5%A4%B4%E5%83%8F/%E5%9B%BE%E7%89%87/"/>
-    
-    <category term="壁纸" scheme="http://example.com/categories/%E5%A4%B4%E5%83%8F/%E5%9B%BE%E7%89%87/%E5%A3%81%E7%BA%B8/"/>
+    <category term="图片" scheme="http://example.com/categories/%E5%9B%BE%E7%89%87/"/>
     
     
     <category term="蒙面猫猫" scheme="http://example.com/tags/%E8%92%99%E9%9D%A2%E7%8C%AB%E7%8C%AB/"/>
