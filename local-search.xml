@@ -70,7 +70,7 @@
     <link href="/2021/10/20/test4/"/>
     <url>/2021/10/20/test4/</url>
     
-    <content type="html"><![CDATA[<h2 id="test4"><a href="#test4" class="headerlink" title="test4"></a>test4</h2><p><img src="/2021/10/20/test4/4.jpg" alt="阿祖，收手吧外面全是警察"></p>]]></content>
+    <content type="html"><![CDATA[<h2 id><a href="#" class="headerlink" title></a></h2><p><img src="https://api2.mubu.com/v3/document_image/a94b0309-01be-4a66-929b-459ccecb1686-1995134.jpg" alt="收手吧阿祖，外面全是警察"></p>]]></content>
     
     
     <categories>
