@@ -27,6 +27,7 @@
 <meta property="og:image" content="https://api2.mubu.com/v3/document_image/bcf0b29f-6600-49f0-8c8d-13237eed7a93-1995134.jpg">
 <meta property="og:image" content="https://api2.mubu.com/v3/document_image/ef0f9d8d-4541-4bff-b9f3-25c464e0cb24-1995134.jpg">
 <meta property="og:image" content="https://api2.mubu.com/v3/document_image/9bd9021e-77a9-4c82-8670-62318ddb9328-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/a1e874b8-da96-4236-aa27-03f1a8bb05db-1995134.jpg">
 <meta property="og:image" content="https://api2.mubu.com/v3/document_image/5884d632-7dda-47c2-ad7a-4ff2d20b959c-1995134.jpg">
 <meta property="og:image" content="https://api2.mubu.com/v3/document_image/593be5d3-522f-4b77-84e0-e30982a5b746-1995134.jpg">
 <meta property="og:image" content="https://api2.mubu.com/v3/document_image/f6e20257-96ae-413c-8b86-efd0d271d0be-1995134.jpg">
@@ -39,7 +40,7 @@
 <meta property="og:image" content="https://api2.mubu.com/v3/document_image/c0b64427-911b-49ec-b27b-bc8ca0cb1b70-1995134.jpg">
 <meta property="og:image" content="https://api2.mubu.com/v3/document_image/06fc433f-79c6-4fba-987c-674fc0b21ac0-1995134.jpg">
 <meta property="article:published_time" content="2021-10-24T01:17:55.000Z">
-<meta property="article:modified_time" content="2021-10-28T10:12:57.741Z">
+<meta property="article:modified_time" content="2021-10-28T10:13:52.261Z">
 <meta property="article:author" content="Ethan">
 <meta property="article:tag" content="YOLO">
 <meta property="article:tag" content="目标识别检测">
@@ -232,7 +233,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5.5k 字
+      5.3k 字
     </span>
   
 
@@ -329,24 +330,25 @@
 <li>cuda11.4+cudnn11.4  <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43878078/article/details/88769931">(1条消息) ubuntu16.04+cuda8.0+cudnn5.1详细安装过程_weixin_43878078的博客-CSDN博客</a>  <a target="_blank" rel="noopener" href="https://blog.csdn.net/hesongzefairy/article/details/105816736">(1条消息) Ubuntu18.04下复现YOLOv4（YOLOv3亦可）_hesongzefairy的博客-CSDN博客</a>​<ul>
 <li>  下载cuda,终端输入：</li>
 </ul>
-  <figure class="highlight plaintext"><figcaption><span>https://developer.download.nvidia.com/compute/cuda/11.4.1/local_installers/cuda_11.4.1_470.57.02_linux.run</span></figcaption><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs wget">```<br>    <br>*   安装：<br>   <br></code></pre></div></td></tr></table></figure>
-<div class="hljs code-wrapper"><pre><code>  sudo sh cuda\_11.4.1\_470.57.02_linux.run
-  <figure class="highlight autohotkey"><table><tr><td class="gutter hljs"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs autohotkey">    <br>*   设置环境变量：<br>   <br>    ``` sudo gedit ~/.bashrc <br></code></pre></div></td></tr></table></figure>
-      
-  *   打开配置文件并在末尾加上：
-      
-         <figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">export PATH=<span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/cuda-8.0/</span>bin<span class="hljs-variable">$&#123;PATH:+:$&#123;PATH&#125;</span>&#125;<br>export LD\_LIBRARY\_PATH=<span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/cuda-8.0/</span>lib64<span class="hljs-variable">$&#123;LD\_LIBRARY\_PATH:+:$&#123;LD\_LIBRARY\_PATH&#125;</span>&#125;<br></code></pre></div></td></tr></table></figure>
-          
-      
-  *   按如下步骤进行：
-      
-      *   ![](https://api2.mubu.com/v3/document_image/a1e874b8-da96-4236-aa27-03f1a8bb05db-1995134.jpg)
-  *   测试CUDA安装成了没：```nvcc -V```
-      
-  *   下载cudnn [下载官网匹配版本](https://developer.nvidia.com/cuda-toolkit-archive)
-      
+  <figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">wget</span> https://developer.download.nvidia.com/compute/cuda/<span class="hljs-number">11</span>.<span class="hljs-number">4</span>.<span class="hljs-number">1</span>/local_installers/cuda_<span class="hljs-number">11</span>.<span class="hljs-number">4</span>.<span class="hljs-number">1</span>_<span class="hljs-number">470</span>.<span class="hljs-number">57</span>.<span class="hljs-number">02</span>_linux.run <br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>安装：  <figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> sh cuda\_<span class="hljs-number">11</span>.<span class="hljs-number">4</span>.<span class="hljs-number">1</span>\_<span class="hljs-number">470</span>.<span class="hljs-number">57</span>.<span class="hljs-number">02</span>_linux.run<br></code></pre></div></td></tr></table></figure>
+</li>
+<li>设置环境变量：  <figure class="highlight jboss-cli"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jboss-cli">sudo gedit ~<span class="hljs-string">/.bashrc</span> <br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>打开配置文件并在末尾加上：<div class="hljs code-wrapper"><pre><code> <figure class="highlight awk"><table><tr><td class="gutter hljs"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">export PATH=<span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/cuda-8.0/</span>bin<span class="hljs-variable">$&#123;PATH:+:$&#123;PATH&#125;</span>&#125;<br>export LD\_LIBRARY\_PATH=<span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/cuda-8.0/</span>lib64<span class="hljs-variable">$&#123;LD\_LIBRARY\_PATH:+:$&#123;LD\_LIBRARY\_PATH&#125;</span>&#125;<br></code></pre></div></td></tr></table></figure>
   
 </code></pre>
+</li>
+<li>按如下步骤进行：<ul>
+<li>  <img src="https://api2.mubu.com/v3/document_image/a1e874b8-da96-4236-aa27-03f1a8bb05db-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
+</ul>
+</li>
+<li>测试CUDA安装成了没：<code>nvcc -V</code></li>
+<li>下载cudnn <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-toolkit-archive">下载官网匹配版本</a></li>
+</ul>
+</li>
+</ul>
 </li>
 <li>opencv4.5.0:教程中的图文对应OPENCV版本号有问题，方法都一样  <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40557160/article/details/111634569">(1条消息) Ubuntu20.04 配置Yolov4(gpu版，安装OpenCV，配置环境)_小菜彭-没拿过奖学金的废物的博客的博客-CSDN博客</a></li>
 </ul>
