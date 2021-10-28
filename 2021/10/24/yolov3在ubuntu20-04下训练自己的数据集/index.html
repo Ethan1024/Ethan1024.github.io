@@ -27,6 +27,10 @@
 <meta property="og:image" content="https://api2.mubu.com/v3/document_image/bcf0b29f-6600-49f0-8c8d-13237eed7a93-1995134.jpg">
 <meta property="og:image" content="https://api2.mubu.com/v3/document_image/ef0f9d8d-4541-4bff-b9f3-25c464e0cb24-1995134.jpg">
 <meta property="og:image" content="https://api2.mubu.com/v3/document_image/9bd9021e-77a9-4c82-8670-62318ddb9328-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/a1e874b8-da96-4236-aa27-03f1a8bb05db-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/5884d632-7dda-47c2-ad7a-4ff2d20b959c-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/593be5d3-522f-4b77-84e0-e30982a5b746-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/f6e20257-96ae-413c-8b86-efd0d271d0be-1995134.jpg">
 <meta property="og:image" content="https://api2.mubu.com/v3/document_image/7750cee5-ad12-4224-aec5-b7bcbea3e55a-1995134.jpg">
 <meta property="og:image" content="https://api2.mubu.com/v3/document_image/212f9f67-c4c6-4605-9222-773c47dbea7f-1995134.jpg">
 <meta property="og:image" content="https://api2.mubu.com/v3/document_image/e044ad96-7a31-409c-9624-eb9ec9617aa1-1995134.jpg">
@@ -38,7 +42,7 @@
 <meta property="og:image" content="https://api2.mubu.com/v3/document_image/c0b64427-911b-49ec-b27b-bc8ca0cb1b70-1995134.jpg">
 <meta property="og:image" content="https://api2.mubu.com/v3/document_image/06fc433f-79c6-4fba-987c-674fc0b21ac0-1995134.jpg">
 <meta property="article:published_time" content="2021-10-24T01:17:55.000Z">
-<meta property="article:modified_time" content="2021-10-28T01:57:58.648Z">
+<meta property="article:modified_time" content="2021-10-28T10:01:38.350Z">
 <meta property="article:author" content="Ethan">
 <meta property="article:tag" content="YOLO">
 <meta property="article:tag" content="目标识别检测">
@@ -231,7 +235,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5.5k 字
+      5.1k 字
     </span>
   
 
@@ -240,7 +244,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      17 分钟
+      16 分钟
     </span>
   
 
@@ -281,7 +285,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年10月28日 上午
+                  本文最后更新于：2021年10月28日 晚上
                 
               </p>
             
@@ -327,98 +331,39 @@
 <li><h3 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h3><ul>
 <li>cuda11.4+cudnn11.4  <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43878078/article/details/88769931">(1条消息) ubuntu16.04+cuda8.0+cudnn5.1详细安装过程_weixin_43878078的博客-CSDN博客</a>  <a target="_blank" rel="noopener" href="https://blog.csdn.net/hesongzefairy/article/details/105816736">(1条消息) Ubuntu18.04下复现YOLOv4（YOLOv3亦可）_hesongzefairy的博客-CSDN博客</a>​<ul>
 <li>下载cuda 终端输入：<code>wget https://developer.download.nvidia.com/compute/cuda/11.4.1/local_installers/cuda_11.4.1_470.57.02_linux.run</code></li>
-<li>安装：<code>sudo sh cuda\_11.4.1\_470.57.02_linux.run</code></li>
-<li>设置环境变量：<ul>
-<li><code>sudo gedit ~/.bashrc</code></li>
-<li>打开配置文件并在末尾加上：<ul>
-<li><div class="hljs code-wrapper"><pre><code> export PATH=/usr/local/cuda-8.0/bin$&#123;PATH:+:$&#123;PATH&#125;&#125;
- export LD\_LIBRARY\_PATH=/usr/local/cuda-8.0/lib64$&#123;LD\_LIBRARY\_PATH:+:$&#123;LD\_LIBRARY\_PATH&#125;&#125;
-  <figure class="highlight awk"><table><tr><td class="gutter hljs"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">                    <br>                <br>            *   按如下步骤进行：<br>                <br>                *   ![](https:<span class="hljs-regexp">//</span>api2.mubu.com<span class="hljs-regexp">/v3/</span>document_image/a1e874b8-da96-<span class="hljs-number">4236</span>-aa27-<span class="hljs-number">03</span>f1a8bb05db-<span class="hljs-number">1995134</span>.jpg)<br>            *   测试CUDA安装成了没：```nvcc -V```<br>                <br>            *   下载cudnn [下载官网匹配版本](https:<span class="hljs-regexp">//</span>developer.nvidia.com/cuda-toolkit-archive)<br>                <br>            <br>        <br>    *   opencv4.<span class="hljs-number">5.0</span>:教程中的图文对应OPENCV版本号有问题，方法都一样<br>        <br>        [(<span class="hljs-number">1</span>条消息) Ubuntu20.<span class="hljs-number">04</span> 配置Yolov4(gpu版，安装OpenCV，配置环境)_小菜彭-没拿过奖学金的废物的博客的博客-CSDN博客](https:<span class="hljs-regexp">//</span>blog.csdn.net<span class="hljs-regexp">/weixin_40557160/</span>article<span class="hljs-regexp">/details/</span><span class="hljs-number">111634569</span>)<br>        <br>    <br>*   <span class="hljs-comment">### 训练数据 ###</span><br>    <br>    *   [darknet-yolov3训练自己的数据集（超详细） - AnswerThe - 博客园 (cnblogs.com)](https:<span class="hljs-regexp">//</span>www.cnblogs.com<span class="hljs-regexp">/answerThe/</span>p/<span class="hljs-number">11481564</span>.html)<br>        <br>    *   数据集可以用之前在Windows下标注的数据集，将之前标注好的图片和xml文件放到对应目录下。<br>        <br>        *   ![](https:<span class="hljs-regexp">//</span>api2.mubu.com<span class="hljs-regexp">/v3/</span>document_image/<span class="hljs-number">5884</span>d632-<span class="hljs-number">7</span>dda-<span class="hljs-number">47</span>c2-ad7a-<span class="hljs-number">4</span>ff2d20b959c-<span class="hljs-number">1995134</span>.jpg)<br>        *   ![](https:<span class="hljs-regexp">//</span>api2.mubu.com<span class="hljs-regexp">/v3/</span>document_image/<span class="hljs-number">593</span>be5d3-<span class="hljs-number">522</span>f-<span class="hljs-number">4</span>b77-<span class="hljs-number">84</span>e0-e30982a5b746-<span class="hljs-number">1995134</span>.jpg)<br>    *   在myData目录下创建test.py<br></code></pre></div></td></tr></table></figure>
-import os
-import random
-trainval_percent = 0.1
-train_percent = 0.9
-xmlfilepath = &#39;Annotations&#39;
-txtsavepath = &#39;ImageSets\Main&#39;
-total_xml = os.listdir(xmlfilepath)
-num = len(total_xml)
-list = range(num)
-tv = int(num * trainval_percent)
-tr = int(tv * train_percent)
-trainval = random.sample(list, tv)
-train = random.sample(trainval, tr)
-ftrainval = open(&#39;ImageSets/Main/trainval.txt&#39;, &#39;w&#39;)
-ftest = open(&#39;ImageSets/Main/test.txt&#39;, &#39;w&#39;)
-ftrain = open(&#39;ImageSets/Main/train.txt&#39;, &#39;w&#39;)
-fval = open(&#39;ImageSets/Main/val.txt&#39;, &#39;w&#39;)
-for i in list:
-name = total_xml[i][:-4] + &#39;\n&#39;
-if i in trainval:
-ftrainval.write(name)
-if i in train:
-  ftest.write(name)
-else:
-  fval.write(name)
-else:
-ftrain.write(name)
-ftrainval.close()
-ftrain.close()
-fval.close()
-ftest.close()
-<figure class="highlight maxima"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs maxima">*   运行test.py生成对应的四个txt文件运行<br>    <br>    *   ![](https://api2.mubu.com/v3/document_image/f6e20257-96ae-413c-<span class="hljs-number">8b86</span>-efd0d271d0be-<span class="hljs-number">1995134.</span>jpg)<br>*   用python脚本将数据集进行格式转换（YOLO 训练需要的格式），在darknet文件夹下新建一个my\_lables.py文件(代码如下),运行后生成代表类别和相对位置的myData\_train.txt，以及lables文件夹下的txt文件<br>    <br></code></pre></div></td></tr></table></figure>
-import xml.etree.ElementTree as ET
-import pickle
-import os
-from os import listdir, getcwd
-from os.path import join #源代码sets=[(&#39;2012&#39;, &#39;train&#39;), (&#39;2012&#39;, &#39;val&#39;), (&#39;2007&#39;, &#39;train&#39;), (&#39;2007&#39;, &#39;val&#39;), (&#39;2007&#39;, &#39;test&#39;)]
-sets=[(&#39;myData&#39;, &#39;train&#39;)]  # 改成自己建立的myData
-classes = [&quot;people&quot;] # 改成自己的类别
-def convert(size, box):
-dw = 1./(size[0])
-dh = 1./(size[1])
-x = (box[0] + box[1])/2.0 - 1
-y = (box[2] + box[3])/2.0 - 1
-w = box[1] - box[0]
-h = box[3] - box[2]
-x = x*dw
-w = w*dw
-y = y*dh
-h = h*dh
-return (x,y,w,h)
-def convert_annotation(year, image_id):
-in_file = open(&#39;myData/Annotations/%s.xml&#39;%(image_id))  # 源代码VOCdevkit/VOC%s/Annotations/%s.xml
-out_file = open(&#39;myData/labels/%s.txt&#39;%(image_id), &#39;w&#39;)  # 源代码VOCdevkit/VOC%s/labels/%s.txt
-tree=ET.parse(in_file)
-root = tree.getroot()
-size = root.find(&#39;size&#39;)
-w = int(size.find(&#39;width&#39;).text)
-h = int(size.find(&#39;height&#39;).text)
-for obj in root.iter(&#39;object&#39;):
-difficult = obj.find(&#39;difficult&#39;).text
-cls = obj.find(&#39;name&#39;).text
-if cls not in classes or int(difficult)==1:
-  continue
-cls_id = classes.index(cls)
-xmlbox = obj.find(&#39;bndbox&#39;)
-b = (float(xmlbox.find(&#39;xmin&#39;).text), float(xmlbox.find(&#39;xmax&#39;).text), float(xmlbox.find(&#39;ymin&#39;).text), float(xmlbox.find(&#39;ymax&#39;).text))
-bb = convert((w,h), b)
-out_file.write(str(cls_id) + &quot; &quot; + &quot; &quot;.join([str(a) for a in bb]) + &#39;\n&#39;)
-wd = getcwd()
-for year, image_set in sets:
-if not os.path.exists(&#39;myData/labels/&#39;):  # 改成自己建立的myData
-os.makedirs(&#39;myData/labels/&#39;)
-image_ids = open(&#39;myData/ImageSets/Main/%s.txt&#39;%(image_set)).read().strip().split()
-list_file = open(&#39;myData/%s_%s.txt&#39;%(year, image_set), &#39;w&#39;)
-for image_id in image_ids:
-list_file.write(&#39;%s/myData/JPEGImages/%s.jpg\n&#39;%(wd, image_id))
-convert_annotation(year, image_id)
-list_file.close()
+<li>安装：<code> sudo sh cuda\_11.4.1\_470.57.02_linux.run</code></li>
+<li>设置环境变量：<code>sudo gedit ~/.bashrc</code><ul>
+<li>打开配置文件并在末尾加上：<div class="hljs code-wrapper"><pre><code> <figure class="highlight awk"><table><tr><td class="gutter hljs"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">export PATH=<span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/cuda-8.0/</span>bin<span class="hljs-variable">$&#123;PATH:+:$&#123;PATH&#125;</span>&#125;<br>export LD\_LIBRARY\_PATH=<span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/cuda-8.0/</span>lib64<span class="hljs-variable">$&#123;LD\_LIBRARY\_PATH:+:$&#123;LD\_LIBRARY\_PATH&#125;</span>&#125;<br></code></pre></div></td></tr></table></figure>
+  
 </code></pre>
 </li>
+<li>按如下步骤进行：<ul>
+<li>  <img src="https://api2.mubu.com/v3/document_image/a1e874b8-da96-4236-aa27-03f1a8bb05db-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
+</ul>
+</li>
+<li>测试CUDA安装成了没：<code>nvcc -V</code></li>
+<li>下载cudnn <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-toolkit-archive">下载官网匹配版本</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li>opencv4.5.0:教程中的图文对应OPENCV版本号有问题，方法都一样  <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40557160/article/details/111634569">(1条消息) Ubuntu20.04 配置Yolov4(gpu版，安装OpenCV，配置环境)_小菜彭-没拿过奖学金的废物的博客的博客-CSDN博客</a></li>
+</ul>
+</li>
+<li><h3 id="训练数据"><a href="#训练数据" class="headerlink" title="训练数据"></a>训练数据</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/answerThe/p/11481564.html">darknet-yolov3训练自己的数据集（超详细） - AnswerThe - 博客园 (cnblogs.com)</a></li>
+<li>数据集可以用之前在Windows下标注的数据集，将之前标注好的图片和xml文件放到对应目录下。<ul>
+<li>  <img src="https://api2.mubu.com/v3/document_image/5884d632-7dda-47c2-ad7a-4ff2d20b959c-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
+<li>  <img src="https://api2.mubu.com/v3/document_image/593be5d3-522f-4b77-84e0-e30982a5b746-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
+</ul>
+</li>
+<li>在myData目录下创建test.py  <figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim">         import os<br>import random<br>trainval_percent = <span class="hljs-number">0.1</span><br>train_percent = <span class="hljs-number">0.9</span><br>xmlfilepath = <span class="hljs-string">&#x27;Annotations&#x27;</span><br>txtsavepath = <span class="hljs-string">&#x27;ImageSets\Main&#x27;</span><br>total_xml = os.listdir(xmlfilepath)<br>num = <span class="hljs-built_in">len</span>(total_xml)<br><span class="hljs-keyword">list</span> = <span class="hljs-built_in">range</span>(num)<br>tv = <span class="hljs-keyword">int</span>(num * trainval_percent)<br><span class="hljs-keyword">tr</span> = <span class="hljs-keyword">int</span>(tv * train_percent)<br>trainval = random.sample(<span class="hljs-keyword">list</span>, tv)<br>train = random.sample(trainval, <span class="hljs-keyword">tr</span>)<br>ftrainval = <span class="hljs-keyword">open</span>(<span class="hljs-string">&#x27;ImageSets/Main/trainval.txt&#x27;</span>, <span class="hljs-string">&#x27;w&#x27;</span>)<br>ftest = <span class="hljs-keyword">open</span>(<span class="hljs-string">&#x27;ImageSets/Main/test.txt&#x27;</span>, <span class="hljs-string">&#x27;w&#x27;</span>)<br>ftrain = <span class="hljs-keyword">open</span>(<span class="hljs-string">&#x27;ImageSets/Main/train.txt&#x27;</span>, <span class="hljs-string">&#x27;w&#x27;</span>)<br>fval = <span class="hljs-keyword">open</span>(<span class="hljs-string">&#x27;ImageSets/Main/val.txt&#x27;</span>, <span class="hljs-string">&#x27;w&#x27;</span>)<br><span class="hljs-keyword">for</span> i in lis<span class="hljs-variable">t:</span><br>    name = total_xml[i][:-<span class="hljs-number">4</span>] + <span class="hljs-string">&#x27;\n&#x27;</span><br>    <span class="hljs-keyword">if</span> i in trainva<span class="hljs-variable">l:</span><br>        ftrainval.<span class="hljs-keyword">write</span>(name)<br>        <span class="hljs-keyword">if</span> i in train:<br>            ftest.<span class="hljs-keyword">write</span>(name)<br>        <span class="hljs-keyword">else</span>:<br>            fval.<span class="hljs-keyword">write</span>(name)<br>    <span class="hljs-keyword">else</span>:<br>        ftrain.<span class="hljs-keyword">write</span>(name)<br>ftrainval.<span class="hljs-keyword">close</span>()<br>ftrain.<span class="hljs-keyword">close</span>()<br>fval.<span class="hljs-keyword">close</span>()<br>ftest.<span class="hljs-keyword">close</span>()<br></code></pre></div></td></tr></table></figure></li>
+<li>运行test.py生成对应的四个txt文件运行<ul>
+<li>  <img src="https://api2.mubu.com/v3/document_image/f6e20257-96ae-413c-8b86-efd0d271d0be-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
+</ul>
+</li>
+<li>用python脚本将数据集进行格式转换（YOLO 训练需要的格式），在darknet文件夹下新建一个my_lables.py文件(代码如下),运行后生成代表类别和相对位置的myData_train.txt，以及lables文件夹下的txt文件  <figure class="highlight processing"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs processing"><span class="hljs-keyword">import</span> xml.etree.ElementTree as ET<br><span class="hljs-keyword">import</span> pickle<br><span class="hljs-keyword">import</span> os<br>from os <span class="hljs-keyword">import</span> listdir, getcwd<br>from os.path <span class="hljs-keyword">import</span> <span class="hljs-built_in">join</span> #源代码sets=[(<span class="hljs-string">&#x27;2012&#x27;</span>, <span class="hljs-string">&#x27;train&#x27;</span>), (<span class="hljs-string">&#x27;2012&#x27;</span>, <span class="hljs-string">&#x27;val&#x27;</span>), (<span class="hljs-string">&#x27;2007&#x27;</span>, <span class="hljs-string">&#x27;train&#x27;</span>), (<span class="hljs-string">&#x27;2007&#x27;</span>, <span class="hljs-string">&#x27;val&#x27;</span>), (<span class="hljs-string">&#x27;2007&#x27;</span>, <span class="hljs-string">&#x27;test&#x27;</span>)]<br>sets=[(<span class="hljs-string">&#x27;myData&#x27;</span>, <span class="hljs-string">&#x27;train&#x27;</span>)]  # 改成自己建立的myData<br>classes = [<span class="hljs-string">&quot;people&quot;</span>] # 改成自己的类别<br>def convert(<span class="hljs-built_in">size</span>, <span class="hljs-built_in">box</span>):<br>    dw = <span class="hljs-number">1.</span>/(<span class="hljs-built_in">size</span>[<span class="hljs-number">0</span>])<br>    dh = <span class="hljs-number">1.</span>/(<span class="hljs-built_in">size</span>[<span class="hljs-number">1</span>])<br>    x = (<span class="hljs-built_in">box</span>[<span class="hljs-number">0</span>] + <span class="hljs-built_in">box</span>[<span class="hljs-number">1</span>])/<span class="hljs-number">2.0</span> - <span class="hljs-number">1</span><br>    y = (<span class="hljs-built_in">box</span>[<span class="hljs-number">2</span>] + <span class="hljs-built_in">box</span>[<span class="hljs-number">3</span>])/<span class="hljs-number">2.0</span> - <span class="hljs-number">1</span><br>    w = <span class="hljs-built_in">box</span>[<span class="hljs-number">1</span>] - <span class="hljs-built_in">box</span>[<span class="hljs-number">0</span>]<br>    h = <span class="hljs-built_in">box</span>[<span class="hljs-number">3</span>] - <span class="hljs-built_in">box</span>[<span class="hljs-number">2</span>]<br>    x = x*dw<br>    w = w*dw<br>    y = y*dh<br>    h = h*dh<br>    <span class="hljs-keyword">return</span> (x,y,w,h)<br>def convert_annotation(<span class="hljs-built_in">year</span>, image_id):<br>    in_file = <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;myData/Annotations/%s.xml&#x27;</span>%(image_id))  # 源代码VOCdevkit/VOC%s/Annotations/%s.xml<br>    out_file = <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;myData/labels/%s.txt&#x27;</span>%(image_id), <span class="hljs-string">&#x27;w&#x27;</span>)  # 源代码VOCdevkit/VOC%s/labels/%s.txt<br>    tree=ET.parse(in_file)<br>    root = tree.getroot()<br>    <span class="hljs-built_in">size</span> = root.find(<span class="hljs-string">&#x27;size&#x27;</span>)<br>    w = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">size</span>.find(<span class="hljs-string">&#x27;width&#x27;</span>).<span class="hljs-built_in">text</span>)<br>    h = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">size</span>.find(<span class="hljs-string">&#x27;height&#x27;</span>).<span class="hljs-built_in">text</span>)<br>    <span class="hljs-keyword">for</span> obj in root.iter(<span class="hljs-string">&#x27;object&#x27;</span>):<br>        difficult = obj.find(<span class="hljs-string">&#x27;difficult&#x27;</span>).<span class="hljs-built_in">text</span><br>        cls = obj.find(<span class="hljs-string">&#x27;name&#x27;</span>).<span class="hljs-built_in">text</span><br>        <span class="hljs-keyword">if</span> cls not in classes or <span class="hljs-built_in">int</span>(difficult)==<span class="hljs-number">1</span>:<br>            <span class="hljs-keyword">continue</span><br>        cls_id = classes.index(cls)<br>        xmlbox = obj.find(<span class="hljs-string">&#x27;bndbox&#x27;</span>)<br>        b = (<span class="hljs-built_in">float</span>(xmlbox.find(<span class="hljs-string">&#x27;xmin&#x27;</span>).<span class="hljs-built_in">text</span>), <span class="hljs-built_in">float</span>(xmlbox.find(<span class="hljs-string">&#x27;xmax&#x27;</span>).<span class="hljs-built_in">text</span>), <span class="hljs-built_in">float</span>(xmlbox.find(<span class="hljs-string">&#x27;ymin&#x27;</span>).<span class="hljs-built_in">text</span>), <span class="hljs-built_in">float</span>(xmlbox.find(<span class="hljs-string">&#x27;ymax&#x27;</span>).<span class="hljs-built_in">text</span>))<br>        bb = convert((w,h), b)<br>        out_file.write(<span class="hljs-built_in">str</span>(cls_id) + <span class="hljs-string">&quot; &quot;</span> + <span class="hljs-string">&quot; &quot;</span>.<span class="hljs-built_in">join</span>([<span class="hljs-built_in">str</span>(a) <span class="hljs-keyword">for</span> a in bb]) + <span class="hljs-string">&#x27;\n&#x27;</span>)<br>wd = getcwd()<br><span class="hljs-keyword">for</span> <span class="hljs-built_in">year</span>, image_set in sets:<br>    <span class="hljs-keyword">if</span> not os.path.exists(<span class="hljs-string">&#x27;myData/labels/&#x27;</span>):  # 改成自己建立的myData<br>        os.makedirs(<span class="hljs-string">&#x27;myData/labels/&#x27;</span>)<br>    image_ids = <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;myData/ImageSets/Main/%s.txt&#x27;</span>%(image_set)).read().strip().<span class="hljs-built_in">split</span>()<br>    list_file = <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;myData/%s_%s.txt&#x27;</span>%(<span class="hljs-built_in">year</span>, image_set), <span class="hljs-string">&#x27;w&#x27;</span>)<br>    <span class="hljs-keyword">for</span> image_id in image_ids:<br>        list_file.write(<span class="hljs-string">&#x27;%s/myData/JPEGImages/%s.jpg\n&#x27;</span>%(wd, image_id))<br>        convert_annotation(<span class="hljs-built_in">year</span>, image_id)<br>    list_file.close()<br></code></pre></div></td></tr></table></figure>
+<ul>
 <li>  <img src="https://api2.mubu.com/v3/document_image/7750cee5-ad12-4224-aec5-b7bcbea3e55a-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
 <li>  <img src="https://api2.mubu.com/v3/document_image/212f9f67-c4c6-4605-9222-773c47dbea7f-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload>            </li>
 </ul>
