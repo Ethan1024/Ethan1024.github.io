@@ -16,31 +16,30 @@
   <meta name="description" content="">
   <meta name="author" content="Ethan">
   <meta name="keywords" content="">
-  <meta name="description" content="不花一分钱搭建个人博客，有手就行起因  前段时间在网上找代码，看到一位大佬的个人博客。        看到网址后缀有github，对新鲜事物充满好奇又有动手能力的我。遇到这种情况怎么说，当然是打开CSDN 搜索关键字github.io。果然一大堆教程，又了解到一个用 Node.js 构建的快速、简洁且强大的博客框架:Hexo 。最初由Tommy Chen于2012年创建和维护。从那时起，它帮助成千">
+  <meta name="description" content="简述通信协议栈和计算机网络的OSI模型 前段时间买了套无人机的通信控制模块，某宝上写的是开源，结果到手来了个只开源应用层（配套的应用软件）。我们需要的是网络层开源支持（与无人机直接通信的模块固件源码），只有拿到这部分代码才能把无人机载荷采集到的有用信息有效发挥，比如直接根据传感器信息控制无人机的自主飞行亦或是将载荷信息通过该通信链路传输到地面站，甚至可以是无人机结点间的信息交互，总之这份“价值超过">
 <meta property="og:type" content="article">
-<meta property="og:title" content="不花一分钱搭建个人博客">
-<meta property="og:url" content="http://example.com/2021/10/22/%E4%B8%8D%E8%8A%B1%E4%B8%80%E5%88%86%E9%92%B1%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="简述通信协议栈和线程（进程）">
+<meta property="og:url" content="http://example.com/2021/10/28/%E7%AE%80%E8%BF%B0%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E6%A0%88%E5%92%8C%E7%BA%BF%E7%A8%8B%EF%BC%88%E8%BF%9B%E7%A8%8B%EF%BC%89/index.html">
 <meta property="og:site_name" content="Ethan的个人博客">
-<meta property="og:description" content="不花一分钱搭建个人博客，有手就行起因  前段时间在网上找代码，看到一位大佬的个人博客。        看到网址后缀有github，对新鲜事物充满好奇又有动手能力的我。遇到这种情况怎么说，当然是打开CSDN 搜索关键字github.io。果然一大堆教程，又了解到一个用 Node.js 构建的快速、简洁且强大的博客框架:Hexo 。最初由Tommy Chen于2012年创建和维护。从那时起，它帮助成千">
+<meta property="og:description" content="简述通信协议栈和计算机网络的OSI模型 前段时间买了套无人机的通信控制模块，某宝上写的是开源，结果到手来了个只开源应用层（配套的应用软件）。我们需要的是网络层开源支持（与无人机直接通信的模块固件源码），只有拿到这部分代码才能把无人机载荷采集到的有用信息有效发挥，比如直接根据传感器信息控制无人机的自主飞行亦或是将载荷信息通过该通信链路传输到地面站，甚至可以是无人机结点间的信息交互，总之这份“价值超过">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://api2.mubu.com/v3/document_image/c552f8b5-68ee-4ea4-9576-f5302ab8f8c2-1995134.jpg">
-<meta property="og:image" content="https://api2.mubu.com/v3/document_image/6f96f714-13aa-42b9-9de6-4c631644d4d8-1995134.jpg">
-<meta property="og:image" content="https://api2.mubu.com/v3/document_image/546214d8-9289-46dc-af37-2f6942a882bb-1995134.jpg">
-<meta property="og:image" content="https://api2.mubu.com/v3/document_image/e63982f8-c667-4ffa-bed3-1aca3d486b47-1995134.jpg">
-<meta property="og:image" content="https://api2.mubu.com/v3/document_image/504629b0-35f5-4ef9-a435-bd1889b788a3-1995134.jpg">
-<meta property="og:image" content="https://api2.mubu.com/v3/document_image/8eca4e2a-9f71-446a-8982-d5bc43bbd7ca-1995134.jpg">
-<meta property="og:image" content="https://api2.mubu.com/v3/document_image/b280872b-4d6d-4a0f-98de-b9909b09275f-1995134.jpg">
-<meta property="og:image" content="https://api2.mubu.com/v3/document_image/9e4cf9c8-166d-4c78-8ef2-31e3ffc19499-1995134.jpg">
-<meta property="og:image" content="https://api2.mubu.com/v3/document_image/48b00250-fe3d-4631-8dee-d7a41ab03d49-1995134.jpg">
-<meta property="article:published_time" content="2021-10-22T06:08:00.000Z">
-<meta property="article:modified_time" content="2021-10-25T01:27:26.548Z">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/c052fdaa-67cd-42dd-8510-ef4723604776-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/b8db84aa-90c9-4865-af9b-d820d1e7df01-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/d401e5a9-efd3-4e6a-a40b-d16c1ebb2d23-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/5f3592b0-1fc4-47df-97b7-10697525a070-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/71302899-dc99-4fea-93d0-738ba5bdee20-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/ddc5d814-ecec-4ae9-bf93-e4b665a44be9-1995134.jpg">
+<meta property="article:published_time" content="2021-10-28T02:07:06.000Z">
+<meta property="article:modified_time" content="2021-10-28T05:04:34.004Z">
 <meta property="article:author" content="Ethan">
-<meta property="article:tag" content="hexo">
-<meta property="article:tag" content="markdown">
+<meta property="article:tag" content="协议栈">
+<meta property="article:tag" content="TCP&#x2F;IP协议栈">
+<meta property="article:tag" content="OSI模型">
+<meta property="article:tag" content="TCP&#x2F;IP模型">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://api2.mubu.com/v3/document_image/c552f8b5-68ee-4ea4-9576-f5302ab8f8c2-1995134.jpg">
+<meta name="twitter:image" content="https://api2.mubu.com/v3/document_image/c052fdaa-67cd-42dd-8510-ef4723604776-1995134.jpg">
   
-  <title>不花一分钱搭建个人博客 - Ethan的个人博客</title>
+  <title>简述通信协议栈和线程（进程） - Ethan的个人博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -199,7 +198,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="不花一分钱搭建个人博客">
+            <span class="h2" id="subtitle" title="简述通信协议栈和线程（进程）">
               
             </span>
 
@@ -214,8 +213,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-10-22 14:08" pubdate>
-        2021年10月22日 下午
+      <time datetime="2021-10-28 10:07" pubdate>
+        2021年10月28日 上午
       </time>
     </span>
   
@@ -225,7 +224,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      712 字
+      1.6k 字
     </span>
   
 
@@ -234,7 +233,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2 分钟
+      5 分钟
     </span>
   
 
@@ -271,92 +270,50 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">不花一分钱搭建个人博客</h1>
+            <h1 style="display: none">简述通信协议栈和线程（进程）</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年10月25日 上午
+                  本文最后更新于：2021年10月28日 下午
                 
               </p>
             
             <div class="markdown-body">
-              <h1 id="不花一分钱搭建个人博客，有手就行"><a href="#不花一分钱搭建个人博客，有手就行" class="headerlink" title="不花一分钱搭建个人博客，有手就行"></a>不花一分钱搭建个人博客，有手就行</h1><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><ul>
-<li><ul>
-<li>前段时间在网上找代码，看到一位大佬的个人博客。<ul>
-<li>  <img src="https://api2.mubu.com/v3/document_image/c552f8b5-68ee-4ea4-9576-f5302ab8f8c2-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
+              <h1 id="简述通信协议栈和计算机网络的OSI模型"><a href="#简述通信协议栈和计算机网络的OSI模型" class="headerlink" title="简述通信协议栈和计算机网络的OSI模型"></a>简述通信协议栈和计算机网络的OSI模型</h1><ul>
+<li>前段时间买了套无人机的通信控制模块，某宝上写的是开源，结果到手来了个只开源应用层（配套的应用软件）。我们需要的是网络层开源支持（与无人机直接通信的模块固件源码），只有拿到这部分代码才能把无人机载荷采集到的有用信息有效发挥，比如直接根据传感器信息控制无人机的自主飞行亦或是将载荷信息通过该通信链路传输到地面站，甚至可以是无人机结点间的信息交互，总之这份“价值超过500W源码”是不肯开源的。</li>
+<li>被人怼就要吸取教训，今天就来学习总结下什么是通信协议栈，什么是计算机网络的OSI模型</li>
+<li><h2 id="通信协议栈："><a href="#通信协议栈：" class="headerlink" title="通信协议栈："></a>通信协议栈：</h2><ul>
+<li>简单来说就是一种网络通信协议的堆叠，网络协议就是通信双方约定好的通信规则。</li>
+<li>协议栈的应运而生：数据在网络中的传输（寻址、抗干扰、加密、数据分割、压缩等）是极其复杂的。使用单一协议无法保障数据高速准确的传输，单一协议会导致协议冗余、复杂、难以优化，因此通过各层协议各司其职，互相配合使得通信效率更加高效。</li>
+<li>通俗的打个比方：老板要下发一个工作通知到张三，（假设该协议栈只有两层：聊天层和纠错层）聊天层采用“通知内容转换协议” 把 “明天不上班” 这条消息转换为二进制的计算机信息：“01”，“01” 这条消息被传输到纠错层后采用 “信息无误就是1协议” 为 “01” 增加标志 “1或0”表示这条信息是否因受到网络传输干扰产生误差。那么张三有效收到“明台不上班”这条通知的二进制计算机信息就是“101”，这就是一个简单协议栈的基本原理。</li>
+<li>比较常见的 TCP/IP 协议栈：<ul>
+<li>TCP/IP 协议栈有四层结构：应用层、传输层、网络层、链路层。<ul>
+<li>  <img src="https://api2.mubu.com/v3/document_image/c052fdaa-67cd-42dd-8510-ef4723604776-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
+<li>  <img src="https://api2.mubu.com/v3/document_image/b8db84aa-90c9-4865-af9b-d820d1e7df01-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
 </ul>
-</li>
-<li>  看到网址后缀有github，对新鲜事物充满好奇又有动手能力的我。遇到这种情况怎么说，当然是打开CSDN 搜索关键字github.io。果然一大堆教程，又了解到一个用 Node.js 构建的快速、简洁且强大的博客框架:Hexo 。最初由Tommy Chen于2012年创建和维护。从那时起，它帮助成千上万的人建立了他们的梦想网站/博客。</li>
-</ul>
-</li>
-</ul>
-<h2 id="上手"><a href="#上手" class="headerlink" title="上手"></a>上手</h2><ul>
-<li><h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><ul>
-<li><ul>
-<li>那么如何基于github和Hexo搭建个人博客呢<ul>
-<li>  <img src="https://api2.mubu.com/v3/document_image/6f96f714-13aa-42b9-9de6-4c631644d4d8-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
-</ul>
-  <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43270074/article/details/95392429">(3条消息) 搭建GitHub免费个人网站（详细教程）_苍何的博客-CSDN博客_用github搭建个人网站</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
-<li><ul>
-<li><p>注册gtihub</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41465646/article/details/107656044?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163487906816780357299722%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=163487906816780357299722&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-107656044.pc_search_all_es&utm_term=%E5%AE%89%E8%A3%85node.js&spm=1018.2226.3001.4187">安装node.js</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_19681347/article/details/90768640?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163487998716780255286032%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=163487998716780255286032&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-90768640.pc_search_all_es&utm_term=git%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AEwin10&spm=1018.2226.3001.4187">安装</a>并<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43112598/article/details/106532649?ops_request_misc=&request_id=&biz_id=&utm_medium=distribute.pc_search_result.none-task-blog-2~all~es_rank~default-3-106532649.pc_search_all_es&utm_term=git%E9%85%8D%E7%BD%AE&spm=1018.2226.3001.4187">配置</a>git</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43270074/article/details/95392429">安装hexo并新建GitHub仓库</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zgd826237710/article/details/99671027?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163488033316780265429237%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=163488033316780265429237&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-99671027.pc_search_all_es&utm_term=hexo%E4%B8%BB%E9%A2%98&spm=1018.2226.3001.4187">修改主题</a>，网上搜hexo主题选择自己喜欢的风格</p>
-<ul>
-<li>感受下大家的魔改版<ul>
-<li><a target="_blank" rel="noopener" href="https://www.yunyoujun.cn/">云游君的小站 (yunyoujun.cn)</a><ul>
-<li>  <img src="https://api2.mubu.com/v3/document_image/546214d8-9289-46dc-af37-2f6942a882bb-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
-</ul>
-</li>
-<li><a target="_blank" rel="noopener" href="https://hiitea.io/tech/">小白妹妹写代码</a><ul>
-<li>  <img src="https://api2.mubu.com/v3/document_image/e63982f8-c667-4ffa-bed3-1aca3d486b47-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
+  <a target="_blank" rel="noopener" href="https://www.cnblogs.com/onepixel/p/7092302.html#:~:text=TCP%2FIP%20%E5%8D%8F%E8%AE%AE%E6%A0%88%E6%98%AF%E4%B8%80%E7%B3%BB%E5%88%97%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%80%BB%E5%92%8C%EF%BC%8C%E6%98%AF%E6%9E%84%E6%88%90%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E7%9A%84%E6%A0%B8%E5%BF%83%E9%AA%A8%E6%9E%B6%EF%BC%8C%E5%AE%83%E5%AE%9A%E4%B9%89%E4%BA%86%E7%94%B5%E5%AD%90%E8%AE%BE%E5%A4%87%E5%A6%82%E4%BD%95%E8%BF%9E%E5%85%A5%E5%9B%A0%E7%89%B9%E7%BD%91%EF%BC%8C%E4%BB%A5%E5%8F%8A%E6%95%B0%E6%8D%AE%E5%A6%82%E4%BD%95%E5%9C%A8%E5%AE%83%E4%BB%AC%E4%B9%8B%E9%97%B4%E8%BF%9B%E8%A1%8C%E4%BC%A0%E8%BE%93%E3%80%82%20TCP%2FIP,%E5%8D%8F%E8%AE%AE%E9%87%87%E7%94%A84%E5%B1%82%E7%BB%93%E6%9E%84%EF%BC%8C%E5%88%86%E5%88%AB%E6%98%AF%20%E5%BA%94%E7%94%A8%E5%B1%82%E3%80%81%E4%BC%A0%E8%BE%93%E5%B1%82%E3%80%81%E7%BD%91%E7%BB%9C%E5%B1%82%E5%92%8C%E9%93%BE%E8%B7%AF%E5%B1%82%20%EF%BC%8C%E6%AF%8F%E4%B8%80%E5%B1%82%E9%83%BD%E5%91%BC%E5%8F%AB%E5%AE%83%E7%9A%84%E4%B8%8B%E4%B8%80%E5%B1%82%E6%89%80%E6%8F%90%E4%BE%9B%E7%9A%84%E5%8D%8F%E8%AE%AE%E6%9D%A5%E5%AE%8C%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E9%9C%80%E6%B1%82%E3%80%82">深入浅出 TCP/IP 协议栈 - 一像素 - 博客园 (cnblogs.com)</a></li>
+<li>链路层：将特定意义的数据（“明天上班”）加帧头、加帧尾构成一个数据包（数据帧），以广播的形式通过物理介质发送给接收方。以太网协议规定一组电信号就是一个数据包，一个数据包叫做一帧。帧头包含了目标MAC地址、源MAC地址和类型（大小为46-1500字节），以太网规协议又规定通信双方的网络设备必须安装有独一无二标识的网络适配器（这个标识就是网卡地址、数据包的发送地址和接收地址、也是帧头的MAC地址），帧尾提供校验数据是否损坏的校验序列；  协议数据单元在应用层、表示层和会话层被称做数据(Data)，在传输层被称做分段(Segment)，在网络层被称做包(Packet)，在数据链路层被称做帧(Frame)，在物理层被称做比特(Bit)。</li>
+<li>网络层：定义IP地址，确认主机所在的网络位置，并通过IP进行MAC寻址，对外网数据包进行路由转发；</li>
+<li>传输层：定义端口，确认主机上应用程序的身份，并将数据包交给对应的应用程序；</li>
+<li>应用层：定义数据格式，并按照对应的格式解读数据。</li>
 </ul>
 </li>
 </ul>
 </li>
+<li><h2 id="计算机网络的OSI模型"><a href="#计算机网络的OSI模型" class="headerlink" title="计算机网络的OSI模型"></a>计算机网络的OSI模型</h2><ul>
+<li>怎么来的OSI模型：说是有一群叫做国际标准化组织的人（ISO），试图为全世界互联的各种计算机制定一套网络标准框架。框架和模型：框架是处理流程，模型是描述问题的工具。OSI（开放式系统互联通信参考模型）就是这个框架下的一种模型。  <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/144358305">计算机网络 OSI网络模型 - 知乎 (zhihu.com)</a></li>
+<li>简述七层OSI模型：物理层—&gt;二进制比特流与光电信号的互相转换；数据链路层—&gt;互连的网络设备之间的帧识别与帧传输；网络层—&gt;同一子网的寻址，不同子网的路由转发；传输层—&gt;建立端对端的通信，确保通信的稳定；会话层—&gt;建立和断开通信连接，同步会话等；表示层—&gt;数据的转换（格式，加密和压缩），数据传输的承上启下；应用层—&gt;为用户使用的应用程序提供网络服务，建立数据传输连接。<ul>
+<li>  <img src="https://api2.mubu.com/v3/document_image/d401e5a9-efd3-4e6a-a40b-d16c1ebb2d23-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
+<li>  <img src="https://api2.mubu.com/v3/document_image/5f3592b0-1fc4-47df-97b7-10697525a070-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
+</ul>
+  <a target="_blank" rel="noopener" href="https://blog.csdn.net/mxxrgxg/article/details/89667016">(3条消息) 网络通讯基础（一）OSI七层模型和TCP/IP四层（五层）模型_mxxrgxg的博客-CSDN博客</a></li>
 </ul>
 </li>
-<li><p>部署好模板后，问题又来了：怎么写博客</p>
-<ul>
-<li>这里介绍下我自己的方法，在\hexo\source_posts目录下，新建.md的博客</li>
-<li>内容格式如图，其中tag为标签，categories为分类<ul>
-<li>  <img src="https://api2.mubu.com/v3/document_image/504629b0-35f5-4ef9-a435-bd1889b788a3-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
+<li><h2 id="七层OSI-与-四层TCP-IP-模型的对比"><a href="#七层OSI-与-四层TCP-IP-模型的对比" class="headerlink" title="七层OSI 与 四层TCP/IP 模型的对比"></a>七层OSI 与 四层TCP/IP 模型的对比</h2><ul>
+<li>  <img src="https://api2.mubu.com/v3/document_image/71302899-dc99-4fea-93d0-738ba5bdee20-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
+<li>  <img src="https://api2.mubu.com/v3/document_image/ddc5d814-ecec-4ae9-bf93-e4b665a44be9-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
 </ul>
-</li>
-</ul>
-</li>
-<li><p>  OK，现在模板有了，博客内容也有了。问题又来了：网站加载速度有时候特别慢，那咋办嘛                  *   用自己的服务器搭建的，可以试下CDN加速        *   换下图片存储的位置，网上有很多免费的<a target="_blank" rel="noopener" href="https://imgtu.com/">图片托管</a>网站，但是一张一张的存太麻烦了        *   <img src="https://api2.mubu.com/v3/document_image/8eca4e2a-9f71-446a-8982-d5bc43bbd7ca-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload>      *   直接存到<a target="_blank" rel="noopener" href="https://mubu.com/">幕布</a>上，导出HTML文件，<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/405404977">转为.md文件</a>，复制想要的内容到自己的博客中，适当修改下格式，大功告成。                </p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><ul>
-<li><ul>
-<li>我选一款比较简洁的<a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">模板</a>，<a target="_blank" rel="noopener" href="https://ethan1024.github.io/">欢迎来访</a>。，增加了页脚网站运行时间、不蒜子网页访问统计等功能</li>
-<li>  <img src="https://api2.mubu.com/v3/document_image/b280872b-4d6d-4a0f-98de-b9909b09275f-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload>   </li>
-<li>  <img src="https://api2.mubu.com/v3/document_image/9e4cf9c8-166d-4c78-8ef2-31e3ffc19499-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><ul>
-<li><ul>
-<li>前后尝试试过几种模板，配置起来都不算难。遇到问题先百度下，祝你好运。<ul>
-<li>  <img src="https://api2.mubu.com/v3/document_image/48b00250-fe3d-4631-8dee-d7a41ab03d49-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
-</ul>
-</li>
-</ul>
-</li>
+  <a target="_blank" rel="noopener" href="http://www.cppblog.com/andxie99/archive/2006/10/11/13559.html">TCP/IP的四层模型与OSI七层模型的有什么不同？</a></li>
 </ul>
 
             </div>
@@ -367,7 +324,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">搭建个人博客</a>
+                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
                     
                   </div>
                 
@@ -375,9 +332,13 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/hexo/">hexo</a>
+                      <a class="hover-with-bg" href="/tags/%E5%8D%8F%E8%AE%AE%E6%A0%88/">协议栈</a>
                     
-                      <a class="hover-with-bg" href="/tags/markdown/">markdown</a>
+                      <a class="hover-with-bg" href="/tags/TCP-IP%E5%8D%8F%E8%AE%AE%E6%A0%88/">TCP/IP协议栈</a>
+                    
+                      <a class="hover-with-bg" href="/tags/OSI%E6%A8%A1%E5%9E%8B/">OSI模型</a>
+                    
+                      <a class="hover-with-bg" href="/tags/TCP-IP%E6%A8%A1%E5%9E%8B/">TCP/IP模型</a>
                     
                   </div>
                 
@@ -394,18 +355,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/10/26/YOLO%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">YOLO算法学习</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/10/21/YOLO%E7%AE%97%E6%B3%95%E5%9C%A8windows%E4%B8%8B%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/">
-                        <span class="hidden-mobile">YOLO算法在windows下训练自己的数据集</span>
+                      <a href="/2021/10/26/YOLO%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/">
+                        <span class="hidden-mobile">YOLO算法学习</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

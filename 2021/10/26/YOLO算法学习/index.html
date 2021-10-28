@@ -16,18 +16,38 @@
   <meta name="description" content="">
   <meta name="author" content="Ethan">
   <meta name="keywords" content="">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="http://example.com/tags/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="YOLO算法学习">
+<meta property="og:url" content="http://example.com/2021/10/26/YOLO%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Ethan的个人博客">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-10-26T07:42:43.000Z">
+<meta property="article:modified_time" content="2021-10-28T02:15:07.653Z">
 <meta property="article:author" content="Ethan">
+<meta property="article:tag" content="YOLO">
+<meta property="article:tag" content="卷积">
+<meta property="article:tag" content="上采样">
 <meta name="twitter:card" content="summary_large_image">
   
-  <title>标签 - Ethan的个人博客</title>
+  <title>YOLO算法学习 - Ethan的个人博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -55,7 +75,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -163,22 +183,65 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://api2.mubu.com/v3/document_image/42758b02-27c8-4481-96a4-d32ac4c3416c-1995134.jpg') no-repeat center center;
+         style="background: url('https://api2.mubu.com/v3/document_image/e998ab27-9e34-4a82-8340-9b64e67e3fe6-1995134.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="标签">
+            <span class="h2" id="subtitle" title="YOLO算法学习">
               
             </span>
 
             
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Ethan
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-10-26 15:42" pubdate>
+        2021年10月26日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      0 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      1 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
           </div>
 
-          
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
           
         </div>
       </div>
@@ -187,24 +250,104 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">YOLO算法学习</h1>
+            
+              <p class="note note-info">
                 
-
-<div class="text-center tagcloud">
-  <a href="/tags/HYUKOH/" style="font-size: 15px; color: #bbe">HYUKOH</a> <a href="/tags/OSI%E6%A8%A1%E5%9E%8B/" style="font-size: 15px; color: #bbe">OSI模型</a> <a href="/tags/TCP-IP%E5%8D%8F%E8%AE%AE%E6%A0%88/" style="font-size: 15px; color: #bbe">TCP/IP协议栈</a> <a href="/tags/TCP-IP%E6%A8%A1%E5%9E%8B/" style="font-size: 15px; color: #bbe">TCP/IP模型</a> <a href="/tags/YOLO/" style="font-size: 30px; color: #337ab7">YOLO</a> <a href="/tags/hexo/" style="font-size: 15px; color: #bbe">hexo</a> <a href="/tags/markdown/" style="font-size: 15px; color: #bbe">markdown</a> <a href="/tags/%E4%B8%8A%E9%87%87%E6%A0%B7/" style="font-size: 15px; color: #bbe">上采样</a> <a href="/tags/%E5%8D%8F%E8%AE%AE%E6%A0%88/" style="font-size: 15px; color: #bbe">协议栈</a> <a href="/tags/%E5%8D%B7%E7%A7%AF/" style="font-size: 15px; color: #bbe">卷积</a> <a href="/tags/%E5%90%B4%E5%BD%A6%E7%A5%96/" style="font-size: 15px; color: #bbe">吴彦祖</a> <a href="/tags/%E7%9B%AE%E6%A0%87%E8%AF%86%E5%88%AB/" style="font-size: 15px; color: #bbe">目标识别</a> <a href="/tags/%E7%9B%AE%E6%A0%87%E8%AF%86%E5%88%AB%E6%A3%80%E6%B5%8B/" style="font-size: 15px; color: #bbe">目标识别检测</a> <a href="/tags/%E8%83%96%E6%A9%98/" style="font-size: 15px; color: #bbe">胖橘</a> <a href="/tags/%E8%92%99%E9%9D%A2%E7%8C%AB%E7%8C%AB/" style="font-size: 15px; color: #bbe">蒙面猫猫</a> <a href="/tags/%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 15px; color: #bbe">训练数据集</a> <a href="/tags/%E8%AE%AD%E7%BB%83%E9%9B%86/" style="font-size: 15px; color: #bbe">训练集</a>
-</div>
-
-              </div>
+                  本文最后更新于：2021年10月28日 上午
+                
+              </p>
+            
+            <div class="markdown-body">
+              
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/YOLO/">YOLO</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%8D%B7%E7%A7%AF/">卷积</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E4%B8%8A%E9%87%87%E6%A0%B7/">上采样</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/10/28/%E7%AE%80%E8%BF%B0%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E6%A0%88%E5%92%8C%E7%BA%BF%E7%A8%8B%EF%BC%88%E8%BF%9B%E7%A8%8B%EF%BC%89/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">简述通信协议栈和线程（进程）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/22/%E4%B8%8D%E8%8A%B1%E4%B8%80%E5%88%86%E9%92%B1%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+                        <span class="hidden-mobile">不花一分钱搭建个人博客</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -331,6 +474,19 @@ setInterval("createtime()",250);
   
 
 
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
 
 
 
