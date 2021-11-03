@@ -16,20 +16,34 @@
   <meta name="description" content="">
   <meta name="author" content="Ethan">
   <meta name="keywords" content="">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="YOLOV3 基础学习">
-<meta property="og:url" content="http://example.com/2021/10/26/YOLO%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/index.html">
+  <meta name="description" content="ROS入门ROS（Robot Operating System）机器人操作系统本文素材来自古月ROS入门21讲 *   概念 *   发展 *   应用 *   通信机制 *   开发工具 *   功能开发 *   ROS生态系统 *   ROS节点实现：SLAM（同步定位与地图构建）（C++）、A* Dijkstra（最短路径规划）、YOLO（目标识别检测）（python） 单片机 Arduin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ROS基础学习">
+<meta property="og:url" content="http://example.com/2021/11/03/ROS%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Ethan的个人博客">
+<meta property="og:description" content="ROS入门ROS（Robot Operating System）机器人操作系统本文素材来自古月ROS入门21讲 *   概念 *   发展 *   应用 *   通信机制 *   开发工具 *   功能开发 *   ROS生态系统 *   ROS节点实现：SLAM（同步定位与地图构建）（C++）、A* Dijkstra（最短路径规划）、YOLO（目标识别检测）（python） 单片机 Arduin">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-10-26T07:42:43.000Z">
-<meta property="article:modified_time" content="2021-10-28T06:58:19.147Z">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/c87a74b2-8988-4d4b-98ca-ed5cdd7fc166-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/25835449-1fbe-49b2-aabb-ff6acc6ba3f3-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/e24956d2-c6eb-4b91-8790-2ccdc8b5b4ee-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/d53494c7-f6f7-45db-a197-970297df1a0c-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/6635e90b-5fba-4ab4-8293-8271b27ed50e-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/d197d5d4-2936-4189-a7b5-336fd9ffc0de-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/551bc7c6-39ac-4f75-a418-2ab45d03b15d-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/0b6f1922-049d-4c96-a655-168ea5e181e4-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/7322f84d-dace-4ea3-bc99-84ecf248c6d6-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/3ddad4db-8f71-4cfb-a457-ea28922cd9c8-1995134.jpg">
+<meta property="article:published_time" content="2021-11-03T00:51:40.000Z">
+<meta property="article:modified_time" content="2021-11-03T01:49:35.470Z">
 <meta property="article:author" content="Ethan">
-<meta property="article:tag" content="YOLO">
-<meta property="article:tag" content="卷积">
-<meta property="article:tag" content="上采样">
+<meta property="article:tag" content="古月居">
+<meta property="article:tag" content="机器人">
+<meta property="article:tag" content="ROS基础">
+<meta property="article:tag" content="ROS节点">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://api2.mubu.com/v3/document_image/c87a74b2-8988-4d4b-98ca-ed5cdd7fc166-1995134.jpg">
   
-  <title>YOLOV3 基础学习 - Ethan的个人博客</title>
+  <title>ROS基础学习 - Ethan的个人博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -188,7 +202,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="YOLOV3 基础学习">
+            <span class="h2" id="subtitle" title="ROS基础学习">
               
             </span>
 
@@ -203,8 +217,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-10-26 15:42" pubdate>
-        2021年10月26日 下午
+      <time datetime="2021-11-03 08:51" pubdate>
+        2021年11月3日 早上
       </time>
     </span>
   
@@ -214,7 +228,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      292 字
     </span>
   
 
@@ -260,16 +274,28 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">YOLOV3 基础学习</h1>
+            <h1 style="display: none">ROS基础学习</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年10月28日 下午
+                  本文最后更新于：2021年11月3日 上午
                 
               </p>
             
             <div class="markdown-body">
-              
+              <h1 id="ROS入门"><a href="#ROS入门" class="headerlink" title="ROS入门"></a>ROS入门</h1><h2 id="ROS（Robot-Operating-System）机器人操作系统"><a href="#ROS（Robot-Operating-System）机器人操作系统" class="headerlink" title="ROS（Robot Operating System）机器人操作系统"></a>ROS（Robot Operating System）机器人操作系统</h2><p>本文素材来自古月ROS入门21讲</p>
+<h3 id="概念"><a href="#概念" class="headerlink" title="*   概念"></a>*   概念</h3><p><img src="https://api2.mubu.com/v3/document_image/c87a74b2-8988-4d4b-98ca-ed5cdd7fc166-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+<h3 id="发展"><a href="#发展" class="headerlink" title="*   发展"></a>*   发展</h3><p><img src="https://api2.mubu.com/v3/document_image/25835449-1fbe-49b2-aabb-ff6acc6ba3f3-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+<h3 id="应用"><a href="#应用" class="headerlink" title="*   应用"></a>*   应用</h3><p><img src="https://api2.mubu.com/v3/document_image/e24956d2-c6eb-4b91-8790-2ccdc8b5b4ee-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+<h3 id="通信机制"><a href="#通信机制" class="headerlink" title="*   通信机制"></a>*   通信机制</h3><p><img src="https://api2.mubu.com/v3/document_image/d53494c7-f6f7-45db-a197-970297df1a0c-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+<h3 id="开发工具"><a href="#开发工具" class="headerlink" title="*   开发工具"></a>*   开发工具</h3><p><img src="https://api2.mubu.com/v3/document_image/6635e90b-5fba-4ab4-8293-8271b27ed50e-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+<h3 id="功能开发"><a href="#功能开发" class="headerlink" title="*   功能开发"></a>*   功能开发</h3><p><img src="https://api2.mubu.com/v3/document_image/d197d5d4-2936-4189-a7b5-336fd9ffc0de-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+<h3 id="ROS生态系统"><a href="#ROS生态系统" class="headerlink" title="*   ROS生态系统"></a>*   ROS生态系统</h3><p><img src="https://api2.mubu.com/v3/document_image/551bc7c6-39ac-4f75-a418-2ab45d03b15d-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+<h2 id="ROS节点实现：SLAM（同步定位与地图构建）（C-）、A-Dijkstra（最短路径规划）、YOLO（目标识别检测）（python）"><a href="#ROS节点实现：SLAM（同步定位与地图构建）（C-）、A-Dijkstra（最短路径规划）、YOLO（目标识别检测）（python）" class="headerlink" title="*   ROS节点实现：SLAM（同步定位与地图构建）（C++）、A* Dijkstra（最短路径规划）、YOLO（目标识别检测）（python）"></a>*   ROS节点实现：SLAM（同步定位与地图构建）（C++）、A* Dijkstra（最短路径规划）、YOLO（目标识别检测）（python）</h2><p><img src="https://api2.mubu.com/v3/document_image/0b6f1922-049d-4c96-a655-168ea5e181e4-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+<p>单片机 Arduino MCU 主频 Mb，PC、 树莓派、jetson系列 主频 Gb</p>
+<h2 id="一个典型的ROS机器人"><a href="#一个典型的ROS机器人" class="headerlink" title="*   一个典型的ROS机器人"></a>*   一个典型的ROS机器人</h2><p>Turtlebot：激光雷达（360°深度信息，SLAM导航）、树莓派（应用层：ROS功能包功能实现SLAM等）、OpenCR（底层运动处理，电机PID闭环控制，传感器采集..）</p>
+<p><img src="https://api2.mubu.com/v3/document_image/7322f84d-dace-4ea3-bc99-84ecf248c6d6-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload><br><img src="https://api2.mubu.com/v3/document_image/3ddad4db-8f71-4cfb-a457-ea28922cd9c8-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+
             </div>
             <hr>
             <div>
@@ -278,7 +304,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+                      <a class="hover-with-bg" href="/categories/ROS/">ROS</a>
                     
                   </div>
                 
@@ -286,11 +312,13 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/YOLO/">YOLO</a>
+                      <a class="hover-with-bg" href="/tags/%E5%8F%A4%E6%9C%88%E5%B1%85/">古月居</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%8D%B7%E7%A7%AF/">卷积</a>
+                      <a class="hover-with-bg" href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/">机器人</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E4%B8%8A%E9%87%87%E6%A0%B7/">上采样</a>
+                      <a class="hover-with-bg" href="/tags/ROS%E5%9F%BA%E7%A1%80/">ROS基础</a>
+                    
+                      <a class="hover-with-bg" href="/tags/ROS%E8%8A%82%E7%82%B9/">ROS节点</a>
                     
                   </div>
                 
@@ -307,18 +335,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/10/28/%E7%AE%80%E8%BF%B0%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E6%A0%88%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84OSI%E6%A8%A1%E5%9E%8B/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">简述通信协议栈和计算机网络的OSI模型</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/10/24/yolov3%E5%9C%A8ubuntu20-04%E4%B8%8B%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/">
-                        <span class="hidden-mobile">yolov3在ubuntu20.04下训练自己的数据集(从“零”开始)</span>
+                      <a href="/2021/10/28/%E7%AE%80%E8%BF%B0%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E6%A0%88%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84OSI%E6%A8%A1%E5%9E%8B/">
+                        <span class="hidden-mobile">简述通信协议栈和计算机网络的OSI模型</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -343,7 +365,7 @@
         var options = Object.assign(
           {"clientID":"2a3059614b56125a051a","clientSecret":"d0bf906c99410f02e6119f2b798e16f941431df6","repo":"gitalk","owner":"Ethan1024","admin":["Ethan1024"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: '4b5addd83b3b3eaa0238c31688a0b928'
+            id: 'a97a1ef225158149fc590cb6e36ca897'
           }
         )
         var gitalk = new Gitalk(options);
