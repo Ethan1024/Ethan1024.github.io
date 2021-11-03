@@ -16,26 +16,29 @@
   <meta name="description" content="">
   <meta name="author" content="Ethan">
   <meta name="keywords" content="">
-  <meta name="description" content="图片">
+  <meta name="description" content="YOLO 基础学习*   AI”炼丹”是啥 深度学习训练模型就像炼丹，没啥理论，纯靠实验，要有很多设备，动不动的训练好几天的数据  *   机器学习算法工程师都要干些啥 1.基于提出需求设计组合算法即策略解决问题，不限于深度学习，传统视觉，算法策略，大部分需求都是组合算法解决的，例如检测分类姿态等多模态模型组合并配合一些传统算法解决问题(pytorch&#x2F;caffe opencv)   2.训练数据">
 <meta property="og:type" content="article">
-<meta property="og:title" content="戴面具的猫">
-<meta property="og:url" content="http://example.com/2021/10/20/%E6%B5%8B%E8%AF%95%E4%B8%93%E7%94%A8/index.html">
+<meta property="og:title" content="YOLOV3 基础学习">
+<meta property="og:url" content="http://example.com/2021/10/26/YOLO%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Ethan的个人博客">
-<meta property="og:description" content="图片">
+<meta property="og:description" content="YOLO 基础学习*   AI”炼丹”是啥 深度学习训练模型就像炼丹，没啥理论，纯靠实验，要有很多设备，动不动的训练好几天的数据  *   机器学习算法工程师都要干些啥 1.基于提出需求设计组合算法即策略解决问题，不限于深度学习，传统视觉，算法策略，大部分需求都是组合算法解决的，例如检测分类姿态等多模态模型组合并配合一些传统算法解决问题(pytorch&#x2F;caffe opencv)   2.训练数据">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://api2.mubu.com/v3/document_image/a94b0309-01be-4a66-929b-459ccecb1686-1995134.jpg">
-<meta property="og:image" content="https://api2.mubu.com/v3/document_image/99485699-a9fd-45bb-9f64-df3434d60c1c-1995134.jpg">
-<meta property="article:published_time" content="2021-10-20T14:08:50.000Z">
-<meta property="article:modified_time" content="2021-10-22T03:37:29.132Z">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/6408bce3-2e06-4b00-b947-feb5692c6510-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/b052fcbe-09b7-4670-8086-da3d412d0e24-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/fd585dd4-60de-43a3-9d2d-65b9c91dca3e-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/f6a1caf4-cdaf-4eb2-a5b5-3686bc80812a-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/d78d9cdb-b2f2-48d4-a7bf-0d9e75307ac6-1995134.jpg">
+<meta property="article:published_time" content="2021-10-26T07:42:43.000Z">
+<meta property="article:modified_time" content="2021-11-03T01:49:01.447Z">
 <meta property="article:author" content="Ethan">
-<meta property="article:tag" content="蒙面猫猫">
-<meta property="article:tag" content="吴彦祖">
-<meta property="article:tag" content="胖橘">
-<meta property="article:tag" content="HYUKOH">
+<meta property="article:tag" content="YOLO">
+<meta property="article:tag" content="卷积">
+<meta property="article:tag" content="上采样">
+<meta property="article:tag" content="下采样">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://api2.mubu.com/v3/document_image/a94b0309-01be-4a66-929b-459ccecb1686-1995134.jpg">
+<meta name="twitter:image" content="https://api2.mubu.com/v3/document_image/6408bce3-2e06-4b00-b947-feb5692c6510-1995134.jpg">
   
-  <title>戴面具的猫 - Ethan的个人博客</title>
+  <title>YOLOV3 基础学习 - Ethan的个人博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -194,7 +197,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="戴面具的猫">
+            <span class="h2" id="subtitle" title="YOLOV3 基础学习">
               
             </span>
 
@@ -209,8 +212,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-10-20 22:08" pubdate>
-        2021年10月20日 晚上
+      <time datetime="2021-10-26 15:42" pubdate>
+        2021年10月26日 下午
       </time>
     </span>
   
@@ -220,7 +223,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2 字
+      869 字
     </span>
   
 
@@ -229,7 +232,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      3 分钟
     </span>
   
 
@@ -266,18 +269,78 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">戴面具的猫</h1>
+            <h1 style="display: none">YOLOV3 基础学习</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年10月22日 中午
+                  本文最后更新于：2021年11月3日 上午
                 
               </p>
             
             <div class="markdown-body">
-              <h2 id><a href="#" class="headerlink" title></a></h2><p>图片</p>
-<p><img src="https://api2.mubu.com/v3/document_image/a94b0309-01be-4a66-929b-459ccecb1686-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload alt="收手吧阿祖，外面全是警察"></p>
-<p><img src="https://api2.mubu.com/v3/document_image/99485699-a9fd-45bb-9f64-df3434d60c1c-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload alt="HYUKOH"></p>
+              <h1 id="YOLO-基础学习"><a href="#YOLO-基础学习" class="headerlink" title="YOLO 基础学习"></a>YOLO 基础学习</h1><h2 id="AI”炼丹”是啥"><a href="#AI”炼丹”是啥" class="headerlink" title="*   AI”炼丹”是啥"></a>*   AI”炼丹”是啥</h2><div class="hljs code-wrapper"><pre><code> 深度学习训练模型就像炼丹，没啥理论，纯靠实验，要有很多设备，动不动的训练好几天的数据
+</code></pre></div>
+<h2 id="机器学习算法工程师都要干些啥"><a href="#机器学习算法工程师都要干些啥" class="headerlink" title="*   机器学习算法工程师都要干些啥"></a>*   机器学习算法工程师都要干些啥</h2><div class="hljs code-wrapper"><pre><code> 1.基于提出需求设计组合算法即策略解决问题，不限于深度学习，传统视觉，算法策略，大部分需求都是组合算法解决的，例如检测分类姿态等多模态模型组合并配合一些传统算法解决问题(pytorch/caffe opencv)
+
+ 2.训练数据采集方案的设计，标注规则的指定以及数据审核
+
+ 3.快速实现算法demo并验证算法逻辑策略部分以及评估自测(Python)
+
+ 4.模型实际部署平台的性能资源占用和效率评估，评估ok走下一步，否则返回3步骤针对优化验证，
+
+ 5.基于c/c++完成算法sdk库开发，其中涉及到模型多平台移植部署(涉及到后端nn推理框架的选用，前后处理部分代码的编写)，代码高性能优化(simd cuda openc,openmpl...)
+
+ 6.算法库文档编写，外发sdk库
+</code></pre></div>
+<h2 id="yolov3基础知识"><a href="#yolov3基础知识" class="headerlink" title="*   yolov3基础知识"></a>*   yolov3基础知识</h2><h3 id="上采样，下采样"><a href="#上采样，下采样" class="headerlink" title="*   上采样，下采样"></a>*   上采样，下采样</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/stf1065716904/article/details/78450997?utm_source=app&app_version=4.17.2&code=app_1562916241&uLinkId=usr1mkqgl919blen">图像的上采样（upsampling）与下采样（subsampled）</a></p>
+<div class="hljs code-wrapper"><pre><code>*   缩小图像（或称为下采样（subsampled）或降采样（downsampled））的主要目的有两个：1、使得图像符合显示区域的大小；2、生成对应图像的缩略图。
+
+*   放大图像（或称为上采样（upsampling）或图像插值（interpolating））的主要目的是放大原图像,从而可以显示在更高分辨率的显示设备上。
+
+*   对图像的缩放操作并不能带来更多关于该图像的信息, 因此图像的质量将不可避免地受到影响。然而，确实有一些缩放方法能够增加图像的信息，从而使得缩放后的图像质量超过原图质量的。
+</code></pre></div>
+<h2 id="NMS调参"><a href="#NMS调参" class="headerlink" title="*   NMS调参"></a>*   NMS调参</h2><h3 id="288-cfg"><a href="#288-cfg" class="headerlink" title="*   288.cfg"></a>*   288.cfg</h3><ul>
+<li><p>  ignore_thresh = .7</p>
+</li>
+<li><p>  beta_nms=0.7</p>
+</li>
+<li><p>  result</p>
+</li>
+<li><p>  <img src="https://api2.mubu.com/v3/document_image/6408bce3-2e06-4b00-b947-feb5692c6510-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+</li>
+</ul>
+<h3 id="288-cfg-1"><a href="#288-cfg-1" class="headerlink" title="*   288.cfg"></a>*   288.cfg</h3><ul>
+<li><p>  ignore_thresh = .7</p>
+</li>
+<li><p>  beta_nms=0.8</p>
+</li>
+<li><p>  result</p>
+</li>
+<li><p>  <img src="https://api2.mubu.com/v3/document_image/b052fcbe-09b7-4670-8086-da3d412d0e24-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+</li>
+<li><p>  <img src="https://api2.mubu.com/v3/document_image/fd585dd4-60de-43a3-9d2d-65b9c91dca3e-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+</li>
+</ul>
+<h3 id="416-cfg"><a href="#416-cfg" class="headerlink" title="*   416.cfg"></a>*   416.cfg</h3><ul>
+<li><p>  ignore_thresh = .7</p>
+</li>
+<li><p>  beta_nms=0.7</p>
+</li>
+<li><p>  result</p>
+</li>
+<li><p>  <img src="https://api2.mubu.com/v3/document_image/f6a1caf4-cdaf-4eb2-a5b5-3686bc80812a-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+</li>
+</ul>
+<h3 id="416-cfg-1"><a href="#416-cfg-1" class="headerlink" title="*   416.cfg"></a>*   416.cfg</h3><ul>
+<li><p>  ignore_thresh = .7</p>
+</li>
+<li><p>  beta_nms=0.5</p>
+</li>
+<li><p>  result</p>
+</li>
+<li><p><img src="https://api2.mubu.com/v3/document_image/d78d9cdb-b2f2-48d4-a7bf-0d9e75307ac6-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+</li>
+</ul>
 
             </div>
             <hr>
@@ -287,7 +350,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E5%9B%BE%E7%89%87/">图片</a>
+                      <a class="hover-with-bg" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
                     
                   </div>
                 
@@ -295,13 +358,13 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E8%92%99%E9%9D%A2%E7%8C%AB%E7%8C%AB/">蒙面猫猫</a>
+                      <a class="hover-with-bg" href="/tags/YOLO/">YOLO</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%90%B4%E5%BD%A6%E7%A5%96/">吴彦祖</a>
+                      <a class="hover-with-bg" href="/tags/%E5%8D%B7%E7%A7%AF/">卷积</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E8%83%96%E6%A9%98/">胖橘</a>
+                      <a class="hover-with-bg" href="/tags/%E4%B8%8A%E9%87%87%E6%A0%B7/">上采样</a>
                     
-                      <a class="hover-with-bg" href="/tags/HYUKOH/">HYUKOH</a>
+                      <a class="hover-with-bg" href="/tags/%E4%B8%8B%E9%87%87%E6%A0%B7/">下采样</a>
                     
                   </div>
                 
@@ -318,15 +381,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/10/21/%E5%9F%BA%E4%BA%8EYOLO%E7%9A%84%E7%9B%AE%E6%A0%87%E8%AF%86%E5%88%AB%E6%A3%80%E6%B5%8B/">
+                      <a href="/2021/10/28/%E7%AE%80%E8%BF%B0%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E6%A0%88%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84OSI%E6%A8%A1%E5%9E%8B/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">基于YOLO的目标识别检测</span>
+                        <span class="hidden-mobile">简述通信协议栈和计算机网络的OSI模型</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2021/10/24/yolov3%E5%9C%A8ubuntu20-04%E4%B8%8B%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/">
+                        <span class="hidden-mobile">yolov3在ubuntu20.04下训练自己的数据集(从“零”开始)</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
@@ -348,7 +417,7 @@
         var options = Object.assign(
           {"clientID":"2a3059614b56125a051a","clientSecret":"d0bf906c99410f02e6119f2b798e16f941431df6","repo":"gitalk","owner":"Ethan1024","admin":["Ethan1024"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: '88496d508151a3217dab39186aadf200'
+            id: '4b5addd83b3b3eaa0238c31688a0b928'
           }
         )
         var gitalk = new Gitalk(options);

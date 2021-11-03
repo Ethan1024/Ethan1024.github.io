@@ -67,8 +67,8 @@
   
   <entry>
     <title>YOLOV3 基础学习</title>
-    <link href="/2021/10/26/YOLO%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
-    <url>/2021/10/26/YOLO%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</url>
+    <link href="/2021/10/26/YOLO%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/"/>
+    <url>/2021/10/26/YOLO%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/</url>
     
     <content type="html"><![CDATA[<h1 id="YOLO-基础学习"><a href="#YOLO-基础学习" class="headerlink" title="YOLO 基础学习"></a>YOLO 基础学习</h1><h2 id="AI”炼丹”是啥"><a href="#AI”炼丹”是啥" class="headerlink" title="*   AI”炼丹”是啥"></a>*   AI”炼丹”是啥</h2><div class="hljs code-wrapper"><pre><code> 深度学习训练模型就像炼丹，没啥理论，纯靠实验，要有很多设备，动不动的训练好几天的数据</code></pre></div><h2 id="机器学习算法工程师都要干些啥"><a href="#机器学习算法工程师都要干些啥" class="headerlink" title="*   机器学习算法工程师都要干些啥"></a>*   机器学习算法工程师都要干些啥</h2><div class="hljs code-wrapper"><pre><code> 1.基于提出需求设计组合算法即策略解决问题，不限于深度学习，传统视觉，算法策略，大部分需求都是组合算法解决的，例如检测分类姿态等多模态模型组合并配合一些传统算法解决问题(pytorch/caffe opencv) 2.训练数据采集方案的设计，标注规则的指定以及数据审核 3.快速实现算法demo并验证算法逻辑策略部分以及评估自测(Python) 4.模型实际部署平台的性能资源占用和效率评估，评估ok走下一步，否则返回3步骤针对优化验证， 5.基于c/c++完成算法sdk库开发，其中涉及到模型多平台移植部署(涉及到后端nn推理框架的选用，前后处理部分代码的编写)，代码高性能优化(simd cuda openc,openmpl...) 6.算法库文档编写，外发sdk库</code></pre></div><h2 id="yolov3基础知识"><a href="#yolov3基础知识" class="headerlink" title="*   yolov3基础知识"></a>*   yolov3基础知识</h2><h3 id="上采样，下采样"><a href="#上采样，下采样" class="headerlink" title="*   上采样，下采样"></a>*   上采样，下采样</h3><p><a href="https://blog.csdn.net/stf1065716904/article/details/78450997?utm_source=app&app_version=4.17.2&code=app_1562916241&uLinkId=usr1mkqgl919blen">图像的上采样（upsampling）与下采样（subsampled）</a></p><div class="hljs code-wrapper"><pre><code>*   缩小图像（或称为下采样（subsampled）或降采样（downsampled））的主要目的有两个：1、使得图像符合显示区域的大小；2、生成对应图像的缩略图。*   放大图像（或称为上采样（upsampling）或图像插值（interpolating））的主要目的是放大原图像,从而可以显示在更高分辨率的显示设备上。*   对图像的缩放操作并不能带来更多关于该图像的信息, 因此图像的质量将不可避免地受到影响。然而，确实有一些缩放方法能够增加图像的信息，从而使得缩放后的图像质量超过原图质量的。</code></pre></div><h2 id="NMS调参"><a href="#NMS调参" class="headerlink" title="*   NMS调参"></a>*   NMS调参</h2><h3 id="288-cfg"><a href="#288-cfg" class="headerlink" title="*   288.cfg"></a>*   288.cfg</h3><ul><li><p>  ignore_thresh = .7</p></li><li><p>  beta_nms=0.7</p></li><li><p>  result</p></li><li><p>  <img src="https://api2.mubu.com/v3/document_image/6408bce3-2e06-4b00-b947-feb5692c6510-1995134.jpg"></p></li></ul><h3 id="288-cfg-1"><a href="#288-cfg-1" class="headerlink" title="*   288.cfg"></a>*   288.cfg</h3><ul><li><p>  ignore_thresh = .7</p></li><li><p>  beta_nms=0.8</p></li><li><p>  result</p></li><li><p>  <img src="https://api2.mubu.com/v3/document_image/b052fcbe-09b7-4670-8086-da3d412d0e24-1995134.jpg"></p></li><li><p>  <img src="https://api2.mubu.com/v3/document_image/fd585dd4-60de-43a3-9d2d-65b9c91dca3e-1995134.jpg"></p></li></ul><h3 id="416-cfg"><a href="#416-cfg" class="headerlink" title="*   416.cfg"></a>*   416.cfg</h3><ul><li><p>  ignore_thresh = .7</p></li><li><p>  beta_nms=0.7</p></li><li><p>  result</p></li><li><p>  <img src="https://api2.mubu.com/v3/document_image/f6a1caf4-cdaf-4eb2-a5b5-3686bc80812a-1995134.jpg"></p></li></ul><h3 id="416-cfg-1"><a href="#416-cfg-1" class="headerlink" title="*   416.cfg"></a>*   416.cfg</h3><ul><li><p>  ignore_thresh = .7</p></li><li><p>  beta_nms=0.5</p></li><li><p>  result</p></li><li><p><img src="https://api2.mubu.com/v3/document_image/d78d9cdb-b2f2-48d4-a7bf-0d9e75307ac6-1995134.jpg"></p></li></ul>]]></content>
     
@@ -218,8 +218,8 @@
   
   <entry>
     <title>戴面具的猫</title>
-    <link href="/2021/10/20/%E6%B5%8B%E8%AF%95%E4%B8%93%E7%94%A8/"/>
-    <url>/2021/10/20/%E6%B5%8B%E8%AF%95%E4%B8%93%E7%94%A8/</url>
+    <link href="/2021/10/20/test4/"/>
+    <url>/2021/10/20/test4/</url>
     
     <content type="html"><![CDATA[<h2 id><a href="#" class="headerlink" title></a></h2><p>图片</p><p><img src="https://api2.mubu.com/v3/document_image/a94b0309-01be-4a66-929b-459ccecb1686-1995134.jpg" alt="收手吧阿祖，外面全是警察"></p><p><img src="https://api2.mubu.com/v3/document_image/99485699-a9fd-45bb-9f64-df3434d60c1c-1995134.jpg" alt="HYUKOH"></p>]]></content>
     
