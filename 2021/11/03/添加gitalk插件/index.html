@@ -16,34 +16,32 @@
   <meta name="description" content="">
   <meta name="author" content="Ethan">
   <meta name="keywords" content="">
-  <meta name="description" content="ROS入门ROS（Robot Operating System）机器人操作系统本文素材来自古月ROS入门21讲 *   概念 *   发展 *   应用 *   通信机制 *   开发工具 *   功能开发 *   ROS生态系统 *   ROS节点实现：SLAM（同步定位与地图构建）（C++）、A* Dijkstra（最短路径规划）、YOLO（目标识别检测）（python） 单片机 Arduin">
+  <meta name="description" content="添加gitalk博客评价插件前提：1.使用hexo+github搭建的个人博客2.没有绑定域名直接上方法：1.创建存储评论的GitHub仓库 2.初始化这个仓库在setting里勾选issues选项 创建一条issue 3.github注册应用注册applicantion 注册后生成的id、密码填到配置文件里 4.修改主题的_config.yml文件，部署并预览 部署一下 随便打开一个博客看下 点">
 <meta property="og:type" content="article">
-<meta property="og:title" content="极本穷源：ROS篇">
-<meta property="og:url" content="http://example.com/2021/11/03/ROS%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:title" content="添加gitalk博客评价插件">
+<meta property="og:url" content="http://example.com/2021/11/03/%E6%B7%BB%E5%8A%A0gitalk%E6%8F%92%E4%BB%B6/index.html">
 <meta property="og:site_name" content="Ethan的个人博客">
-<meta property="og:description" content="ROS入门ROS（Robot Operating System）机器人操作系统本文素材来自古月ROS入门21讲 *   概念 *   发展 *   应用 *   通信机制 *   开发工具 *   功能开发 *   ROS生态系统 *   ROS节点实现：SLAM（同步定位与地图构建）（C++）、A* Dijkstra（最短路径规划）、YOLO（目标识别检测）（python） 单片机 Arduin">
+<meta property="og:description" content="添加gitalk博客评价插件前提：1.使用hexo+github搭建的个人博客2.没有绑定域名直接上方法：1.创建存储评论的GitHub仓库 2.初始化这个仓库在setting里勾选issues选项 创建一条issue 3.github注册应用注册applicantion 注册后生成的id、密码填到配置文件里 4.修改主题的_config.yml文件，部署并预览 部署一下 随便打开一个博客看下 点">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://api2.mubu.com/v3/document_image/c87a74b2-8988-4d4b-98ca-ed5cdd7fc166-1995134.jpg">
-<meta property="og:image" content="https://api2.mubu.com/v3/document_image/25835449-1fbe-49b2-aabb-ff6acc6ba3f3-1995134.jpg">
-<meta property="og:image" content="https://api2.mubu.com/v3/document_image/e24956d2-c6eb-4b91-8790-2ccdc8b5b4ee-1995134.jpg">
-<meta property="og:image" content="https://api2.mubu.com/v3/document_image/d53494c7-f6f7-45db-a197-970297df1a0c-1995134.jpg">
-<meta property="og:image" content="https://api2.mubu.com/v3/document_image/6635e90b-5fba-4ab4-8293-8271b27ed50e-1995134.jpg">
-<meta property="og:image" content="https://api2.mubu.com/v3/document_image/d197d5d4-2936-4189-a7b5-336fd9ffc0de-1995134.jpg">
-<meta property="og:image" content="https://api2.mubu.com/v3/document_image/551bc7c6-39ac-4f75-a418-2ab45d03b15d-1995134.jpg">
-<meta property="og:image" content="https://api2.mubu.com/v3/document_image/0b6f1922-049d-4c96-a655-168ea5e181e4-1995134.jpg">
-<meta property="og:image" content="https://api2.mubu.com/v3/document_image/7322f84d-dace-4ea3-bc99-84ecf248c6d6-1995134.jpg">
-<meta property="og:image" content="https://api2.mubu.com/v3/document_image/3ddad4db-8f71-4cfb-a457-ea28922cd9c8-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/b6636d07-ef40-4a1e-ad52-0655c494eafb-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/a51fbf64-77fb-47ab-a762-9fc55a0adec8-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/d5d11480-67dd-463a-aebe-4af25909854d-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/11335b94-2202-48f6-952c-6e7726b1cfeb-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/1dbe45cf-54a8-4b08-a614-25e6074ea85e-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/1051b4bd-11ed-447b-b58b-fbbcd3ec8246-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/ba454b47-00e4-44e2-ae83-7aa7447ee113-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/7d4606d2-294c-42a8-aa56-864a349af76c-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/917094cf-6199-4ad8-922b-210496f81b7c-1995134.jpg">
 <meta property="article:published_time" content="2021-11-03T00:51:40.000Z">
-<meta property="article:modified_time" content="2021-11-05T03:50:17.894Z">
+<meta property="article:modified_time" content="2021-11-05T04:41:06.443Z">
 <meta property="article:author" content="Ethan">
-<meta property="article:tag" content="古月居">
-<meta property="article:tag" content="机器人">
-<meta property="article:tag" content="ROS基础">
-<meta property="article:tag" content="ROS节点">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="Fluid">
+<meta property="article:tag" content="gitalk">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://api2.mubu.com/v3/document_image/c87a74b2-8988-4d4b-98ca-ed5cdd7fc166-1995134.jpg">
+<meta name="twitter:image" content="https://api2.mubu.com/v3/document_image/b6636d07-ef40-4a1e-ad52-0655c494eafb-1995134.jpg">
   
-  <title>极本穷源：ROS篇 - Ethan的个人博客</title>
+  <title>添加gitalk博客评价插件 - Ethan的个人博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -202,7 +200,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="极本穷源：ROS篇">
+            <span class="h2" id="subtitle" title="添加gitalk博客评价插件">
               
             </span>
 
@@ -228,7 +226,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      292 字
+      206 字
     </span>
   
 
@@ -274,27 +272,24 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">极本穷源：ROS篇</h1>
+            <h1 style="display: none">添加gitalk博客评价插件</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年11月5日 中午
+                  本文最后更新于：2021年11月5日 下午
                 
               </p>
             
             <div class="markdown-body">
-              <h1 id="ROS入门"><a href="#ROS入门" class="headerlink" title="ROS入门"></a>ROS入门</h1><h2 id="ROS（Robot-Operating-System）机器人操作系统"><a href="#ROS（Robot-Operating-System）机器人操作系统" class="headerlink" title="ROS（Robot Operating System）机器人操作系统"></a>ROS（Robot Operating System）机器人操作系统</h2><p>本文素材来自古月ROS入门21讲</p>
-<h3 id="概念"><a href="#概念" class="headerlink" title="*   概念"></a>*   概念</h3><p><img src="https://api2.mubu.com/v3/document_image/c87a74b2-8988-4d4b-98ca-ed5cdd7fc166-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
-<h3 id="发展"><a href="#发展" class="headerlink" title="*   发展"></a>*   发展</h3><p><img src="https://api2.mubu.com/v3/document_image/25835449-1fbe-49b2-aabb-ff6acc6ba3f3-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
-<h3 id="应用"><a href="#应用" class="headerlink" title="*   应用"></a>*   应用</h3><p><img src="https://api2.mubu.com/v3/document_image/e24956d2-c6eb-4b91-8790-2ccdc8b5b4ee-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
-<h3 id="通信机制"><a href="#通信机制" class="headerlink" title="*   通信机制"></a>*   通信机制</h3><p><img src="https://api2.mubu.com/v3/document_image/d53494c7-f6f7-45db-a197-970297df1a0c-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
-<h3 id="开发工具"><a href="#开发工具" class="headerlink" title="*   开发工具"></a>*   开发工具</h3><p><img src="https://api2.mubu.com/v3/document_image/6635e90b-5fba-4ab4-8293-8271b27ed50e-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
-<h3 id="功能开发"><a href="#功能开发" class="headerlink" title="*   功能开发"></a>*   功能开发</h3><p><img src="https://api2.mubu.com/v3/document_image/d197d5d4-2936-4189-a7b5-336fd9ffc0de-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
-<h3 id="ROS生态系统"><a href="#ROS生态系统" class="headerlink" title="*   ROS生态系统"></a>*   ROS生态系统</h3><p><img src="https://api2.mubu.com/v3/document_image/551bc7c6-39ac-4f75-a418-2ab45d03b15d-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
-<h2 id="ROS节点实现：SLAM（同步定位与地图构建）（C-）、A-Dijkstra（最短路径规划）、YOLO（目标识别检测）（python）"><a href="#ROS节点实现：SLAM（同步定位与地图构建）（C-）、A-Dijkstra（最短路径规划）、YOLO（目标识别检测）（python）" class="headerlink" title="*   ROS节点实现：SLAM（同步定位与地图构建）（C++）、A* Dijkstra（最短路径规划）、YOLO（目标识别检测）（python）"></a>*   ROS节点实现：SLAM（同步定位与地图构建）（C++）、A* Dijkstra（最短路径规划）、YOLO（目标识别检测）（python）</h2><p><img src="https://api2.mubu.com/v3/document_image/0b6f1922-049d-4c96-a655-168ea5e181e4-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
-<p>单片机 Arduino MCU 主频 Mb，PC、 树莓派、jetson系列 主频 Gb</p>
-<h2 id="一个典型的ROS机器人"><a href="#一个典型的ROS机器人" class="headerlink" title="*   一个典型的ROS机器人"></a>*   一个典型的ROS机器人</h2><p>Turtlebot：激光雷达（360°深度信息，SLAM导航）、树莓派（应用层：ROS功能包功能实现SLAM等）、OpenCR（底层运动处理，电机PID闭环控制，传感器采集..）</p>
-<p><img src="https://api2.mubu.com/v3/document_image/7322f84d-dace-4ea3-bc99-84ecf248c6d6-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload><br><img src="https://api2.mubu.com/v3/document_image/3ddad4db-8f71-4cfb-a457-ea28922cd9c8-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+              <h1 id="添加gitalk博客评价插件"><a href="#添加gitalk博客评价插件" class="headerlink" title="添加gitalk博客评价插件"></a>添加gitalk博客评价插件</h1><h2 id="前提："><a href="#前提：" class="headerlink" title="前提："></a>前提：</h2><h3 id="1-使用hexo-github搭建的个人博客"><a href="#1-使用hexo-github搭建的个人博客" class="headerlink" title="1.使用hexo+github搭建的个人博客"></a>1.使用hexo+github搭建的个人博客</h3><h3 id="2-没有绑定域名"><a href="#2-没有绑定域名" class="headerlink" title="2.没有绑定域名"></a>2.没有绑定域名</h3><h2 id="直接上方法："><a href="#直接上方法：" class="headerlink" title="直接上方法："></a>直接上方法：</h2><h3 id="1-创建存储评论的GitHub仓库"><a href="#1-创建存储评论的GitHub仓库" class="headerlink" title="1.创建存储评论的GitHub仓库"></a>1.创建存储评论的GitHub仓库</h3><p><img src="https://api2.mubu.com/v3/document_image/b6636d07-ef40-4a1e-ad52-0655c494eafb-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+<h3 id="2-初始化这个仓库"><a href="#2-初始化这个仓库" class="headerlink" title="2.初始化这个仓库"></a>2.初始化这个仓库</h3><h4 id="在setting里勾选issues选项"><a href="#在setting里勾选issues选项" class="headerlink" title="在setting里勾选issues选项"></a>在setting里勾选issues选项</h4><p><img src="https://api2.mubu.com/v3/document_image/a51fbf64-77fb-47ab-a762-9fc55a0adec8-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+<h4 id="创建一条issue"><a href="#创建一条issue" class="headerlink" title="创建一条issue"></a>创建一条issue</h4><p><img src="https://api2.mubu.com/v3/document_image/d5d11480-67dd-463a-aebe-4af25909854d-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+<h3 id="3-github注册应用"><a href="#3-github注册应用" class="headerlink" title="3.github注册应用"></a>3.<a target="_blank" rel="noopener" href="https://github.com/settings/developers">github注册应用</a></h3><h4 id="注册applicantion"><a href="#注册applicantion" class="headerlink" title="注册applicantion"></a>注册applicantion</h4><p><img src="https://api2.mubu.com/v3/document_image/11335b94-2202-48f6-952c-6e7726b1cfeb-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+<h4 id="注册后生成的id、密码填到配置文件里"><a href="#注册后生成的id、密码填到配置文件里" class="headerlink" title="注册后生成的id、密码填到配置文件里"></a>注册后生成的id、密码填到配置文件里</h4><p><img src="https://api2.mubu.com/v3/document_image/1dbe45cf-54a8-4b08-a614-25e6074ea85e-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+<h3 id="4-修改主题的-config-yml文件，部署并预览"><a href="#4-修改主题的-config-yml文件，部署并预览" class="headerlink" title="4.修改主题的_config.yml文件，部署并预览"></a>4.修改主题的_config.yml文件，部署并预览</h3><p><img src="https://api2.mubu.com/v3/document_image/1051b4bd-11ed-447b-b58b-fbbcd3ec8246-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+<h4 id="部署一下"><a href="#部署一下" class="headerlink" title="部署一下"></a>部署一下</h4><p><img src="https://api2.mubu.com/v3/document_image/ba454b47-00e4-44e2-ae83-7aa7447ee113-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+<h4 id="随便打开一个博客看下"><a href="#随便打开一个博客看下" class="headerlink" title="随便打开一个博客看下"></a>随便打开一个博客看下</h4><p><img src="https://api2.mubu.com/v3/document_image/7d4606d2-294c-42a8-aa56-864a349af76c-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+<h4 id="点一下初始化issue-成了！"><a href="#点一下初始化issue-成了！" class="headerlink" title="点一下初始化issue,成了！"></a>点一下初始化issue,成了！</h4><p><img src="https://api2.mubu.com/v3/document_image/917094cf-6199-4ad8-922b-210496f81b7c-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
 
             </div>
             <hr>
@@ -304,7 +299,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%9E%81%E6%9C%AC%E7%A9%B7%E6%BA%90/">极本穷源</a>
+                      <a class="hover-with-bg" href="/categories/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">搭建个人博客</a>
                     
                   </div>
                 
@@ -312,13 +307,11 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%8F%A4%E6%9C%88%E5%B1%85/">古月居</a>
+                      <a class="hover-with-bg" href="/tags/hexo/">hexo</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/">机器人</a>
+                      <a class="hover-with-bg" href="/tags/Fluid/">Fluid</a>
                     
-                      <a class="hover-with-bg" href="/tags/ROS%E5%9F%BA%E7%A1%80/">ROS基础</a>
-                    
-                      <a class="hover-with-bg" href="/tags/ROS%E8%8A%82%E7%82%B9/">ROS节点</a>
+                      <a class="hover-with-bg" href="/tags/gitalk/">gitalk</a>
                     
                   </div>
                 
@@ -335,9 +328,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/11/03/YOLOv4-tiny%E5%9C%A8jetson%20nano(TX2)%E4%B8%8B%E7%9A%84%E5%AE%9E%E6%97%B6%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/">
+                      <a href="/2021/11/03/ROS%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">YOLOv4-tiny在jetson nano(TX2)下的实时目标检测</span>
+                        <span class="hidden-mobile">极本穷源：ROS篇</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -345,8 +338,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/11/03/%E6%B7%BB%E5%8A%A0gitalk%E6%8F%92%E4%BB%B6/">
-                        <span class="hidden-mobile">添加gitalk博客评价插件</span>
+                      <a href="/2021/10/28/%E7%AE%80%E8%BF%B0%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E6%A0%88%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84OSI%E6%A8%A1%E5%9E%8B/">
+                        <span class="hidden-mobile">简述通信协议栈和计算机网络的OSI模型</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -371,7 +364,7 @@
         var options = Object.assign(
           {"clientID":"2a3059614b56125a051a","clientSecret":"d0bf906c99410f02e6119f2b798e16f941431df6","repo":"gitalk","owner":"Ethan1024","admin":["Ethan1024"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: 'a97a1ef225158149fc590cb6e36ca897'
+            id: '5ff3e6922b1348ad8d7d0267ef1612c1'
           }
         )
         var gitalk = new Gitalk(options);

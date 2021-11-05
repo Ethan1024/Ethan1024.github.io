@@ -70,6 +70,35 @@
   
   
   <entry>
+    <title>添加gitalk博客评价插件</title>
+    <link href="/2021/11/03/%E6%B7%BB%E5%8A%A0gitalk%E6%8F%92%E4%BB%B6/"/>
+    <url>/2021/11/03/%E6%B7%BB%E5%8A%A0gitalk%E6%8F%92%E4%BB%B6/</url>
+    
+    <content type="html"><![CDATA[<h1 id="添加gitalk博客评价插件"><a href="#添加gitalk博客评价插件" class="headerlink" title="添加gitalk博客评价插件"></a>添加gitalk博客评价插件</h1><h2 id="前提："><a href="#前提：" class="headerlink" title="前提："></a>前提：</h2><h3 id="1-使用hexo-github搭建的个人博客"><a href="#1-使用hexo-github搭建的个人博客" class="headerlink" title="1.使用hexo+github搭建的个人博客"></a>1.使用hexo+github搭建的个人博客</h3><h3 id="2-没有绑定域名"><a href="#2-没有绑定域名" class="headerlink" title="2.没有绑定域名"></a>2.没有绑定域名</h3><h2 id="直接上方法："><a href="#直接上方法：" class="headerlink" title="直接上方法："></a>直接上方法：</h2><h3 id="1-创建存储评论的GitHub仓库"><a href="#1-创建存储评论的GitHub仓库" class="headerlink" title="1.创建存储评论的GitHub仓库"></a>1.创建存储评论的GitHub仓库</h3><p><img src="https://api2.mubu.com/v3/document_image/b6636d07-ef40-4a1e-ad52-0655c494eafb-1995134.jpg"></p><h3 id="2-初始化这个仓库"><a href="#2-初始化这个仓库" class="headerlink" title="2.初始化这个仓库"></a>2.初始化这个仓库</h3><h4 id="在setting里勾选issues选项"><a href="#在setting里勾选issues选项" class="headerlink" title="在setting里勾选issues选项"></a>在setting里勾选issues选项</h4><p><img src="https://api2.mubu.com/v3/document_image/a51fbf64-77fb-47ab-a762-9fc55a0adec8-1995134.jpg"></p><h4 id="创建一条issue"><a href="#创建一条issue" class="headerlink" title="创建一条issue"></a>创建一条issue</h4><p><img src="https://api2.mubu.com/v3/document_image/d5d11480-67dd-463a-aebe-4af25909854d-1995134.jpg"></p><h3 id="3-github注册应用"><a href="#3-github注册应用" class="headerlink" title="3.github注册应用"></a>3.<a href="https://github.com/settings/developers">github注册应用</a></h3><h4 id="注册applicantion"><a href="#注册applicantion" class="headerlink" title="注册applicantion"></a>注册applicantion</h4><p><img src="https://api2.mubu.com/v3/document_image/11335b94-2202-48f6-952c-6e7726b1cfeb-1995134.jpg"></p><h4 id="注册后生成的id、密码填到配置文件里"><a href="#注册后生成的id、密码填到配置文件里" class="headerlink" title="注册后生成的id、密码填到配置文件里"></a>注册后生成的id、密码填到配置文件里</h4><p><img src="https://api2.mubu.com/v3/document_image/1dbe45cf-54a8-4b08-a614-25e6074ea85e-1995134.jpg"></p><h3 id="4-修改主题的-config-yml文件，部署并预览"><a href="#4-修改主题的-config-yml文件，部署并预览" class="headerlink" title="4.修改主题的_config.yml文件，部署并预览"></a>4.修改主题的_config.yml文件，部署并预览</h3><p><img src="https://api2.mubu.com/v3/document_image/1051b4bd-11ed-447b-b58b-fbbcd3ec8246-1995134.jpg"></p><h4 id="部署一下"><a href="#部署一下" class="headerlink" title="部署一下"></a>部署一下</h4><p><img src="https://api2.mubu.com/v3/document_image/ba454b47-00e4-44e2-ae83-7aa7447ee113-1995134.jpg"></p><h4 id="随便打开一个博客看下"><a href="#随便打开一个博客看下" class="headerlink" title="随便打开一个博客看下"></a>随便打开一个博客看下</h4><p><img src="https://api2.mubu.com/v3/document_image/7d4606d2-294c-42a8-aa56-864a349af76c-1995134.jpg"></p><h4 id="点一下初始化issue-成了！"><a href="#点一下初始化issue-成了！" class="headerlink" title="点一下初始化issue,成了！"></a>点一下初始化issue,成了！</h4><p><img src="https://api2.mubu.com/v3/document_image/917094cf-6199-4ad8-922b-210496f81b7c-1995134.jpg"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>搭建个人博客</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>hexo</tag>
+      
+      <tag>Fluid</tag>
+      
+      <tag>gitalk</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>简述通信协议栈和计算机网络的OSI模型</title>
     <link href="/2021/10/28/%E7%AE%80%E8%BF%B0%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E6%A0%88%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84OSI%E6%A8%A1%E5%9E%8B/"/>
     <url>/2021/10/28/%E7%AE%80%E8%BF%B0%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E6%A0%88%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84OSI%E6%A8%A1%E5%9E%8B/</url>
