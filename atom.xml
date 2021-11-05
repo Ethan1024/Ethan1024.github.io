@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-11-03T07:01:18.010Z</updated>
+  <updated>2021-11-05T03:47:14.742Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,12 +21,14 @@
     <link href="http://example.com/2021/11/03/YOLOv4-tiny%E5%9C%A8jetson%20nano(TX2)%E4%B8%8B%E7%9A%84%E5%AE%9E%E6%97%B6%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
     <id>http://example.com/2021/11/03/YOLOv4-tiny%E5%9C%A8jetson%20nano(TX2)%E4%B8%8B%E7%9A%84%E5%AE%9E%E6%97%B6%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/</id>
     <published>2021-11-03T04:42:43.000Z</published>
-    <updated>2021-11-03T07:01:18.010Z</updated>
+    <updated>2021-11-05T03:47:14.742Z</updated>
     
     
     
     
     <category term="深度学习" scheme="http://example.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="jetson" scheme="http://example.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/jetson/"/>
     
     
     <category term="YOLO" scheme="http://example.com/tags/YOLO/"/>
@@ -46,7 +48,7 @@
     <link href="http://example.com/2021/11/03/ROS%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
     <id>http://example.com/2021/11/03/ROS%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-11-03T00:51:40.000Z</published>
-    <updated>2021-11-05T03:45:28.823Z</updated>
+    <updated>2021-11-05T03:50:17.894Z</updated>
     
     <content type="html"><![CDATA[<h1 id="ROS入门"><a href="#ROS入门" class="headerlink" title="ROS入门"></a>ROS入门</h1><h2 id="ROS（Robot-Operating-System）机器人操作系统"><a href="#ROS（Robot-Operating-System）机器人操作系统" class="headerlink" title="ROS（Robot Operating System）机器人操作系统"></a>ROS（Robot Operating System）机器人操作系统</h2><p>本文素材来自古月ROS入门21讲</p><h3 id="概念"><a href="#概念" class="headerlink" title="*   概念"></a>*   概念</h3><p><img src="https://api2.mubu.com/v3/document_image/c87a74b2-8988-4d4b-98ca-ed5cdd7fc166-1995134.jpg"></p><h3 id="发展"><a href="#发展" class="headerlink" title="*   发展"></a>*   发展</h3><p><img src="https://api2.mubu.com/v3/document_image/25835449-1fbe-49b2-aabb-ff6acc6ba3f3-1995134.jpg"></p><h3 id="应用"><a href="#应用" class="headerlink" title="*   应用"></a>*   应用</h3><p><img src="https://api2.mubu.com/v3/document_image/e24956d2-c6eb-4b91-8790-2ccdc8b5b4ee-1995134.jpg"></p><h3 id="通信机制"><a href="#通信机制" class="headerlink" title="*   通信机制"></a>*   通信机制</h3><p><img src="https://api2.mubu.com/v3/document_image/d53494c7-f6f7-45db-a197-970297df1a0c-1995134.jpg"></p><h3 id="开发工具"><a href="#开发工具" class="headerlink" title="*   开发工具"></a>*   开发工具</h3><p><img src="https://api2.mubu.com/v3/document_image/6635e90b-5fba-4ab4-8293-8271b27ed50e-1995134.jpg"></p><h3 id="功能开发"><a href="#功能开发" class="headerlink" title="*   功能开发"></a>*   功能开发</h3><p><img src="https://api2.mubu.com/v3/document_image/d197d5d4-2936-4189-a7b5-336fd9ffc0de-1995134.jpg"></p><h3 id="ROS生态系统"><a href="#ROS生态系统" class="headerlink" title="*   ROS生态系统"></a>*   ROS生态系统</h3><p><img src="https://api2.mubu.com/v3/document_image/551bc7c6-39ac-4f75-a418-2ab45d03b15d-1995134.jpg"></p><h2 id="ROS节点实现：SLAM（同步定位与地图构建）（C-）、A-Dijkstra（最短路径规划）、YOLO（目标识别检测）（python）"><a href="#ROS节点实现：SLAM（同步定位与地图构建）（C-）、A-Dijkstra（最短路径规划）、YOLO（目标识别检测）（python）" class="headerlink" title="*   ROS节点实现：SLAM（同步定位与地图构建）（C++）、A* Dijkstra（最短路径规划）、YOLO（目标识别检测）（python）"></a>*   ROS节点实现：SLAM（同步定位与地图构建）（C++）、A* Dijkstra（最短路径规划）、YOLO（目标识别检测）（python）</h2><p><img src="https://api2.mubu.com/v3/document_image/0b6f1922-049d-4c96-a655-168ea5e181e4-1995134.jpg"></p><p>单片机 Arduino MCU 主频 Mb，PC、 树莓派、jetson系列 主频 Gb</p><h2 id="一个典型的ROS机器人"><a href="#一个典型的ROS机器人" class="headerlink" title="*   一个典型的ROS机器人"></a>*   一个典型的ROS机器人</h2><p>Turtlebot：激光雷达（360°深度信息，SLAM导航）、树莓派（应用层：ROS功能包功能实现SLAM等）、OpenCR（底层运动处理，电机PID闭环控制，传感器采集..）</p><p><img src="https://api2.mubu.com/v3/document_image/7322f84d-dace-4ea3-bc99-84ecf248c6d6-1995134.jpg"><br><img src="https://api2.mubu.com/v3/document_image/3ddad4db-8f71-4cfb-a457-ea28922cd9c8-1995134.jpg"></p>]]></content>
     
@@ -58,9 +60,7 @@
     
     
     
-    <category term="ROS" scheme="http://example.com/categories/ROS/"/>
-    
-    <category term="极本穷源" scheme="http://example.com/categories/ROS/%E6%9E%81%E6%9C%AC%E7%A9%B7%E6%BA%90/"/>
+    <category term="极本穷源" scheme="http://example.com/categories/%E6%9E%81%E6%9C%AC%E7%A9%B7%E6%BA%90/"/>
     
     
     <category term="古月居" scheme="http://example.com/tags/%E5%8F%A4%E6%9C%88%E5%B1%85/"/>

@@ -9,6 +9,13 @@
   </url>
   
   <url>
+    <loc>http://example.com/2021/11/03/YOLOv4-tiny%E5%9C%A8jetson%20nano(TX2)%E4%B8%8B%E7%9A%84%E5%AE%9E%E6%97%B6%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/</loc>
+    
+    <lastmod>2021-11-05</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://example.com/2021/10/26/YOLO%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</loc>
     
     <lastmod>2021-11-04</lastmod>
@@ -17,13 +24,6 @@
   
   <url>
     <loc>http://example.com/2021/10/24/YOLOv3%E5%9C%A8ubuntu20-04%E4%B8%8B%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/</loc>
-    
-    <lastmod>2021-11-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://example.com/2021/11/03/YOLOv4-tiny%E5%9C%A8jetson%20nano(TX2)%E4%B8%8B%E7%9A%84%E5%AE%9E%E6%97%B6%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/</loc>
     
     <lastmod>2021-11-03</lastmod>
     
@@ -307,14 +307,14 @@
   </url>
   
   <url>
-    <loc>http://example.com/categories/ROS/</loc>
+    <loc>http://example.com/categories/%E6%9E%81%E6%9C%AC%E7%A9%B7%E6%BA%90/</loc>
     <lastmod>2021-11-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://example.com/categories/ROS/%E6%9E%81%E6%9C%AC%E7%A9%B7%E6%BA%90/</loc>
+    <loc>http://example.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/jetson/</loc>
     <lastmod>2021-11-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
