@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-12-02T09:57:22.166Z</updated>
+  <updated>2021-12-05T14:17:16.905Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>四旋翼无人机组装</title>
+    <link href="http://example.com/2021/12/05/%E5%9B%9B%E6%97%8B%E7%BF%BC%E6%97%A0%E4%BA%BA%E6%9C%BA%E7%BB%84%E8%A3%85/"/>
+    <id>http://example.com/2021/12/05/%E5%9B%9B%E6%97%8B%E7%BF%BC%E6%97%A0%E4%BA%BA%E6%9C%BA%E7%BB%84%E8%A3%85/</id>
+    <published>2021-12-05T13:51:20.000Z</published>
+    <updated>2021-12-05T14:17:16.905Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="四旋翼无人机组装"><a href="#四旋翼无人机组装" class="headerlink" title="四旋翼无人机组装"></a>四旋翼无人机组装</h1><ul><li>  去年夏天由于工作需要，在淘宝购买了一款拉线版四旋翼无人机开发套件。简单介绍下这款套件，如下图所示无人机主要包括机架、电机、电调、分电板、飞控、GPS导航（罗盘指南针）、电源、遥控器（接收机）、碳桨、抛投器等。</li></ul><p>   <img src="https://api2.mubu.com/v3/document_image/b8d78807-438e-4690-9670-1086441ecf07-1995134.jpg"></p><ul><li>  <strong>机架</strong>和<strong>浆叶</strong>均采用了碳钎维材料，目的是减轻自身重量，获得较好的续航性能。<strong>电机</strong>与<strong>电调</strong>配合飞控的控制指令使得无人机获得动力来源，电调的主要作用就是控制电机以合适的转速和功率转动，从而使得无人机平稳的飞行。飞控选配的是开源飞控pixhawk2.4.8，刚接触的小伙伴可能对<strong>APM、PIXHAWK、PX4</strong>这三者分不清楚，简单来说pixhawk是一款开源硬件APM和PX4都是烧写在该硬件上的固件程序。</li></ul><p>   <img src="https://api2.mubu.com/v3/document_image/2a2edfac-1430-4839-b8a8-9cde9a4ce220-1995134.jpg"></p><ul><li>  <strong>遥控器</strong>和<strong>接收机</strong>是一套用于联通无人机状态、图像采集与地面站通信的通信设施，本次选配的是云卓T10套件（有配套的地面站软件）。<strong>电池</strong>选择的是8000mAh（6s 22.2v）的大容量供电，这为无人机提供了极其强悍的动力，可以后续观看电调校准感受下。它本质上还是定位为一款载重电力拉线无人机（4kg）,<strong>四旋翼无人机组装</strong>通过设置遥控器上的特定通道无线控制舵机工作，配合连杆的开合实现抛投功能。</li></ul><h2 id="目的"><a href="#目的" class="headerlink" title="*   目的"></a>*   目的</h2><p>  通过此次组装四旋翼无人机初步了解无人机原理构造，积累经验为后续开发打下基础。</p><h2 id="方法"><a href="#方法" class="headerlink" title="*   方法"></a>*   方法</h2><p>   无人机到货后，心情是激动的、操作是无序的导致很多工作不得不返工，如下图飞行之前都先不用装桨叶。对新手来说拿到一堆零件后最忌讳的就是直接上手（天赋异禀的除外），先大概看一遍视频教程大致了解下步骤，然后边看教程边做。</p><p><img src="https://api2.mubu.com/v3/document_image/93c701b3-0f8d-450a-89db-ce52ed6cc0b3-1995134.jpg">     </p><p>   动起手来也不难就是要心细点，主要包括：焊接、接线、拧螺丝、校准、测试。焊接：电池里的电流首先经过稳压模块接入到分电板，接着通过分电板正负极引脚分别分传输到四个电调，经过电调的调整控制四个电机以规定好的旋转方向工作从而为无人机提供动力，需要注意的是电调的线较粗控制好焊接面积，切记注意短路的问题。</p><p><img src="https://api2.mubu.com/v3/document_image/9390e5ca-2385-4253-8e56-99cead8b305f-1995134.jpg">  </p><p>   <strong>接线</strong>：主要是电调与飞控通道的匹配（四个飞控通道对应四个电调）、GPS接线（直接插上）、接收机也给插上。<strong>校准</strong>：机架组装、焊接、接线都准备完毕后就需要对电调、罗盘、指南针、遥控器进行校准。电调校准时（不装桨叶）需要关注四个电机转向是否正确，下图所示为正确转向，出现侧飞或各种飞行不问首先检查电机转向，其次校准罗盘、GPS等。最后通过mission planner地面站软件分别对电调、罗盘、指南针、遥控器进行校准，设置遥控器的一个闲置通道为抛投器开关。</p><p><img src="https://api2.mubu.com/v3/document_image/1ed452b3-032f-45ec-8038-4c7dc235481a-1995134.jpg"></p><p>   <strong>如果上述工作你都认真检查过了</strong>，就可以进行试飞了。尽量在空旷（卫星质量佳、人少）的环境测试，切换为定点（loiter）模式操作，这种模式依靠卫星定位，辅助无人机稳定飞行。</p><p><img src="https://api2.mubu.com/v3/document_image/c7fba90f-810c-4c00-93c0-1321d3e2bb17-1995134.jpg"></p><h2 id="结果"><a href="#结果" class="headerlink" title="*   结果"></a>*   结果</h2><p>  大概一周的时间我完成了这架无人机的组装，之前飞过大疆的M100，懂一些基本的操作产生常识。首次飞行还算顺利，飞了大概10几分钟。第二次起飞可能是因为电量不是很充足，飞了一会自动下降，没啥经验的我没意识到电量的问题，强行推油门上升高度，随后因为动力不足直接炸机，检查后还好只烧了一个电机（电机内铜丝发黑，并且有烧焦味），后续换了新的电机，它又重获新生了！</p><p><img src="https://api2.mubu.com/v3/document_image/b01e9805-9477-49b5-8f3a-da6415dacb31-1995134.jpg"></p><h2 id="结论"><a href="#结论" class="headerlink" title="*   结论"></a>*   结论</h2><p>  这次的无人机组装接触到了很多新知识，为客服的耐心解答点赞。还是有很多收获的，看着这个大家伙挺有成就感的！最后，感受下他的<a href="https://www.bilibili.com/video/BV1KF411z75a?spm_id_from=333.999.0.0">动力</a>吧！（建议调低音量观看！）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;四旋翼无人机组装&quot;&gt;&lt;a href=&quot;#四旋翼无人机组装&quot; class=&quot;headerlink&quot; title=&quot;四旋翼无人机组装&quot;&gt;&lt;/a&gt;四旋翼无人机组装&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;  去年夏天由于工作需要，在淘宝购买了一款拉线版四旋翼无人机开发套件。简单介绍下</summary>
+      
+    
+    
+    
+    <category term="无人机" scheme="http://example.com/categories/%E6%97%A0%E4%BA%BA%E6%9C%BA/"/>
+    
+    
+    <category term="pixhawk2.4.8" scheme="http://example.com/tags/pixhawk2-4-8/"/>
+    
+    <category term="APM" scheme="http://example.com/tags/APM/"/>
+    
+    <category term="PX4" scheme="http://example.com/tags/PX4/"/>
+    
+    <category term="电调" scheme="http://example.com/tags/%E7%94%B5%E8%B0%83/"/>
+    
+    <category term="DIY无人机" scheme="http://example.com/tags/DIY%E6%97%A0%E4%BA%BA%E6%9C%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>智能路灯平台灯具控制系统的设计与实现</title>
