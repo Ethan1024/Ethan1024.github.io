@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-12-05T14:17:16.905Z</updated>
+  <updated>2021-12-06T05:01:05.825Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>用于缓解OSA的医疗枕</title>
+    <link href="http://example.com/2021/12/06/%E7%94%A8%E4%BA%8E%E7%BC%93%E8%A7%A3OSA%E7%9A%84%E5%8C%BB%E7%96%97%E6%9E%95/"/>
+    <id>http://example.com/2021/12/06/%E7%94%A8%E4%BA%8E%E7%BC%93%E8%A7%A3OSA%E7%9A%84%E5%8C%BB%E7%96%97%E6%9E%95/</id>
+    <published>2021-12-06T02:51:40.000Z</published>
+    <updated>2021-12-06T05:01:05.825Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="用于缓解OSA的医疗枕"><a href="#用于缓解OSA的医疗枕" class="headerlink" title="用于缓解OSA的医疗枕"></a>用于缓解OSA的医疗枕</h1><h2 id="起因"><a href="#起因" class="headerlink" title="*   起因"></a>*   起因</h2><p>   由于工作原因，六月份的时候做了一款基于生物雷达、薄膜式压力传感器、LoRa、Stm32f103、电磁气阀、气泵等电子元器件的缓解OSA（阻塞性睡眠呼吸暂停）的医疗枕头。现将大概原理总结如下：</p><h2 id="目的"><a href="#目的" class="headerlink" title="*   目的"></a>*   目的</h2><ul><li>  简单说明下这款设计的意义：众所周知，很多人在睡觉的时候会打呼，从医学角度解释的话是因为患者在睡眠时发生了呼吸阻塞引起打呼的发生。那么有人就要说了，不就是打呼嘛，多大个事！这有问题吗？没有问题。很不幸啊，鄙人有幸和一个体重较重的同学同住过一个寝室，每次睡觉都要赶在他睡着之前睡，他的呼噜打的那叫一个地道！好几次打呼时发生了阻塞性睡眠呼吸暂停，直接一口气没上来把自己憋醒了。较为严重的症状会引起肺功能失调、哮喘等疾病，因此设计一款非接触式的睡眠呼吸暂停监测及缓解的枕头是极其有必要的！</li></ul><h2 id="方法"><a href="#方法" class="headerlink" title="*   方法"></a>*   方法</h2><ul><li>  <strong>原理说明</strong>：简单来说，通过<a href="https://baike.baidu.com/item/%E7%94%9F%E7%89%A9%E9%9B%B7%E8%BE%BE/16593763">生物雷达</a>实时监测人体呼吸信号，使用Stm32单片机将模拟信号转换为数字信号，做数据处理判断后做出呼吸状态评估，进而通过LoRa无线通信将这一结果反馈至缓解装置（缓解装置为一个由气泵、气囊、电磁气阀、Stm32单片机、LoRa、薄膜式压力传感器组成的医疗枕头）。当缓解装置接收到来自监测端的OSA信号时，通过薄膜式压力传感器判断人体头部位置，从而触发电磁气阀为对应的气囊充气，推动患者头部对头部睡眠姿势做出改变，以达到缓解OSA的目的。电路图如下:</li></ul><p>   <img src="https://api2.mubu.com/v3/document_image/e37607c6-193b-4333-bbc6-4ee9564f1160-1995134.jpg"></p><ul><li><strong>硬件组成</strong>：</li><li>  薄膜式压力传感器：</li></ul><p>   <img src="https://api2.mubu.com/v3/document_image/3e2c17d9-6699-4e8a-8d06-c651a3f82647-1995134.jpg"><br>   <img src="https://api2.mubu.com/v3/document_image/834508de-91f0-4789-a7b0-b3321b41bc63-1995134.jpg"></p><ul><li>  生物雷达、STM32、HC05蓝牙（后改蓝牙）</li></ul><p>   <img src="https://api2.mubu.com/v3/document_image/d32daad5-3d6d-4f66-ad2f-792a5cf2e424-1995134.jpg"></p><ul><li>  气泵、电磁气阀</li></ul><p>   <img src="https://api2.mubu.com/v3/document_image/7cd9a5d3-9cd9-41a6-8225-442e66b4d1bf-1995134.jpg"></p><p>   <img src="https://api2.mubu.com/v3/document_image/da0cbf04-1ab2-4ecf-b044-2b1be26f9522-1995134.jpg"></p><h2 id="结果"><a href="#结果" class="headerlink" title="*   结果"></a>*   结果</h2><ul><li>  采用非接触式的呼吸监测，减少了患者佩戴各种监测仪器带来的不便与影响，实际测试表明整套的流程走完是没有问题，然而因为考虑到气囊充气的力度，这次选择的鱼缸供氧的气泵，噪音较大。除此之外，程序上的一些小bug也没来得及改完就被强行收工。最终效果如下图：</li></ul><p>   <img src="https://api2.mubu.com/v3/document_image/0c64df64-0935-4c99-995d-1651aaafd2a8-1995134.jpg"></p><p>   <img src="https://api2.mubu.com/v3/document_image/a9d411e0-fe9d-4655-a9cf-1a6a71f47c95-1995134.jpg"></p><h2 id="结论"><a href="#结论" class="headerlink" title="*   结论"></a>*   结论</h2><ul><li>当一个人去解决一大堆需求时，你能做的就是多动脑，勤动手，实在不会的就简化需求！以前压根没听说过电磁气阀这类东西，一个劲的按照自己的想法搜索合适的硬件选型，用鱼缸增氧的气泵也是处于给的时间并不多的原因。总之，干就完了，奥利给！</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;用于缓解OSA的医疗枕&quot;&gt;&lt;a href=&quot;#用于缓解OSA的医疗枕&quot; class=&quot;headerlink&quot; title=&quot;用于缓解OSA的医疗枕&quot;&gt;&lt;/a&gt;用于缓解OSA的医疗枕&lt;/h1&gt;&lt;h2 id=&quot;起因&quot;&gt;&lt;a href=&quot;#起因&quot; class=&quot;head</summary>
+      
+    
+    
+    
+    <category term="单片机" scheme="http://example.com/categories/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+    
+    <category term="OSA" scheme="http://example.com/tags/OSA/"/>
+    
+    <category term="生物雷达" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E9%9B%B7%E8%BE%BE/"/>
+    
+    <category term="呼吸暂停" scheme="http://example.com/tags/%E5%91%BC%E5%90%B8%E6%9A%82%E5%81%9C/"/>
+    
+    <category term="薄膜式压力传感器" scheme="http://example.com/tags/%E8%96%84%E8%86%9C%E5%BC%8F%E5%8E%8B%E5%8A%9B%E4%BC%A0%E6%84%9F%E5%99%A8/"/>
+    
+    <category term="LoRa" scheme="http://example.com/tags/LoRa/"/>
+    
+  </entry>
   
   <entry>
     <title>四旋翼无人机组装</title>
