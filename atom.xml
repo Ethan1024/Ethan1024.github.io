@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-12-10T07:29:44.391Z</updated>
+  <updated>2021-12-10T08:31:31.619Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图片上传测试👀</title>
+    <link href="http://example.com/2021/12/10/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E6%B5%8B%E8%AF%95/"/>
+    <id>http://example.com/2021/12/10/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E6%B5%8B%E8%AF%95/</id>
+    <published>2021-12-10T08:30:50.000Z</published>
+    <updated>2021-12-10T08:31:31.619Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://gitee.com/seaman1024/pic/raw/master/https://gitee.com/seaman1024/pic.git/%E4%BC%81%E9%B9%85.jpg"></p><p><img src="https://gitee.com/seaman1024/pic/raw/master/https://gitee.com/seaman1024/pic.git/%E5%8D%B7%E7%A7%AF.gif"></p><p><img src="https://gitee.com/seaman1024/pic/raw/master/https://gitee.com/seaman1024/pic.git/1.jpg"></p><p><img src="https://gitee.com/seaman1024/pic/raw/master/https://gitee.com/seaman1024/pic.git/image-20211210163112981.png" alt="image-20211210163112981"></p><p><img src="https://gitee.com/seaman1024/pic/raw/master/https://gitee.com/seaman1024/pic.git/724ad6284c7279e72b28550bbe1d30f.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://gitee.com/seaman1024/pic/raw/master/https://gitee.com/seaman1024/pic.git/%E4%BC%81%E9%B9%85.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http</summary>
+      
+    
+    
+    
+    <category term="图片" scheme="http://example.com/categories/%E5%9B%BE%E7%89%87/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>如何优雅的写博客👀</title>
