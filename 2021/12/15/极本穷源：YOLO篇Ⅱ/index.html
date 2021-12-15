@@ -1,0 +1,711 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/%E5%A4%B4%E5%83%8F.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Ethan">
+  <meta name="keywords" content="">
+  <meta name="description" content="极本穷源：YOLO篇Ⅱ 上篇中我们提到了yolo的大概属性，今天接着总结一下yolo是基于什么样的背景发展而来。 YOLO是如何实现目标的识别检测？ 首先YOLO由多层网络组成以YOLOv3为例： yolov3  yolov3.cfg          结构组成卷积层+池化层+激活函数+全连接层 卷积层 卷积层由一组滤波器组成输入图像与滤波器进行卷积产生输出图像       (16 条消息) 如何">
+<meta property="og:type" content="article">
+<meta property="og:title" content="极本穷源：YOLO篇Ⅱ">
+<meta property="og:url" content="http://example.com/2021/12/15/%E6%9E%81%E6%9C%AC%E7%A9%B7%E6%BA%90%EF%BC%9AYOLO%E7%AF%87%E2%85%A1/index.html">
+<meta property="og:site_name" content="Ethan的个人博客">
+<meta property="og:description" content="极本穷源：YOLO篇Ⅱ 上篇中我们提到了yolo的大概属性，今天接着总结一下yolo是基于什么样的背景发展而来。 YOLO是如何实现目标的识别检测？ 首先YOLO由多层网络组成以YOLOv3为例： yolov3  yolov3.cfg          结构组成卷积层+池化层+激活函数+全连接层 卷积层 卷积层由一组滤波器组成输入图像与滤波器进行卷积产生输出图像       (16 条消息) 如何">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/831861db-2134-49e0-81f7-509bb10f7505-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/208de220-188d-4ce0-a7d4-bfacd13b3d41-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/5f5719a9-cbce-4594-bcc2-bf142f7c96a0-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/795d9ad7-09bc-42a7-a54f-21084ced58b1-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/d9a66f32-f6e4-4032-8ea8-428e590eefd3-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/6408bce3-2e06-4b00-b947-feb5692c6510-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/b052fcbe-09b7-4670-8086-da3d412d0e24-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/fd585dd4-60de-43a3-9d2d-65b9c91dca3e-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/f6a1caf4-cdaf-4eb2-a5b5-3686bc80812a-1995134.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/d78d9cdb-b2f2-48d4-a7bf-0d9e75307ac6-1995134.jpg">
+<meta property="article:published_time" content="2021-12-15T01:30:50.000Z">
+<meta property="article:modified_time" content="2021-12-15T07:54:02.775Z">
+<meta property="article:author" content="Ethan">
+<meta property="article:tag" content="yolov3">
+<meta property="article:tag" content="网络结构">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://api2.mubu.com/v3/document_image/831861db-2134-49e0-81f7-509bb10f7505-1995134.jpg">
+  
+  <title>极本穷源：YOLO篇Ⅱ - Ethan的个人博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Ethan的个人博客" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Ethan</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://api2.mubu.com/v3/document_image/e998ab27-9e34-4a82-8340-9b64e67e3fe6-1995134.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="极本穷源：YOLO篇Ⅱ">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Ethan
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-15 09:30" pubdate>
+        2021年12月15日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.6k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      11 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">极本穷源：YOLO篇Ⅱ</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年12月15日 下午
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="极本穷源：YOLO篇Ⅱ"><a href="#极本穷源：YOLO篇Ⅱ" class="headerlink" title="极本穷源：YOLO篇Ⅱ"></a>极本穷源：YOLO篇Ⅱ</h1><ul>
+<li>上篇中我们提到了yolo的大概属性，今天接着总结一下yolo是基于什么样的背景发展而来。</li>
+<li>YOLO是如何实现目标的识别检测？</li>
+<li><h3 id="首先YOLO由多层网络组成以YOLOv3为例："><a href="#首先YOLO由多层网络组成以YOLOv3为例：" class="headerlink" title="首先YOLO由多层网络组成以YOLOv3为例："></a>首先YOLO由多层网络组成以YOLOv3为例：</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/nan355655600/article/details/106246625">yolov3</a><ul>
+<li><img src="https://api2.mubu.com/v3/document_image/831861db-2134-49e0-81f7-509bb10f7505-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
+<li>yolov3.cfg<ul>
+<li>  <img src="https://api2.mubu.com/v3/document_image/208de220-188d-4ce0-a7d4-bfacd13b3d41-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>结构组成<a target="_blank" rel="noopener" href="https://blog.csdn.net/wjinjie/article/details/105016766?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163724052216780255281953%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=163724052216780255281953&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-2-105016766.first_rank_v2_pc_rank_v29&utm_term=%E5%85%A8%E8%BF%9E%E6%8E%A5%E5%B1%82&spm=1018.2226.3001.4187">卷积层+池化层+激活函数+全连接层</a><ul>
+<li>卷积层<ul>
+<li>卷积层由一组滤波器组成输入图像与滤波器进行卷积产生输出图像<ul>
+<li>  <img src="https://api2.mubu.com/v3/document_image/5f5719a9-cbce-4594-bcc2-bf142f7c96a0-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
+</ul>
+  <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/49376084">(16 条消息) 如何理解卷积神经网络（CNN）中的卷积和池化？ - 知乎 (zhihu.com)</a><ul>
+<li>卷积核（filters）和滤波器（kernels）的区别<ul>
+<li>  <img src="https://api2.mubu.com/v3/document_image/795d9ad7-09bc-42a7-a54f-21084ced58b1-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
+</ul>
+  <a target="_blank" rel="noopener" href="https://www.cnblogs.com/elitphil/p/12040671.html">科普-深度学习中的卷积-卷积核和滤波器的区别 - 重大的小鸿 - 博客园 (cnblogs.com)</a><ul>
+<li>filter和kernel之间的不同很微妙。很多时候，它们可以互换，所以这可能造成我们的混淆。那它们之间的不同在于哪里呢？一个”kernel”更倾向于是2D的权重矩阵。而’filter”则是指多个Kernel堆叠的3D结构。如果是一个2D的filter，那么两者就是一样的。但是一个3Dfilter, 在大多数深度学习的卷积中，它是包含kernel的。每个卷积核都是独一无二的，主要在于强调输入通道的不同方面</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>除了卷积层，卷积网络也经常使用池化层来缩减模型的大小，提高计算速度，同时提高所提取特征的鲁棒性.因为经过池化后，得到的是 概要统计特征 。它们不仅 具有低得多的维度 (相比使用所有提取得到的特征)，同时还会 改善结果(不容易过拟合)</li>
+</ul>
+</li>
+<li>池化层<ul>
+<li>池化层目的是进行特征选择，图像经过卷积提取的特征图会产生很多冗余特征，主要采用平均池化和最大池化。</li>
+<li>下采样和池化应该是包含关系，池化属于下采样，而下采样不局限于池化，如果卷积 stride=2，此时也可以把这种卷积叫做下采样<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_31347869/article/details/90378030?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163724200216780265449115%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=163724200216780265449115&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-90378030.first_rank_v2_pc_rank_v29&utm_term=%E4%B8%8B%E9%87%87%E6%A0%B7%E5%92%8C%E6%B1%A0%E5%8C%96%E7%9A%84%E5%8C%BA%E5%88%AB&spm=1018.2226.3001.4187">下采样和池化的区别</a><ul>
+<li>池化 = 涨水</li>
+<li>池化的过程 = 升高水位（扩大矩阵网格）</li>
+<li>池化的目的是为了得到物体的边缘形状</li>
+<li>可以想象水要了解山立体的形状，水位低时得出山脚的形状，水位中等时得出山腰的形状，水位高时得出山顶的形状，三点就可以大致描出山的简笔画</li>
+<li>而卷积的过程是区分哪里是水，哪里是山</li>
+<li>对于网络结构而言，上面的层看下面的层经过 pooling 后传上来的特征图，就好像在太空上俯瞰地球，看到的只有山脊和雪峰。这即是对特征进行宏观上的进一步抽象</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>激活函数<ul>
+<li>激活函数是啥？（Sigmoid函数、tanh函数、Relu函数）  <a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_38065572/article/details/104937481?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163935873416780271550129%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=163935873416780271550129&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-3-104937481.pc_search_insert_es_download&utm_term=%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0&spm=1018.2226.3001.4187">(2条消息) 神经网络之激活函数_August-us的博客-CSDN博客_神经网络激活函数</a>  <a target="_blank" rel="noopener" href="https://blog.csdn.net/asdfsadfasdfsa/article/details/92831177?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163645939116780271573345%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=163645939116780271573345&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-92831177.first_rank_v2_pc_rank_v29&utm_term=%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8&spm=1018.2226.3001.4187">(1条消息) 激活函数的作用_atarik@163.com-CSDN博客_激活函数的作用</a>  <a target="_blank" rel="noopener" href="https://blog.csdn.net/tyhj_sf/article/details/79932893?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163644727216780274166398%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=163644727216780274166398&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-79932893.first_rank_v2_pc_rank_v29&utm_term=%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0&spm=1018.2226.3001.4187">(1条消息) 常用激活函数（激励函数）理解与总结_tyhj_sf的博客空间-CSDN博客_激活函数</a>​</li>
+<li>在YOLOv3中，每个卷积层之后包含一个批量归一化层和一个Leaky ReLU。而在YOLOv4的主干网络CSPDarknet53中，使用Mish代替了原来的Leaky ReLU。Leaky ReLU和Mish激活函数的公式与图像如下：</li>
+<li>Softmax<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/d9a66f32-f6e4-4032-8ea8-428e590eefd3-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
+<li>Softmax 函数不仅可以将输出值映射到[0,1]区间，还满足所有的输出值之和为 1 的特性。如下图的例子，输出层的输出为[2.,1.,0.1]，经过 Softmax 函数计算后，得到输出为[0.7,0.2,0.1]，可以看到每个值代表了当前样本属于每个类别的概率，概率值之和为 1。</li>
+<li>通过 Softmax 函数可以将输出层的输出转译为类别概率，在多分类问题中使用的非常频繁</li>
+<li>另外，在softmax函数多分类问题中，若损失函数选用交叉熵，则下降梯度计算起来将会非常方便，使得网络训练过程中的迭代计算复杂度大大降低。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42713739/article/details/103067132?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163724052216780255281953%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=163724052216780255281953&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-103067132.first_rank_v2_pc_rank_v29&utm_term=%E5%85%A8%E8%BF%9E%E6%8E%A5%E5%B1%82&spm=1018.2226.3001.4187">全连接层</a><ul>
+<li>全连接层将学到的“分布式特征表示”映射到样本标记空间</li>
+<li>假设你是一只小蚂蚁，你的任务是找小面包。你的视野还比较窄，只能看到很小一片区域。当你找到一片小面包之后，你不知道你找到的是不是全部的小面包，所以你们全部的蚂蚁开了个会，把所有的小面包都拿出来分享了，全连接层就是这个蚂蚁大会。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h3 id="yolo基础知识"><a href="#yolo基础知识" class="headerlink" title="yolo基础知识"></a>yolo基础知识</h3><ul>
+<li>概念解释：<ul>
+<li>训练神经网络:Batch、Epoch和Iteration<ul>
+<li>Batch（批 / 一批样本）：将整个训练样本分成若干个Batch。</li>
+<li>Batch_Size（批大小）：每批样本的大小。</li>
+<li>Iteration（一次迭代）：训练一个Batch就是一次Iteration（这个概念跟程序语言中的迭代器相似）</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/mid_Faker/article/details/105705879?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163723580016780366513507%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=163723580016780366513507&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-105705879.first_rank_v2_pc_rank_v29&utm_term=epoch&spm=1018.2226.3001.4187">Epoch</a>（时期）：当一个完整的数据集通过了神经网络一次并且返回了一次，这个过程称为一次&gt;epoch。（也就是说，所有训练样本在神经网络中都  进行了一次<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43325134/article/details/119814264?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~default-1.no_search_link&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~default-1.no_search_link">正向传播</a> 和一次反向传播  ）再通俗一点，一个Epoch就是将所有训练样本训练一次的过程。<ul>
+<li>随着epoch数量增加，神经网络中的权重的更新次数也在增加，曲线从欠拟合变得过拟合。</li>
+<li>那么，问题来了，几个epoch才是合适的呢？</li>
+<li>不幸的是，这个问题并没有正确的答案。对于不同的数据集，答案是不一样的。但是数据的多样性会影响合适的epoch的数量。比如，只有黑色的猫的数据集，以及有各种颜色的猫的数据集。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41800366/article/details/86583789?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163724575216780271942966%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=163724575216780271942966&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-86583789.first_rank_v2_pc_rank_v29&utm_term=%E6%A2%AF%E5%BA%A6&spm=1018.2226.3001.4187">梯度下降算法原理讲解</a>——机器学习<ul>
+<li>梯度是微积分中一个很重要的概念，之前提到过梯度的意义</li>
+<li>在单变量的函数中，梯度其实就是函数的微分，代表着函数在某个给定点的切线的斜率</li>
+<li>在多变量函数中，梯度是一个向量，向量有方向，梯度的方向就指出了函数在给定点的上升最快的方向</li>
+<li>这也就说明了为什么我们需要千方百计的求取梯度！我们需要到达山底，就需要在每一步观测到此时最陡峭的地方，梯度就恰巧告诉了我们这个方向。梯度的方向是函数在给定点上升最快的方向，那么梯度的反方向就是函数在给定点下降最快的方向，这正是我们所需要的。所以我们只要沿着梯度的方向一直走，就能走到局部的最低点</li>
+</ul>
+</li>
+<li>学习率<ul>
+<li>学习率越低，损失函数的变化速度就越慢，容易过拟合。虽然使用低学习率可以确保我们不会错过任何局部极小值，但也意味着我们将花费更长的时间来进行收敛，特别是在被困在局部最优点的时候。而学习率过高容易发生梯度爆炸，loss振动幅度较大，模型难以收敛。下图是不同学习率的loss变化，因此，选择一个合适的学习率是十分重要的。</li>
+</ul>
+</li>
+<li>通道channel、特征图<a target="_blank" rel="noopener" href="https://blog.csdn.net/shyjhyp11/article/details/108048264?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163724463816780271981750%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=163724463816780271981750&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-108048264.first_rank_v2_pc_rank_v29&utm_term=feature+map&spm=1018.2226.3001.4187">feature map、</a>过滤器filter和卷积核kernel</li>
+<li>（<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41853758/article/details/82930944?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163904125516780264016075%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=163904125516780264016075&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-82930944.pc_search_all_es&utm_term=bn%E6%89%B9%E9%87%8F%E5%BD%92%E4%B8%80%E5%8C%96&spm=1018.2226.3001.4187">BN</a>）批量归一化全面解析,<a target="_blank" rel="noopener" href="https://blog.csdn.net/t20134297/article/details/105745566?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163724437616780357266262%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=163724437616780357266262&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-105745566.first_rank_v2_pc_rank_v29&utm_term=+backbone&spm=1018.2226.3001.4187">backbone</a>：主干网络.head：head是获取网络输出内容的网络，neck:是放在backbone和head之间的，是为了更好的利用backbone提取的特征.GAP：Global Average Pool全局平均池化（AP）平均预测</li>
+<li>上采样，下采样  《图像的上采样（upsampling）与下采样（subsampled）》 <a target="_blank" rel="noopener" href="https://blog.csdn.net/stf1065716904/article/details/78450997?utm_source=app&app_version=4.17.2&code=app_1562916241&uLinkId=usr1mkqgl919blen">https://blog.csdn.net/stf1065716904/article/details/78450997?utm_source=app&amp;app_version=4.17.2&amp;code=app_1562916241&amp;uLinkId=usr1mkqgl919blen</a><ul>
+<li>缩小图像（或称为下采样（subsampled）或降采样（downsampled））的主要目的有两个：1、使得图像符合显示区域的大小；2、生成对应图像的缩略图。</li>
+<li>放大图像（或称为上采样（upsampling）或图像插值（interpolating））的主要目的是放大原图像,从而可以显示在更高分辨率的显示设备上。</li>
+<li>对图像的缩放操作并不能带来更多关于该图像的信息, 因此图像的质量将不可避免地受到影响。然而，确实有一些缩放方法能够增加图像的信息，从而使得缩放后的图像质量超过原图质量的。</li>
+</ul>
+</li>
+<li>Anchor Boxes机制<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44259900/article/details/89440506?ops_request_misc=&request_id=&biz_id=102&utm_term=anchor%20boxfovea%20box&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-89440506.pc_search_all_es&spm=1018.2226.3001.4187">论文学习 FoveaBox: Beyond Anchor-based Object Detector_何以解忧唯有杜康的博客-CSDN博客_foveabox</a></li>
+<li>YOLO会将输入的图片分成S*S个网格，每个小网格会生成n个anchor Box。图像的真实框会和图像中心点所在的小网格生成的anchor box做IOU计算。回归出来的框就是Bounding Box（也就是网络输出的框，他与真实框和anchor Box都有差距）</li>
+<li>通过引入anchor box，一方面，模型学习到的是物体真实边框与对应的anchor box的偏移量，而不是目标物体在图像中的绝对坐标，保证了检测任务的平移不变性；另一方面，通过这种对齐，可以使模型对多尺度物体检测的训练变得容易，因为物体边框对相应anchor box的偏移量的值分布于有限范围内。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h3 id="讲这么多直接上操作感受下吧，打开YOLOv4-Tiny的-cfg文件"><a href="#讲这么多直接上操作感受下吧，打开YOLOv4-Tiny的-cfg文件" class="headerlink" title="讲这么多直接上操作感受下吧，打开YOLOv4-Tiny的.cfg文件"></a>讲这么多直接上操作感受下吧，打开YOLOv4-Tiny的.cfg文件</h3></li>
+<li>NMS调参<ul>
+<li>288.cfg<ul>
+<li>ignore_thresh = .7</li>
+<li>beta_nms=0.7</li>
+<li>result<ul>
+<li>  <img src="https://api2.mubu.com/v3/document_image/6408bce3-2e06-4b00-b947-feb5692c6510-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>288.cfg<ul>
+<li>ignore_thresh = .7</li>
+<li>beta_nms=0.8</li>
+<li>result<ul>
+<li>  <img src="https://api2.mubu.com/v3/document_image/b052fcbe-09b7-4670-8086-da3d412d0e24-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
+<li>  <img src="https://api2.mubu.com/v3/document_image/fd585dd4-60de-43a3-9d2d-65b9c91dca3e-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>416.cfg<ul>
+<li>ignore_thresh = .7</li>
+<li>beta_nms=0.7</li>
+<li>result<ul>
+<li>  <img src="https://api2.mubu.com/v3/document_image/f6a1caf4-cdaf-4eb2-a5b5-3686bc80812a-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>416.cfg<ul>
+<li>ignore_thresh = .7</li>
+<li>beta_nms=0.5</li>
+<li>result<ul>
+<li>  <img src="https://api2.mubu.com/v3/document_image/d78d9cdb-b2f2-48d4-a7bf-0d9e75307ac6-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%9E%81%E6%9C%AC%E7%A9%B7%E6%BA%90/">极本穷源</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/yolov3/">yolov3</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84/">网络结构</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/14/%E6%9E%81%E6%9C%AC%E7%A9%B7%E6%BA%90%EF%BC%9AYOLO%E7%AF%87%E2%85%A0/">
+                        <span class="hidden-mobile">极本穷源：YOLO篇Ⅰ</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"enable":true,"clientID":"2a3059614b56125a051a","clientSecret":"d0bf906c99410f02e6119f2b798e16f941431df6","repo":"gitalk","owner":"Ethan1024","admin":["Ethan1024"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '4a35b06674170397528d2d3fbb1461b5'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">搜一些文章中提到的内容</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span>
+<a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">hexo&<span>主题Fluid</span></a>
+
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+  <!-- 网站运行时间的设置 -->
+
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("10/19/2021 23:14:21");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "小破站已运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
