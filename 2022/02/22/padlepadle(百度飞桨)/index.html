@@ -1,0 +1,588 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/%E5%A4%B4%E5%83%8F.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Ethan">
+  <meta name="keywords" content="">
+  <meta name="description" content="开工总结问题概要终于在春节前西安疫情消退，回家简短的休整后又来搬砖了。这段时间主要完成节前留下的问题：原使用yolov4-Tiny（TensorRT加速）在jetson nano上达到实时检测（FPS：40）的效果，后在win10下用yolov3训练数据测试效果mAP达到91.07%，用训练好的yolov3权重文件测试在nano的帧数只有8帧左右（不能用v3训练的权重测试v4-tiny检测不出来，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开工总结">
+<meta property="og:url" content="http://example.com/2022/02/22/padlepadle(%E7%99%BE%E5%BA%A6%E9%A3%9E%E6%A1%A8)/index.html">
+<meta property="og:site_name" content="Ethan的个人博客">
+<meta property="og:description" content="开工总结问题概要终于在春节前西安疫情消退，回家简短的休整后又来搬砖了。这段时间主要完成节前留下的问题：原使用yolov4-Tiny（TensorRT加速）在jetson nano上达到实时检测（FPS：40）的效果，后在win10下用yolov3训练数据测试效果mAP达到91.07%，用训练好的yolov3权重文件测试在nano的帧数只有8帧左右（不能用v3训练的权重测试v4-tiny检测不出来，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/seaman1024/pic/raw/master/https:/gitee.com/seaman1024/pic.git/image-20220222203850046.png">
+<meta property="og:image" content="https://gitee.com/seaman1024/pic/raw/master/https:/gitee.com/seaman1024/pic.git/image-20220222211530679.png">
+<meta property="og:image" content="https://gitee.com/seaman1024/pic/raw/master/https:/gitee.com/seaman1024/pic.git/image-20220222214044453.png">
+<meta property="og:image" content="https://gitee.com/seaman1024/pic/raw/master/https:/gitee.com/seaman1024/pic.git/image-20220222215439029.png">
+<meta property="og:image" content="https://gitee.com/seaman1024/pic/raw/master/https:/gitee.com/seaman1024/pic.git/image-20220222215836380.png">
+<meta property="og:image" content="https://gitee.com/seaman1024/pic/raw/master/https:/gitee.com/seaman1024/pic.git/image-20220222220734864.png">
+<meta property="og:image" content="https://gitee.com/seaman1024/pic/raw/master/https:/gitee.com/seaman1024/pic.git/image-20220222221656128.png">
+<meta property="article:published_time" content="2022-02-22T13:39:50.000Z">
+<meta property="article:modified_time" content="2022-02-22T14:24:42.484Z">
+<meta property="article:author" content="Ethan">
+<meta property="article:tag" content="飞桨">
+<meta property="article:tag" content="Yolo-faster">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gitee.com/seaman1024/pic/raw/master/https:/gitee.com/seaman1024/pic.git/image-20220222203850046.png">
+  
+  <title>开工总结 - Ethan的个人博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Ethan的个人博客" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Ethan</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://api2.mubu.com/v3/document_image/e998ab27-9e34-4a82-8340-9b64e67e3fe6-1995134.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="开工总结">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Ethan
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-02-22 21:39" pubdate>
+        2022年2月22日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.8k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      6 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">开工总结</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年2月22日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="开工总结"><a href="#开工总结" class="headerlink" title="开工总结"></a>开工总结</h1><h3 id="问题概要"><a href="#问题概要" class="headerlink" title="问题概要"></a>问题概要</h3><p>终于在春节前西安疫情消退，回家简短的休整后又来搬砖了。这段时间主要完成节前留下的问题：原使用yolov4-Tiny（TensorRT加速）在jetson nano上达到实时检测（FPS：40）的效果，后在win10下用yolov3训练数据测试效果<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41950276/article/details/87733523?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164553362416781685349539%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=164553362416781685349539&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_ulrmf~default~default-2-87733523.pc_search_insert_ulrmf&utm_term=map+ap&spm=1018.2226.3001.4187">mAP</a>达到91.07%，用训练好的yolov3权重文件测试在nano的帧数只有8帧左右（不能用v3训练的权重测试v4-tiny检测不出来，可能是网络结构不同导致的）,而预期目标要求在nano上满足准确率高的前提下实时的效果。参考<a target="_blank" rel="noopener" href="https://github.com/jkjung-avt/tensorrt_demos">下图</a>在nano上用trt加速的各种算法帧数测试效果。</p>
+<p><img src="https://gitee.com/seaman1024/pic/raw/master/https:/gitee.com/seaman1024/pic.git/image-20220222203850046.png" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+<h3 id="解决思路："><a href="#解决思路：" class="headerlink" title="解决思路："></a>解决思路：</h3><p>①提升yolov4-Tiny检测准确率 </p>
+<p>②通过<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38109843/article/details/107234801?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164552065516781685333871%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=164552065516781685333871&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_ulrmf~default~default-3-107234801.pc_search_insert_ulrmf&utm_term=yolov3+%E5%89%AA%E6%9E%9D&spm=1018.2226.3001.4187">剪枝压缩</a>等操作提升yolov3在nano上的的检测速度</p>
+<h3 id="方法实施："><a href="#方法实施：" class="headerlink" title="方法实施："></a>方法实施：</h3><p>受限于每次训练数据电脑就用不了这一因素，最近有看到白嫖百度GPU服务器在线训练的内容，有这种好事当然要冲，给我也整一个。简单完成几个小任务算力卡就到手了，接下来就可以准备在飞桨的AI studio在线用yolov4-Tiny训练自己的数据集了。</p>
+<p><img src="https://gitee.com/seaman1024/pic/raw/master/https:/gitee.com/seaman1024/pic.git/image-20220222211530679.png" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+<h4 id="国产深度学习开源框架—飞桨"><a href="#国产深度学习开源框架—飞桨" class="headerlink" title="国产深度学习开源框架—飞桨"></a>国产深度学习开源框架—<a target="_blank" rel="noopener" href="https://github.com/paddlepaddle/paddle">飞桨</a></h4><p>padlepadle(百度飞桨)—国内最大的开源深度学习框架，是可以与PyTorch、TensorFlow掰手腕的国产框架佼佼者，简单<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/190255066">了解</a>下。顺便了解下其他<a target="_blank" rel="noopener" href="https://blog.csdn.net/javastart/article/details/108242804">国产深度学习平台</a>。</p>
+<h5 id="飞桨能干啥？"><a href="#飞桨能干啥？" class="headerlink" title="飞桨能干啥？"></a>飞桨能干啥？</h5><p>①超多深度学习<a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/course">免费课程</a></p>
+<p>②在线<a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/projectoverview/public">跑项目</a></p>
+<p>③创建<a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/projectoverview/private/1">自己的项目</a>并在线训练数据</p>
+<p><img src="https://gitee.com/seaman1024/pic/raw/master/https:/gitee.com/seaman1024/pic.git/image-20220222214044453.png" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload alt="在线跑项目"></p>
+<h5 id="飞桨怎么用？"><a href="#飞桨怎么用？" class="headerlink" title="飞桨怎么用？"></a>飞桨怎么用？</h5><p>①<a target="_blank" rel="noopener" href="https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/conda/windows-conda.html">本地使用</a>，推荐win10下安装conda，可以安装各种想要的虚拟环境</p>
+<p>②<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43632917/article/details/105456180?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164482824016780271946743%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=164482824016780271946743&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-2-105456180.pc_search_insert_ulrmf&utm_term=%E7%99%BD%E5%AB%96%E7%99%BE%E5%BA%A6GPU&spm=1018.2226.3001.4187">在线</a>创建项目并运行</p>
+<h5 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h5><p>在线创建了项目并上传了自己的数据集，下载darknet源码，编译后报错。可能和cuda版本或者显卡驱动有关。</p>
+<p><img src="https://gitee.com/seaman1024/pic/raw/master/https:/gitee.com/seaman1024/pic.git/image-20220222215439029.png" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+<p><img src="https://gitee.com/seaman1024/pic/raw/master/https:/gitee.com/seaman1024/pic.git/image-20220222215836380.png" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+<p>白嫖的GPU服务器sudo权限没有给解决起这个报错有点受阻，后面再百度试试实在不行还是用自己的电脑跑起来省事。</p>
+<h4 id="Yolo-fasterV2-训练自己的数据"><a href="#Yolo-fasterV2-训练自己的数据" class="headerlink" title="Yolo-fasterV2 训练自己的数据"></a><a target="_blank" rel="noopener" href="https://github.com/dog-qiuqiu/Yolo-FastestV2">Yolo-fasterV2</a> 训练自己的数据</h4><h5 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h5><h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><p>按照球球大佬在<a target="_blank" rel="noopener" href="https://github.com/dog-qiuqiu/Yolo-FastestV2/blob/main/README.md">readme.md</a>中的说明，之前标注的数据集就可以用。</p>
+<p><img src="https://gitee.com/seaman1024/pic/raw/master/https:/gitee.com/seaman1024/pic.git/image-20220222220734864.png" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+<p>安装 requirements 环境，测试一张图片看看效果.可能会遇到torch和cuda不版本匹配的问题，报错如下：</p>
+<figure class="highlight vbnet"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vbnet"><span class="hljs-symbol">RunTimeError:</span> CUDA <span class="hljs-keyword">error</span>: no kernel image <span class="hljs-built_in">is</span> available <span class="hljs-keyword">for</span> execution <span class="hljs-keyword">on</span> the device<br></code></pre></div></td></tr></table></figure>
+
+<p>参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/BohnLee/article/details/122392115">这篇</a>解决。</p>
+<p>按照目录结构，准备相应文件。</p>
+<p><img src="https://gitee.com/seaman1024/pic/raw/master/https:/gitee.com/seaman1024/pic.git/image-20220222221656128.png" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+<p>修改下自己的 .data文件，设定训练参数,删除文件中的注释</p>
+<figure class="highlight ini"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ini"><span class="hljs-section">[name]</span><br><span class="hljs-attr">model_name</span>=obj           <span class="hljs-comment"># model name</span><br><br><span class="hljs-section">[train-configure]</span><br><span class="hljs-attr">epochs</span>=<span class="hljs-number">500</span>                <span class="hljs-comment"># train epichs</span><br><span class="hljs-attr">steps</span>=<span class="hljs-number">150</span>,<span class="hljs-number">250</span>             <span class="hljs-comment"># Declining learning rate steps</span><br><span class="hljs-attr">batch_size</span>=<span class="hljs-number">64</span>             <span class="hljs-comment"># batch size</span><br><span class="hljs-attr">subdivisions</span>=<span class="hljs-number">1</span>            <span class="hljs-comment"># Same as the subdivisions of the darknet cfg file</span><br><span class="hljs-attr">learning_rate</span>=<span class="hljs-number">0.001</span>       <span class="hljs-comment"># learning rate</span><br><br><span class="hljs-section">[model-configure]</span><br><span class="hljs-attr">pre_weights</span>=None          <span class="hljs-comment"># The path to load the model, if it is none, then restart the training</span><br><span class="hljs-attr">classes</span>=<span class="hljs-number">80</span>                <span class="hljs-comment"># Number of detection categories</span><br><span class="hljs-attr">width</span>=<span class="hljs-number">352</span>                 <span class="hljs-comment"># The width of the model input image</span><br><span class="hljs-attr">height</span>=<span class="hljs-number">352</span>                <span class="hljs-comment"># The height of the model input image</span><br><span class="hljs-attr">anchor_num</span>=<span class="hljs-number">3</span>              <span class="hljs-comment"># anchor num</span><br><span class="hljs-attr">anchors</span>=<span class="hljs-number">12.64</span>,<span class="hljs-number">19.39</span>, <span class="hljs-number">37.88</span>,<span class="hljs-number">51.48</span>, <span class="hljs-number">55.71</span>,<span class="hljs-number">138.31</span>, <span class="hljs-number">126.91</span>,<span class="hljs-number">78.23</span>, <span class="hljs-number">131.57</span>,<span class="hljs-number">214.55</span>, <span class="hljs-number">279.92</span>,<span class="hljs-number">258.87</span> <span class="hljs-comment">#anchor bias</span><br><br><span class="hljs-section">[data-configure]</span><br><span class="hljs-attr">train</span>=/media/qiuqiu/D/coco/train2017.txt   <span class="hljs-comment"># train dataset path .txt file</span><br><span class="hljs-attr">val</span>=/media/qiuqiu/D/coco/val2017.txt       <span class="hljs-comment"># val dataset path .txt file </span><br><span class="hljs-attr">names</span>=./data/coco.names                    <span class="hljs-comment"># .names category label file</span><br></code></pre></div></td></tr></table></figure>
+
+<p>（未完待续）</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/huiyuanliyan/article/details/87900550">深度学习的宏观框架——训练（training）和推理（inference）及其应用场景</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%82%BC%E4%B8%B9/">炼丹</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%A3%9E%E6%A1%A8/">飞桨</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Yolo-faster/">Yolo-faster</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/01/05/%E7%96%AB%E6%83%85%E4%B8%8B%E7%9A%84%E7%82%BC%E4%B8%B9%E7%AC%94%E8%AE%B0/">
+                        <span class="hidden-mobile">疫情下的炼丹笔记🎈</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"enable":true,"clientID":"2a3059614b56125a051a","clientSecret":"d0bf906c99410f02e6119f2b798e16f941431df6","repo":"gitalk","owner":"Ethan1024","admin":["Ethan1024"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: 'bff94a0bcea9ebe313b614a840d76f75'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">搜一些文章中提到的内容</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span>
+<a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">hexo&<span>主题Fluid</span></a>
+
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+  <!-- 网站运行时间的设置 -->
+
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("10/19/2021 23:14:21");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "小破站已运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

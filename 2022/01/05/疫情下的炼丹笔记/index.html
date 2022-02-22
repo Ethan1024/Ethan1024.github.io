@@ -35,12 +35,12 @@
 <meta property="og:image" content="https://s2.loli.net/2022/01/10/x9af2LIH8EDj1KA.png">
 <meta property="og:image" content="https://s2.loli.net/2022/01/10/4gmnPU3pRKDjEvQ.png">
 <meta property="article:published_time" content="2022-01-05T08:03:50.000Z">
-<meta property="article:modified_time" content="2022-02-07T02:32:03.747Z">
+<meta property="article:modified_time" content="2022-02-22T14:26:37.987Z">
 <meta property="article:author" content="Ethan">
 <meta property="article:tag" content="训练集">
 <meta property="article:tag" content="新冠">
 <meta property="article:tag" content="封城">
-<meta property="article:tag" content="mAp">
+<meta property="article:tag" content="mAP">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://s2.loli.net/2022/01/10/DLAhzX1n69Y2fEy.png">
   
@@ -279,7 +279,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年2月7日 上午
+                  本文最后更新于：2022年2月22日 晚上
                 
               </p>
             
@@ -311,14 +311,14 @@
 <p><img src="https://s2.loli.net/2022/01/10/fEpnS62iUDCoZhK.png" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload alt="image-20220108223530753"></p>
 <p>群里问了下出现这种情况有两种可能：训练的数据太少了（确实少），batchsize设置的较小（有待研究）</p>
 <p><img src="https://s2.loli.net/2022/01/10/CT4NObkmLt6nFyX.png" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload alt="chart_yolo-obj"></p>
-<p>这个时候停止训练，计算一下测试集的mAp。</p>
-<h4 id="测试集的mAp计算"><a href="#测试集的mAp计算" class="headerlink" title="测试集的mAp计算"></a>测试集的mAp计算</h4><p>①标注测试集对应的目标信息，和训练集一样用labelimg生成xml文件，转换为txt文件。</p>
+<p>这个时候停止训练，计算一下测试集的mAP。</p>
+<h4 id="测试集的mAP计算"><a href="#测试集的mAP计算" class="headerlink" title="测试集的mAP计算"></a>测试集的mAP计算</h4><p>①标注测试集对应的目标信息，和训练集一样用labelimg生成xml文件，转换为txt文件。</p>
 <p>②新建test.txt,和train.txt一样写入待测试图片的路径，通过调用obj.data里的valid = data/test.txt实现对测试图片的调用。</p>
 <p>③测试命令如下：</p>
 <p><img src="https://s2.loli.net/2022/01/10/Sxn9ds25YrA1uCw.png" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload alt="image-20220109060257840"></p>
 <figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">darknet</span>.exe detector map data\obj.data yolo-obj.cfg .\backup\yolo-obj_last.weights -thresh <span class="hljs-number">0</span>.<span class="hljs-number">25</span> -iou_thresh <span class="hljs-number">0</span>.<span class="hljs-number">45</span><br></code></pre></div></td></tr></table></figure>
 
-<p>测试结果表明：mAp(只有一个类别所以平均准确率AP = mAp) 达到惊人的91.07%</p>
+<p>测试结果表明：mAP(只有一个类别所以平均准确率AP = mAP) 达到惊人的91.07%</p>
 <p>其中，测试结果参数解析：</p>
 <figure class="highlight armasm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs armasm">			TP：正样本预测为正样本<br>​			<span class="hljs-built_in">FP</span>：负样本预测为正样本<br>​			TN：负样本预测为负样本<br>​           <span class="hljs-meta">FN</span>: 正样本预测为负样本<br><br>​           精确率 = <span class="hljs-number">94</span>%（precision）,即用训练好的模型去预测测试集,预测结果与实际相比有对有错，精确率就是实际正确预测占模型认为正确预测的比例。<br>            计算公式：precision = TP/(TP+<span class="hljs-built_in">FP</span>)<br><br>​			召回率 = <span class="hljs-number">92</span>% （recall），即用训练好的模型预测测试集,这个模型会有四类预测结果，召回率就是实际正确预测占应该被预测出来的比例。<br>            计算公式：recall = TP/(TP+<span class="hljs-meta">FN</span>)<br><br>​           交并比 = <span class="hljs-number">69</span>.<span class="hljs-number">74</span>%（IoU），即预测边框与实际边框的交集与并集的比例。<br></code></pre></div></td></tr></table></figure>
 <p><img src="https://s2.loli.net/2022/01/10/x9af2LIH8EDj1KA.png" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload alt="image-20220109055847116"></p>
@@ -357,7 +357,7 @@
                     
                       <a class="hover-with-bg" href="/tags/%E5%B0%81%E5%9F%8E/">封城</a>
                     
-                      <a class="hover-with-bg" href="/tags/mAp/">mAp</a>
+                      <a class="hover-with-bg" href="/tags/mAP/">mAP</a>
                     
                   </div>
                 
@@ -373,6 +373,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2022/02/22/padlepadle(%E7%99%BE%E5%BA%A6%E9%A3%9E%E6%A1%A8)/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">开工总结</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
