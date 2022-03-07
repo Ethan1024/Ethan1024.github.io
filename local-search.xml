@@ -37,7 +37,7 @@
     <link href="/2022/03/03/YOLOv4-tiny%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE%E9%9B%86%EF%BC%88kmeans%E8%81%9A%E7%B1%BBanchors%EF%BC%89/"/>
     <url>/2022/03/03/YOLOv4-tiny%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE%E9%9B%86%EF%BC%88kmeans%E8%81%9A%E7%B1%BBanchors%EF%BC%89/</url>
     
-    <content type="html"><![CDATA[<h2 id="YOLOv4-tiny训练数据集（kmeans聚类achors）"><a href="#YOLOv4-tiny训练数据集（kmeans聚类achors）" class="headerlink" title="YOLOv4-tiny训练数据集（kmeans聚类achors）"></a>YOLOv4-tiny训练数据集（kmeans聚类achors）</h2><p>接着上篇<a href="https://ethan1024.github.io/2022/02/22/padlepadle(%E7%99%BE%E5%BA%A6%E9%A3%9E%E6%A1%A8)/">开工总结</a>，上次总结到训练</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="YOLOv4-tiny训练数据集（kmeans聚类achors）"><a href="#YOLOv4-tiny训练数据集（kmeans聚类achors）" class="headerlink" title="YOLOv4-tiny训练数据集（kmeans聚类achors）"></a>YOLOv4-tiny训练数据集（kmeans聚类achors）</h2><p>接着上篇<a href="https://ethan1024.github.io/2022/02/22/padlepadle(%E7%99%BE%E5%BA%A6%E9%A3%9E%E6%A1%A8)/">开工总结</a>，上次总结到想训练yolov4-tiny检验下模型对小目标的感知能力，白嫖的GPU平台不得行。只好用自己的电脑训练数据了，训练起来也不算难。</p><p>训练两次：</p><p>①未使用kmeans聚类，map达到60%左右</p><p>②使用kmeans聚类预测框，map达到90%左右</p><p>遇到的坑：之前在windows下训练就遇到过opencv报错 -&gt; video stream stopped</p><p>解决方法：查了很多资料，有说卸载opencv重新安装，重新编译darknet的。感觉都不靠谱，按照以往经验这就是突然安装什么软件或者运行什么程序导致opencv文件丢失的，之前安装opencv用的是源码编译安装，这次直接到安装目录下重新执行安装命令，问题得以解决。</p>]]></content>
     
     
     <categories>
