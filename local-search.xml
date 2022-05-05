@@ -4,13 +4,31 @@
   
   
   <entry>
-    <title></title>
-    <link href="/2022/03/09/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%EF%BD%9C%E4%BA%A4%E5%8F%89%E7%86%B5%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/"/>
-    <url>/2022/03/09/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%EF%BD%9C%E4%BA%A4%E5%8F%89%E7%86%B5%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/</url>
+    <title>交叉熵损失函数🔋</title>
+    <link href="/2022/03/20/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%EF%BD%9C%E4%BA%A4%E5%8F%89%E7%86%B5%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/"/>
+    <url>/2022/03/20/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%EF%BD%9C%E4%BA%A4%E5%8F%89%E7%86%B5%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/</url>
     
-    <content type="html"><![CDATA[<h2 id><a href="#" class="headerlink" title></a></h2><h4 id="损失函数｜交叉熵损失函数"><a href="#损失函数｜交叉熵损失函数" class="headerlink" title="损失函数｜交叉熵损失函数"></a><a href="https://zhuanlan.zhihu.com/p/35709485">损失函数｜交叉熵损失函数</a></h4><h4 id="⚠️-真实面试题"><a href="#⚠️-真实面试题" class="headerlink" title="⚠️ 真实面试题"></a>⚠️ 真实面试题</h4><blockquote><p><strong>假设我们有一个图像分类的任务，图片特征已经提取好，维度D，类别数N：</strong></p><p><strong>题目1</strong> 请用Pytorch/TF代码编写分类器：(1) 3层全连接；(2) 具有非线性变化；（3）具有过拟合处理<br><strong>题目2</strong> 这个任务，你会使用什么损失函数？<br><strong>题目3</strong> 交叉熵表达式？<br><strong>题目4</strong> 为什么使用交叉熵？能不能用MSE？<br><strong>题目5</strong> 如果让你选择提取图片特征的模型，你会选择什么模型？</p></blockquote><p>*主成分分析法(PCA) 提取的是数据分布方差比较大的方向，隐藏层可以提取有预测能力的特征</p><p>*混沌度可以理解为不确定性，当然是越低越好。</p><p>*输入图片大小为200×200，依次经过一层卷积（kernel size 5×5，padding 1，stride 2），pooling（kernel size 3×3，padding 0，stride 1），又一层卷积（kernel size 3×3，padding 1，stride 1）之后，输出特征图大小为:</p><p> <u>     **97    **</u></p><p><a href="https://blog.csdn.net/w5688414/article/details/79335232">解答</a></p><p><strong>卷积向下取整,池化向上取整</strong></p><figure class="highlight tap"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs tap">计算公式为：( input_size - kernel_size + 2*padding) / stride+1 = output_size)<br><br>输出高度 = （输入高度 - Kernel高度 +<span class="hljs-number"> 2 </span>* padding）/ 步长stride + 1<br><br>输出宽度 = （输入宽度 - Kernel宽度 +<span class="hljs-number"> 2 </span>* padding）/ 步长stride + 1<br></code></pre></div></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h4 id="损失函数｜交叉熵损失函数"><a href="#损失函数｜交叉熵损失函数" class="headerlink" title="损失函数｜交叉熵损失函数"></a><a href="https://zhuanlan.zhihu.com/p/35709485">损失函数｜交叉熵损失函数</a></h4><h4 id="⚠️-真实面试题"><a href="#⚠️-真实面试题" class="headerlink" title="⚠️ 真实面试题"></a>⚠️ 真实面试题</h4><blockquote><p><strong>假设我们有一个图像分类的任务，图片特征已经提取好，维度D，类别数N：</strong></p><p><strong>题目1</strong> 请用Pytorch/TF代码编写分类器：(1) 3层全连接；(2) 具有非线性变化；（3）具有过拟合处理<br><strong>题目2</strong> 这个任务，你会使用什么损失函数？<br><strong>题目3</strong> 交叉熵表达式？<br><strong>题目4</strong> 为什么使用交叉熵？能不能用MSE？<br><strong>题目5</strong> 如果让你选择提取图片特征的模型，你会选择什么模型？</p></blockquote><p>*主成分分析法(PCA) 提取的是数据分布方差比较大的方向，隐藏层可以提取有预测能力的特征</p><p>*混沌度可以理解为不确定性，当然是越低越好。</p><p>*输入图片大小为200×200，依次经过一层卷积（kernel size 5×5，padding 1，stride 2），pooling（kernel size 3×3，padding 0，stride 1），又一层卷积（kernel size 3×3，padding 1，stride 1）之后，输出特征图大小为:</p><p> <u>     **97    **</u></p><p><a href="https://blog.csdn.net/w5688414/article/details/79335232">解答</a></p><p><strong>卷积向下取整,池化向上取整</strong></p><figure class="highlight tap"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs tap">计算公式为：( input_size - kernel_size + 2*padding) / stride+1 = output_size)<br><br>输出高度 = （输入高度 - Kernel高度 +<span class="hljs-number"> 2 </span>* padding）/ 步长stride + 1<br><br>输出宽度 = （输入宽度 - Kernel宽度 +<span class="hljs-number"> 2 </span>* padding）/ 步长stride + 1<br></code></pre></div></td></tr></table></figure>]]></content>
     
     
+    <categories>
+      
+      <category>深度学习</category>
+      
+      <category>炼丹笔记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>卷积</tag>
+      
+      <tag>池化</tag>
+      
+      <tag>损失函数</tag>
+      
+    </tags>
     
   </entry>
   
