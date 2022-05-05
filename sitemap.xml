@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://example.com/about/index.html</loc>
+    
+    <lastmod>2022-05-05</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://example.com/2022/03/03/YOLOv4-tiny%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE%E9%9B%86%EF%BC%88kmeans%E8%81%9A%E7%B1%BBanchors%EF%BC%89/</loc>
     
     <lastmod>2022-05-05</lastmod>
@@ -40,13 +47,6 @@
     <loc>http://example.com/2022/01/05/%E7%96%AB%E6%83%85%E4%B8%8B%E7%9A%84%E7%82%BC%E4%B8%B9%E7%AC%94%E8%AE%B0/</loc>
     
     <lastmod>2022-03-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://example.com/about/index.html</loc>
-    
-    <lastmod>2022-03-01</lastmod>
     
   </url>
   
