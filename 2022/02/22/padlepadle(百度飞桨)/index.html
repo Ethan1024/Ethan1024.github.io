@@ -30,8 +30,9 @@
 <meta property="og:image" content="https://gitee.com/seaman1024/pic/raw/master/https:/gitee.com/seaman1024/pic.git/image-20220222215836380.png">
 <meta property="og:image" content="https://gitee.com/seaman1024/pic/raw/master/https:/gitee.com/seaman1024/pic.git/image-20220222220734864.png">
 <meta property="og:image" content="https://gitee.com/seaman1024/pic/raw/master/https:/gitee.com/seaman1024/pic.git/image-20220222221656128.png">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/828a4915-5071-41a4-b1cb-0469bcce11f2-1995134.jpg">
 <meta property="article:published_time" content="2022-02-22T13:39:50.000Z">
-<meta property="article:modified_time" content="2022-03-03T06:35:09.586Z">
+<meta property="article:modified_time" content="2022-03-09T03:05:02.339Z">
 <meta property="article:author" content="Ethan">
 <meta property="article:tag" content="飞桨">
 <meta property="article:tag" content="Yolo-faster">
@@ -223,7 +224,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2k 字
+      2.1k 字
     </span>
   
 
@@ -232,7 +233,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6 分钟
+      7 分钟
     </span>
   
 
@@ -273,7 +274,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年3月3日 下午
+                  本文最后更新于：2022年3月9日 上午
                 
               </p>
             
@@ -307,7 +308,9 @@
 <p>修改下自己的 .data文件，设定训练参数,删除文件中的注释</p>
 <figure class="highlight ini"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ini"><span class="hljs-section">[name]</span><br><span class="hljs-attr">model_name</span>=obj           <span class="hljs-comment"># model name</span><br><br><span class="hljs-section">[train-configure]</span><br><span class="hljs-attr">epochs</span>=<span class="hljs-number">500</span>                <span class="hljs-comment"># train epichs</span><br><span class="hljs-attr">steps</span>=<span class="hljs-number">150</span>,<span class="hljs-number">250</span>             <span class="hljs-comment"># Declining learning rate steps</span><br><span class="hljs-attr">batch_size</span>=<span class="hljs-number">64</span>             <span class="hljs-comment"># batch size</span><br><span class="hljs-attr">subdivisions</span>=<span class="hljs-number">1</span>            <span class="hljs-comment"># Same as the subdivisions of the darknet cfg file</span><br><span class="hljs-attr">learning_rate</span>=<span class="hljs-number">0.001</span>       <span class="hljs-comment"># learning rate</span><br><br><span class="hljs-section">[model-configure]</span><br><span class="hljs-attr">pre_weights</span>=None          <span class="hljs-comment"># The path to load the model, if it is none, then restart the training</span><br><span class="hljs-attr">classes</span>=<span class="hljs-number">80</span>                <span class="hljs-comment"># Number of detection categories</span><br><span class="hljs-attr">width</span>=<span class="hljs-number">352</span>                 <span class="hljs-comment"># The width of the model input image</span><br><span class="hljs-attr">height</span>=<span class="hljs-number">352</span>                <span class="hljs-comment"># The height of the model input image</span><br><span class="hljs-attr">anchor_num</span>=<span class="hljs-number">3</span>              <span class="hljs-comment"># anchor num</span><br><span class="hljs-attr">anchors</span>=<span class="hljs-number">12.64</span>,<span class="hljs-number">19.39</span>, <span class="hljs-number">37.88</span>,<span class="hljs-number">51.48</span>, <span class="hljs-number">55.71</span>,<span class="hljs-number">138.31</span>, <span class="hljs-number">126.91</span>,<span class="hljs-number">78.23</span>, <span class="hljs-number">131.57</span>,<span class="hljs-number">214.55</span>, <span class="hljs-number">279.92</span>,<span class="hljs-number">258.87</span> <span class="hljs-comment">#anchor bias</span><br><br><span class="hljs-section">[data-configure]</span><br><span class="hljs-attr">train</span>=/media/qiuqiu/D/coco/train2017.txt   <span class="hljs-comment"># train dataset path .txt file</span><br><span class="hljs-attr">val</span>=/media/qiuqiu/D/coco/val2017.txt       <span class="hljs-comment"># val dataset path .txt file </span><br><span class="hljs-attr">names</span>=./data/coco.names                    <span class="hljs-comment"># .names category label file</span><br></code></pre></div></td></tr></table></figure>
 
-<p>yolo-fatest的设计初衷就是为了能够在运算能力较低的设备如rk</p>
+<p>yolo-fatest的设计初衷是因为Darknet CPU推理效率优化不好，所以为了能够在像运算能力较低的ARM-cpu,虽然说“更快、更轻“，但训练出来的结果不尽人意。造成这一结果的原因太多了，可能是样本数量、学习率、训练轮次。</p>
+<p><img src="https://api2.mubu.com/v3/document_image/828a4915-5071-41a4-b1cb-0469bcce11f2-1995134.jpg" srcset="https://api2.mubu.com/v3/document_image/3ca7ce1b-79a1-4c14-9755-3b64f6c63775-1995134.jpg" lazyload></p>
+<p>后面还是再试下<a target="_blank" rel="noopener" href="https://ethan1024.github.io/2022/03/03/YOLOv4-tiny%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE%E9%9B%86%EF%BC%88kmeans%E8%81%9A%E7%B1%BBanchors%EF%BC%89/">yolov4-tiny</a>的训练效果吧。</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/huiyuanliyan/article/details/87900550">深度学习的宏观框架——训练（training）和推理（inference）及其应用场景</a></p>
 
             </div>

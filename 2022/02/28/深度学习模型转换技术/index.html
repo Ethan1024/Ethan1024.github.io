@@ -24,7 +24,7 @@
 <meta property="og:description" content="深度学习模型转换技术什么是深度学习模型转换首先需要明白深度学习模型的概念，在使用深度学习深度学习模型是指一种包含深度神经网络结构的机器学习模型。算法工程师使用某种深度学习框架构建好模型，经调参和训练优化后，将最终生成的网络参数和模型结构一并保存，得到的文件即为可用于前向推理的模型文件。不同深度学习框架训练得到的模型文件的格式不尽相同，但完整的模型文件一般都包含了张量数据、运算单元和计算图等信息。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-28T00:46:50.000Z">
-<meta property="article:modified_time" content="2022-03-01T12:42:53.296Z">
+<meta property="article:modified_time" content="2022-03-10T01:10:44.089Z">
 <meta property="article:author" content="Ethan">
 <meta property="article:tag" content="onnx">
 <meta property="article:tag" content="yolo">
@@ -216,7 +216,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      383 字
+      393 字
     </span>
   
 
@@ -266,17 +266,17 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年3月1日 晚上
+                  本文最后更新于：2022年3月10日 上午
                 
               </p>
             
             <div class="markdown-body">
               <h1 id="深度学习模型转换技术"><a href="#深度学习模型转换技术" class="headerlink" title="深度学习模型转换技术"></a>深度学习模型转换技术</h1><h3 id="什么是深度学习模型转换"><a href="#什么是深度学习模型转换" class="headerlink" title="什么是深度学习模型转换"></a>什么是深度学习模型转换</h3><p>首先需要明白深度学习模型的概念，在使用深度学习<br>深度学习模型是指一种包含深度神经网络结构的机器学习模型。算法工程师使用某种深度学习框架构建好模型，经调参和训练优化后，将最终生成的网络参数和模型结构一并保存，得到的文件即为可用于前向推理的模型文件。不同深度学习框架训练得到的模型文件的格式不尽相同，但完整的模型文件一般都包含了张量数据、运算单元和计算图等信息。</p>
-<p>之前在jetson nano上部署yolov4-tiny时用到了两次模型转换，很疑惑为啥要转换模型，今天就来学习下模型转换相关技术，用到的两次模型准换：</p>
+<p>之前在复现<a target="_blank" rel="noopener" href="https://github.com/jkjung-avt/tensorrt_demos">jetson nano上部署yolov4-tiny</a>，实时检测目标时用到了两次模型转换，很疑惑为啥要转换模型，今天就来学习下模型转换相关技术，用到的两次模型准换：</p>
 <div class="hljs code-wrapper"><pre><code>    ①yolo转onnx
 ​    ②onnx转trt
 </code></pre></div>
-<h4 id="什么是onnx"><a href="#什么是onnx" class="headerlink" title="什么是onnx?"></a>什么是onnx?</h4><p>了解一下：<a target="_blank" rel="noopener" href="http://bindog.github.io/blog/2020/03/13/deep-learning-model-convert-and-depoly/">深度学习模型转换与部署那些事(含ONNX格式详细分析)</a></p>
+<h4 id="什么是onnx"><a href="#什么是onnx" class="headerlink" title="什么是onnx?+"></a>什么是onnx?+</h4><p>了解一下：<a target="_blank" rel="noopener" href="http://bindog.github.io/blog/2020/03/13/deep-learning-model-convert-and-depoly/">深度学习模型转换与部署那些事(含ONNX格式详细分析)</a></p>
 <h4 id="什么是tensorRT？"><a href="#什么是tensorRT？" class="headerlink" title="什么是tensorRT？"></a>什么是tensorRT？</h4><h3 id="为什么要模型转换"><a href="#为什么要模型转换" class="headerlink" title="为什么要模型转换"></a>为什么要模型转换</h3><p>目的是为了提速，简单的来说</p>
 <h3 id="如何进行模型转换"><a href="#如何进行模型转换" class="headerlink" title="如何进行模型转换"></a>如何进行模型转换</h3><p>tensorRT</p>
 
