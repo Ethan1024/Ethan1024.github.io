@@ -65,13 +65,13 @@
   </entry>
   
   <entry>
-    <title>YOLOv4-tiny训练数据集（kmeans聚类achors）</title>
+    <title>YOLOv4-tiny训练数据集（kmeans聚类anchors）</title>
     <link href="http://example.com/2022/03/03/YOLOv4-tiny%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE%E9%9B%86%EF%BC%88kmeans%E8%81%9A%E7%B1%BBanchors%EF%BC%89/"/>
     <id>http://example.com/2022/03/03/YOLOv4-tiny%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE%E9%9B%86%EF%BC%88kmeans%E8%81%9A%E7%B1%BBanchors%EF%BC%89/</id>
     <published>2022-03-03T06:00:00.000Z</published>
-    <updated>2022-05-05T01:51:23.472Z</updated>
+    <updated>2022-05-05T01:55:20.944Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="YOLOv4-tiny训练数据集（kmeans聚类anchors）"><a href="#YOLOv4-tiny训练数据集（kmeans聚类anchors）" class="headerlink" title="YOLOv4-tiny训练数据集（kmeans聚类anchors）"></a>YOLOv4-tiny训练数据集（kmeans聚类anchors）</h2><p>接着上篇<a href="https://ethan1024.github.io/2022/02/22/padlepadle(%E7%99%BE%E5%BA%A6%E9%A3%9E%E6%A1%A8)/">开工总结</a>，上次总结到想训练yolov4-tiny检验下模型对小目标的感知能力，白嫖的GPU平台不得行。只好用自己的电脑训练数据了，训练起来也不算难。</p><p>网上有看到<a href="https://blog.csdn.net/cgt19910923/article/details/82154401">用Kmeans聚类计算先验框</a> 可以有效的提升检测准确率。</p><p>在darknet中源码默认附带了计算的命令：</p><h4 id="yolov4-tiny-聚类先验框"><a href="#yolov4-tiny-聚类先验框" class="headerlink" title="yolov4(tiny)聚类先验框"></a><a href="https://blog.csdn.net/weixin_41444791/article/details/114626098">yolov4(tiny)聚类先验框</a></h4><p>yolov4-tiny:</p><p><code>./darknet detector calc_anchors data/train.data -num_of_clusters 6 -width 416 -height 416</code></p><p>yolov4:</p><p><code>/darknet detector calc_anchors data/train.data -num_of_clusters 9 -width 416 -height 416</code></p><p>将聚类后得到的achor替换cfg配置文件里对应的参数，再进行数据训练查看效果。</p><h4 id="训练效果对比"><a href="#训练效果对比" class="headerlink" title="训练效果对比"></a>训练效果对比</h4><p>总共训练两次：</p><p>①未使用kmeans聚类，map达到60%左右</p><p><img src="https://api2.mubu.com/v3/document_image/3baa00b8-17dc-4f8c-88f9-27b65183ccff-1995134.jpg"></p><p>②使用kmeans聚类预测框，map达到90%左右</p><p><img src="https://api2.mubu.com/v3/document_image/946b1744-614a-4a8f-8431-28807a3a9fa3-1995134.jpg"></p><h4 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑</h4><p>之前在windows下训练就遇到过opencv报错 -&gt; video stream stopped</p><p>解决方法：查了很多资料，有说卸载opencv重新安装，重新编译darknet的。感觉都不靠谱，按照以往经验这就是突然安装什么软件或者运行什么程序导致opencv文件丢失的，之前安装opencv用的是源码编译安装，这次直接到安装目录下重新执行安装命令，问题得以解决。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="YOLOv4-tiny训练数据集（kmeans聚类anchors）"><a href="#YOLOv4-tiny训练数据集（kmeans聚类anchors）" class="headerlink" title="YOLOv4-tiny训练数据集（kmeans聚类anchors）"></a>YOLOv4-tiny训练数据集（kmeans聚类anchors）</h2><p>接着上篇<a href="https://ethan1024.github.io/2022/02/22/padlepadle(%E7%99%BE%E5%BA%A6%E9%A3%9E%E6%A1%A8)/">开工总结</a>，上次总结到想训练yolov4-tiny检验下模型对小目标的感知能力，白嫖的GPU平台不得行。只好用自己的电脑训练数据了，训练起来也不算难。</p><p>网上有看到<a href="https://blog.csdn.net/cgt19910923/article/details/82154401">用Kmeans聚类计算先验框</a> 可以有效的提升检测准确率。</p><p>在darknet中源码默认附带了计算的命令：</p><h4 id="yolov4-tiny-聚类先验框"><a href="#yolov4-tiny-聚类先验框" class="headerlink" title="yolov4(tiny)聚类先验框"></a><a href="https://blog.csdn.net/weixin_41444791/article/details/114626098">yolov4(tiny)聚类先验框</a></h4><p>yolov4-tiny:</p><p><code>./darknet detector calc_anchors data/train.data -num_of_clusters 6 -width 416 -height 416</code></p><p>yolov4:</p><p><code>/darknet detector calc_anchors data/train.data -num_of_clusters 9 -width 416 -height 416</code></p><p>将聚类后得到的anchor替换cfg配置文件里对应的参数，再进行数据训练查看效果。</p><h4 id="训练效果对比"><a href="#训练效果对比" class="headerlink" title="训练效果对比"></a>训练效果对比</h4><p>总共训练两次：</p><p>①未使用kmeans聚类，map达到60%左右</p><p><img src="https://api2.mubu.com/v3/document_image/3baa00b8-17dc-4f8c-88f9-27b65183ccff-1995134.jpg"></p><p>②使用kmeans聚类预测框，map达到90%左右</p><p><img src="https://api2.mubu.com/v3/document_image/946b1744-614a-4a8f-8431-28807a3a9fa3-1995134.jpg"></p><h4 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑</h4><p>之前在windows下训练就遇到过opencv报错 -&gt; video stream stopped</p><p>解决方法：查了很多资料，有说卸载opencv重新安装，重新编译darknet的。感觉都不靠谱，按照以往经验这就是突然安装什么软件或者运行什么程序导致opencv文件丢失的，之前安装opencv用的是源码编译安装，这次直接到安装目录下重新执行安装命令，问题得以解决。</p>]]></content>
     
     
       
@@ -88,11 +88,11 @@
     
     <category term="kmeans" scheme="http://example.com/tags/kmeans/"/>
     
-    <category term="achor boxes" scheme="http://example.com/tags/achor-boxes/"/>
-    
     <category term="bounding boxs" scheme="http://example.com/tags/bounding-boxs/"/>
     
     <category term="yolov4-tiny" scheme="http://example.com/tags/yolov4-tiny/"/>
+    
+    <category term="anchor boxes" scheme="http://example.com/tags/anchor-boxes/"/>
     
   </entry>
   
