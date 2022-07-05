@@ -16,22 +16,21 @@
   <meta name="description" content="">
   <meta name="author" content="Ethan">
   <meta name="keywords" content="">
-  <meta name="description" content="“炼丹”之数据组成待机器进行学习的标注数据被送入火炉前会被分为：训练集、验证集、测试集。三者发挥自己的作用对网络模型进行构建、筛选调整以及评估。主干网络的骨架在训练阶段利用训练集的特征拟合了模型的血和肉，训练的过程并不会用到测试集和验证集。验证集主要用来评估迭代训练时当前模型泛化能力（准确率，召回率等），以决定是否停止继续训练。在神经网络中， 我们用验证数据集去寻找最优的网络深度，或者决定反向传播">
+  <meta name="description" content="python中self的使用self的用法牵扯到类（class）和实例（instance）的概念，实例需要通过类来创建。 class被创建为模板，根据类创建的实例会包含类的所有属性。 由于类起到模板的作用，因此，可以在创建实例的时候，把我们认为必须绑定的属性强制填写进去。这里就用到Python当中的一个内置方法__init__方法，例如在Student类时，把name、score等属性绑上去。 例">
 <meta property="og:type" content="article">
-<meta property="og:title" content="“炼丹”之数据组成">
-<meta property="og:url" content="http://example.com/2022/04/07/%E2%80%9C%E7%82%BC%E4%B8%B9%E2%80%9D%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%84%E6%88%90/index.html">
+<meta property="og:title" content="python中self的使用">
+<meta property="og:url" content="http://example.com/2022/04/10/python%E4%B8%ADself%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="Ethan的个人博客">
-<meta property="og:description" content="“炼丹”之数据组成待机器进行学习的标注数据被送入火炉前会被分为：训练集、验证集、测试集。三者发挥自己的作用对网络模型进行构建、筛选调整以及评估。主干网络的骨架在训练阶段利用训练集的特征拟合了模型的血和肉，训练的过程并不会用到测试集和验证集。验证集主要用来评估迭代训练时当前模型泛化能力（准确率，召回率等），以决定是否停止继续训练。在神经网络中， 我们用验证数据集去寻找最优的网络深度，或者决定反向传播">
+<meta property="og:description" content="python中self的使用self的用法牵扯到类（class）和实例（instance）的概念，实例需要通过类来创建。 class被创建为模板，根据类创建的实例会包含类的所有属性。 由于类起到模板的作用，因此，可以在创建实例的时候，把我们认为必须绑定的属性强制填写进去。这里就用到Python当中的一个内置方法__init__方法，例如在Student类时，把name、score等属性绑上去。 例">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-04-07T03:26:50.000Z">
-<meta property="article:modified_time" content="2022-07-05T09:37:10.998Z">
+<meta property="article:published_time" content="2022-04-10T01:56:50.000Z">
+<meta property="article:modified_time" content="2022-07-05T09:54:41.994Z">
 <meta property="article:author" content="Ethan">
-<meta property="article:tag" content="训练集">
-<meta property="article:tag" content="测试集">
-<meta property="article:tag" content="验证集">
+<meta property="article:tag" content="实例">
+<meta property="article:tag" content="类">
 <meta name="twitter:card" content="summary_large_image">
   
-  <title>“炼丹”之数据组成 - Ethan的个人博客</title>
+  <title>python中self的使用 - Ethan的个人博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -190,7 +189,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="“炼丹”之数据组成">
+            <span class="h2" id="subtitle" title="python中self的使用">
               
             </span>
 
@@ -205,8 +204,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-04-07 11:26" pubdate>
-        2022年4月7日 上午
+      <time datetime="2022-04-10 09:56" pubdate>
+        2022年4月10日 上午
       </time>
     </span>
   
@@ -216,7 +215,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.9k 字
+      1.3k 字
     </span>
   
 
@@ -225,7 +224,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6 分钟
+      4 分钟
     </span>
   
 
@@ -262,7 +261,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">“炼丹”之数据组成</h1>
+            <h1 style="display: none">python中self的使用</h1>
             
               <p class="note note-info">
                 
@@ -271,69 +270,28 @@
               </p>
             
             <div class="markdown-body">
-              <h3 id="“炼丹”之数据组成"><a href="#“炼丹”之数据组成" class="headerlink" title="“炼丹”之数据组成"></a>“炼丹”之数据组成</h3><p>待机器进行学习的标注数据被送入火炉前会被分为：训练集、验证集、测试集。三者发挥自己的作用对网络模型进行构建、筛选调整以及评估。主干网络的骨架在训练阶段利用训练集的特征拟合了模型的血和肉，训练的过程并不会用到测试集和验证集。验证集主要用来评估迭代训练时当前模型泛化能力（准确率，召回率等），以决定是否停止继续训练。在神经网络中， 我们用验证数据集去寻找最优的网络深度，或者决定反向传播算法的停止点或者在神经网络中选择隐藏层神经元的数量；</p>
-<table>
-<thead>
-<tr>
-<th align="center">类别</th>
-<th align="center">验证集</th>
-<th align="center">测试集</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">作用</td>
-<td align="center">纯粹用于调超参数</td>
-<td align="center">纯粹为了加试以验证泛化性能</td>
-</tr>
-<tr>
-<td align="center">使用次数</td>
-<td align="center">多次使用，以不断调参</td>
-<td align="center">仅仅一次使用</td>
-</tr>
-<tr>
-<td align="center">用于训练</td>
-<td align="center">否</td>
-<td align="center">否</td>
-</tr>
-</tbody></table>
-<p><strong>两者的缺陷</strong>：模型在一次次重新手动调参并继续训练后所逼近的验证集，可能只代表一部分非训练集，导致最终训练好的模型泛化性能不够  测试集为了具有泛化代表性，往往数据量比较大，测试一轮要很久，所以往往只取测试集的其中一小部分作为训练过程中的验证集</p>
-<p><strong>互相转化</strong>：验证集具有足够泛化性（一般来说，如果验证集足够大到包括大部分非训练集时，也等于具有足够泛化性了）验证集具有足够泛化性时，测试集就没有存在的必要</p>
-<h4 id="训练集和测试集的划分"><a href="#训练集和测试集的划分" class="headerlink" title="训练集和测试集的划分"></a>训练集和测试集的划分</h4><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Generate txt in ImageSets.&quot;</span>)<br>xmlfilepath     = os.path.join(VOCdevkit_path, <span class="hljs-string">&#x27;VOC2007/Annotations&#x27;</span>)<br>saveBasePath    = os.path.join(VOCdevkit_path, <span class="hljs-string">&#x27;VOC2007/ImageSets/Main&#x27;</span>)<br>temp_xml        = os.listdir(xmlfilepath)   <span class="hljs-comment">#传入xml文件的路径,返回该目录下的所有xml文件名</span><br>total_xml       = []<br><span class="hljs-keyword">for</span> xml <span class="hljs-keyword">in</span> temp_xml:<br>    <span class="hljs-keyword">if</span> xml.endswith(<span class="hljs-string">&quot;.xml&quot;</span>):<br>        total_xml.append(xml)   <span class="hljs-comment">#添加每个xml文件</span><br><br>num     = <span class="hljs-built_in">len</span>(total_xml)  <br><span class="hljs-built_in">list</span>    = <span class="hljs-built_in">range</span>(num)  <span class="hljs-comment">#返回xml文件列表</span><br>tv      = <span class="hljs-built_in">int</span>(num*trainval_percent)  <br>tr      = <span class="hljs-built_in">int</span>(tv*train_percent)  <br>trainval= random.sample(<span class="hljs-built_in">list</span>,tv)  <br>train   = random.sample(trainval,tr)  <br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;train and val size&quot;</span>,tv)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;train size&quot;</span>,tr)<br>ftrainval   = <span class="hljs-built_in">open</span>(os.path.join(saveBasePath,<span class="hljs-string">&#x27;trainval.txt&#x27;</span>), <span class="hljs-string">&#x27;w&#x27;</span>)  <br>ftest       = <span class="hljs-built_in">open</span>(os.path.join(saveBasePath,<span class="hljs-string">&#x27;test.txt&#x27;</span>), <span class="hljs-string">&#x27;w&#x27;</span>)  <br>ftrain      = <span class="hljs-built_in">open</span>(os.path.join(saveBasePath,<span class="hljs-string">&#x27;train.txt&#x27;</span>), <span class="hljs-string">&#x27;w&#x27;</span>)  <br>fval        = <span class="hljs-built_in">open</span>(os.path.join(saveBasePath,<span class="hljs-string">&#x27;val.txt&#x27;</span>), <span class="hljs-string">&#x27;w&#x27;</span>)  <br></code></pre></div></td></tr></table></figure>
+              <h2 id="python中self的使用"><a href="#python中self的使用" class="headerlink" title="python中self的使用"></a>python中self的使用</h2><p>self的用法牵扯到类（class）和实例（instance）的概念，实例需要通过类来创建。</p>
+<p>class被创建为模板，根据类创建的实例会包含类的所有属性。</p>
+<p>由于类起到模板的作用，因此，可以在创建实例的时候，把我们认为必须绑定的属性强制填写进去。这里就用到Python当中的一个内置方法<code>__init__</code>方法，例如在Student类时，把name、score等属性绑上去。</p>
+<p><strong>例子:</strong></p>
+<p><strong>类和方法</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rapper</span>(<span class="hljs-params"><span class="hljs-built_in">object</span></span>):</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self, name, AKA</span>):</span><br>        self.name = name<br>        self.AKA = AKA<br><br>Rapper = Rapper(<span class="hljs-string">&quot;周延&quot;</span>,<span class="hljs-string">&quot;Gai&quot;</span>)<br><span class="hljs-built_in">print</span>(Rapper.name)<br><span class="hljs-built_in">print</span>(Rapper.AKA)<br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">output：<br>		周延<br>		gai<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>类内部定义访问数据的函数</strong> </p>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rapper</span>(<span class="hljs-params"><span class="hljs-built_in">object</span></span>):</span>					<span class="hljs-comment">#类</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self, name, AKA</span>):</span>		<span class="hljs-comment">#方法,作用是封装数据，便于调用。init 中第一个参数  self  表示实例本体，self代表类的实例，而非类</span><br>        self.name = name<br>        self.AKA = AKA<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">relationship</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-built_in">print</span> (<span class="hljs-string">&quot;Name: %s\nAKA: %s&quot;</span> % (self.name, self.AKA))<br><br>Rapper = Rapper(<span class="hljs-string">&quot;zhouyan&quot;</span>,<span class="hljs-string">&quot;gai&quot;</span>)<br>Rapper.relationship()<br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight dts"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs dts"><span class="hljs-symbol">output:</span><br><span class="hljs-symbol">		Name:</span> zhouyan<br><span class="hljs-symbol">		AKA:</span> gai<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>类内部定义访问和修改私有变量的函数</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rapper</span>(<span class="hljs-params"><span class="hljs-built_in">object</span></span>):</span>					<span class="hljs-comment">#类</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self, name, AKA</span>):</span>		<span class="hljs-comment">#方法</span><br>        self.__name = name<br>        self.__AKA = AKA<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">relationship</span>(<span class="hljs-params">self</span>):</span>  <br>        <span class="hljs-built_in">print</span> (<span class="hljs-string">&quot;姓名: %s\nAKA: %s&quot;</span> % (self.__name, self.__AKA))	<span class="hljs-comment">#私有变量可以不被外部轻易访问</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_name</span>(<span class="hljs-params">self</span>):</span>											 <span class="hljs-comment">#需要访问和修改的情况下定义以下两个函数				</span><br>        <span class="hljs-keyword">return</span> self.__name<br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_AKA</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-keyword">return</span> self.__AKA<br>   <span class="hljs-comment">#外部函数修改私有变量</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_AKA</span>(<span class="hljs-params">self, AKA</span>):</span><br>        self.__AKA = AKA<br><br>Rapper = Rapper(<span class="hljs-string">&quot;周延&quot;</span>,<span class="hljs-string">&quot;gai&quot;</span>)<br>Rapper.relationship()<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;-----------------------------&#x27;</span>)<br>Rapper.set_AKA(<span class="hljs-string">&#x27;金牌小密探&#x27;</span>)<br>Rapper.relationship()<br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">output:<br>		姓名: 周延<br>        AKA: gai<br>        -----------------------------<br>        姓名: 周延<br>        AKA: 金牌小密探<br></code></pre></div></td></tr></table></figure>
 
 
 
-<p><a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=range%E5%87%BD%E6%95%B0&spm=1001.2101.3001.7020">range函数</a>返回一个range类型的整数序列，一般用在循环结构中。</p>
-<table>
-<thead>
-<tr>
-<th><strong>参数名称</strong></th>
-<th><strong>说明</strong></th>
-<th><strong>备注</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>start</td>
-<td>计数起始位置</td>
-<td>整数参数，可省略。省略时默认从0开始计数</td>
-</tr>
-<tr>
-<td>stop</td>
-<td>计数终点位置</td>
-<td>不可省略的整数参数。计数迭代的序列中不包含stop</td>
-</tr>
-<tr>
-<td>step</td>
-<td>步长</td>
-<td>可省略的整数参数，默认时步长为1</td>
-</tr>
-</tbody></table>
-<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">list</span>:  <br>    name=total_xml[i][:-<span class="hljs-number">4</span>]+<span class="hljs-string">&#x27;\n&#x27;</span>  <br>    <span class="hljs-keyword">if</span> i <span class="hljs-keyword">in</span> trainval:  <br>        ftrainval.write(name)  <br>        <span class="hljs-keyword">if</span> i <span class="hljs-keyword">in</span> train:  <br>            ftrain.write(name)  <br>        <span class="hljs-keyword">else</span>:  <br>            fval.write(name)  <br>    <span class="hljs-keyword">else</span>:  <br>        ftest.write(name)  <br><br>ftrainval.close()  <br>ftrain.close()  <br>fval.close()  <br>ftest.close()<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Generate txt in ImageSets done.&quot;</span>)<br></code></pre></div></td></tr></table></figure>
-
-
-
-<h4 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/kieven2008/article/details/81582591?ops_request_misc=%7B%22request_id%22:%22165631207516781685360179%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=165631207516781685360179&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-81582591-null-null.142%5Ev24%5Epc_rank_34,157%5Ev15%5Enew_3&utm_term=%E9%AA%8C%E8%AF%81%E9%9B%86%E5%92%8C%E6%B5%8B%E8%AF%95%E9%9B%86%E7%9A%84%E5%8C%BA%E5%88%AB&spm=1018.2226.3001.4187">训练集、验证集、测试集以及交验验证的理解</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ZhangJingHuaJYO/article/details/122452878?ops_request_misc=&request_id=&biz_id=102&utm_term=%E9%AA%8C%E8%AF%81%E9%9B%86%E5%92%8C%E6%B5%8B%E8%AF%95%E9%9B%86%E7%9A%84%E5%8C%BA%E5%88%AB&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-122452878.nonecase&spm=1018.2226.3001.4187">验证集和测试集有什么区别？</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jningwei/article/details/78170171/?ops_request_misc=&request_id=&biz_id=102&utm_term=%E9%AA%8C%E8%AF%81%E9%9B%86%E5%92%8C%E6%B5%8B%E8%AF%95%E9%9B%86%E7%9A%84%E5%8C%BA%E5%88%AB&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-5-78170171.nonecase&spm=1018.2226.3001.4187">深度学习: 验证集 &amp; 测试集 区别</a></p>
+<h4 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/CLHugh/article/details/75000104?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1-75000104-blog-85805481.pc_relevant_multi_platform_whitelistv2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1-75000104-blog-85805481.pc_relevant_multi_platform_whitelistv2&utm_relevant_index=2">Python中self用法详解_CLHugh的博客-CSDN博客_python中的self</a></p>
 
             </div>
             <hr>
@@ -345,7 +303,7 @@
                     
                       <a class="hover-with-bg" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%82%BC%E4%B8%B9%E7%AC%94%E8%AE%B0/">炼丹笔记</a>
+                      <a class="hover-with-bg" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%BB%83%E4%B9%A0/">练习</a>
                     
                   </div>
                 
@@ -353,11 +311,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E8%AE%AD%E7%BB%83%E9%9B%86/">训练集</a>
+                      <a class="hover-with-bg" href="/tags/%E5%AE%9E%E4%BE%8B/">实例</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%B5%8B%E8%AF%95%E9%9B%86/">测试集</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E9%AA%8C%E8%AF%81%E9%9B%86/">验证集</a>
+                      <a class="hover-with-bg" href="/tags/%E7%B1%BB/">类</a>
                     
                   </div>
                 
@@ -374,9 +330,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/04/10/python%E4%B8%ADself%E7%9A%84%E4%BD%BF%E7%94%A8/">
+                      <a href="/2022/04/13/Pytorch%E4%B8%AD%E7%9A%84%E2%80%9Cforward%E2%80%9D/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">python中self的使用</span>
+                        <span class="hidden-mobile">Pytorch 中的 “forward”</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -384,8 +340,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/03/20/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%EF%BD%9C%E4%BA%A4%E5%8F%89%E7%86%B5%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/">
-                        <span class="hidden-mobile">交叉熵损失函数🔋</span>
+                      <a href="/2022/04/07/%E2%80%9C%E7%82%BC%E4%B8%B9%E2%80%9D%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%84%E6%88%90/">
+                        <span class="hidden-mobile">“炼丹”之数据组成</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -410,7 +366,7 @@
         var options = Object.assign(
           {"enable":true,"clientID":"2a3059614b56125a051a","clientSecret":"d0bf906c99410f02e6119f2b798e16f941431df6","repo":"gitalk","owner":"Ethan1024","admin":["Ethan1024"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: 'a1bbcf4511ab7f60d08b09e3013a2024'
+            id: '880d6a60690d8ebcee70af9491087198'
           }
         )
         var gitalk = new Gitalk(options);
