@@ -16,21 +16,21 @@
   <meta name="description" content="">
   <meta name="author" content="Ethan">
   <meta name="keywords" content="">
-  <meta name="description" content="Pytorch 中 “forward”使用数据进入网络模型的主要处理流程：数据集输入 -&gt; 网络前向传播 -&gt; 损失loss计算 -&gt; 反向传播计算梯度 -&gt; 根据梯度自动调参  **call函数:**可将类的实例对象变为可调用对象 123456class Rapper():    def __call__(self,name,AKA):        print(&amp;quo">
+  <meta name="description" content="Pytorch 中 “forward”的使用数据进入网络模型的主要处理流程：数据集输入 -&gt; 网络前向传播 -&gt; 损失loss计算 -&gt; 反向传播计算梯度 -&gt; 根据梯度自动调参  **call函数:**可将类的实例对象变为可调用对象 123456class Rapper():    def __call__(self,name,AKA):        print(&amp;qu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Pytorch 中 “forward”使用">
+<meta property="og:title" content="Pytorch 中 “forward”的使用">
 <meta property="og:url" content="http://example.com/2022/04/13/Pytorch%E4%B8%AD%E7%9A%84%E2%80%9Cforward%E2%80%9D/index.html">
 <meta property="og:site_name" content="Ethan的个人博客">
-<meta property="og:description" content="Pytorch 中 “forward”使用数据进入网络模型的主要处理流程：数据集输入 -&gt; 网络前向传播 -&gt; 损失loss计算 -&gt; 反向传播计算梯度 -&gt; 根据梯度自动调参  **call函数:**可将类的实例对象变为可调用对象 123456class Rapper():    def __call__(self,name,AKA):        print(&amp;quo">
+<meta property="og:description" content="Pytorch 中 “forward”的使用数据进入网络模型的主要处理流程：数据集输入 -&gt; 网络前向传播 -&gt; 损失loss计算 -&gt; 反向传播计算梯度 -&gt; 根据梯度自动调参  **call函数:**可将类的实例对象变为可调用对象 123456class Rapper():    def __call__(self,name,AKA):        print(&amp;qu">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-13T13:30:50.000Z">
-<meta property="article:modified_time" content="2022-07-06T09:31:23.639Z">
+<meta property="article:modified_time" content="2022-07-06T09:33:31.064Z">
 <meta property="article:author" content="Ethan">
 <meta property="article:tag" content="前向传播函数">
 <meta property="article:tag" content="forward">
 <meta name="twitter:card" content="summary_large_image">
   
-  <title>Pytorch 中 “forward”使用 - Ethan的个人博客</title>
+  <title>Pytorch 中 “forward”的使用 - Ethan的个人博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -189,7 +189,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Pytorch 中 “forward”使用">
+            <span class="h2" id="subtitle" title="Pytorch 中 “forward”的使用">
               
             </span>
 
@@ -215,7 +215,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      886 字
+      887 字
     </span>
   
 
@@ -261,7 +261,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Pytorch 中 “forward”使用</h1>
+            <h1 style="display: none">Pytorch 中 “forward”的使用</h1>
             
               <p class="note note-info">
                 
@@ -270,7 +270,7 @@
               </p>
             
             <div class="markdown-body">
-              <h3 id="Pytorch-中-“forward”使用"><a href="#Pytorch-中-“forward”使用" class="headerlink" title="Pytorch 中 “forward”使用"></a>Pytorch 中 “forward”使用</h3><p><strong>数据进入网络模型的主要处理流程：</strong>数据集输入 -&gt; 网络前向传播 -&gt; 损失loss计算 -&gt; 反向传播计算梯度 -&gt; 根据梯度自动调参</p>
+              <h3 id="Pytorch-中-“forward”的使用"><a href="#Pytorch-中-“forward”的使用" class="headerlink" title="Pytorch 中 “forward”的使用"></a>Pytorch 中 “forward”的使用</h3><p><strong>数据进入网络模型的主要处理流程：</strong>数据集输入 -&gt; 网络前向传播 -&gt; 损失loss计算 -&gt; 反向传播计算梯度 -&gt; 根据梯度自动调参</p>
 <p> **call函数:**可将类的实例对象变为可调用对象</p>
 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rapper</span>():</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__call__</span>(<span class="hljs-params">self,name,AKA</span>):</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;我是实例对象781号Rapper:&#123;&#125;,AKA:&#123;&#125;&quot;</span> .<span class="hljs-built_in">format</span> (name, AKA))<br> <br>num_781_Rapper = Rapper()<br>num_781_Rapper(<span class="hljs-string">&quot;周延&quot;</span>,<span class="hljs-string">&quot;gai&quot;</span>)<br></code></pre></div></td></tr></table></figure>
 
