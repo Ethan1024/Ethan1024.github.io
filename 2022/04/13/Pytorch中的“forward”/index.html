@@ -16,15 +16,15 @@
   <meta name="description" content="">
   <meta name="author" content="Ethan">
   <meta name="keywords" content="">
-  <meta name="description" content="Pytorch 中 “forward”使用数据进入网络模型的主要处理流程：数据集输入 -&gt; 网络前向传播 -&gt; 损失loss计算 -&gt; 反向传播计算梯度 -&gt; 根据梯度自动调参  **__call__函数:**可将类的实例对象变为可调用对象 123456class Rapper():    def __call__(self,name,AKA):        print(">
+  <meta name="description" content="Pytorch 中 “forward”使用数据进入网络模型的主要处理流程：数据集输入 -&gt; 网络前向传播 -&gt; 损失loss计算 -&gt; 反向传播计算梯度 -&gt; 根据梯度自动调参  **call函数:**可将类的实例对象变为可调用对象 123456class Rapper():    def __call__(self,name,AKA):        print(&amp;quo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pytorch 中 “forward”使用">
 <meta property="og:url" content="http://example.com/2022/04/13/Pytorch%E4%B8%AD%E7%9A%84%E2%80%9Cforward%E2%80%9D/index.html">
 <meta property="og:site_name" content="Ethan的个人博客">
-<meta property="og:description" content="Pytorch 中 “forward”使用数据进入网络模型的主要处理流程：数据集输入 -&gt; 网络前向传播 -&gt; 损失loss计算 -&gt; 反向传播计算梯度 -&gt; 根据梯度自动调参  **__call__函数:**可将类的实例对象变为可调用对象 123456class Rapper():    def __call__(self,name,AKA):        print(">
+<meta property="og:description" content="Pytorch 中 “forward”使用数据进入网络模型的主要处理流程：数据集输入 -&gt; 网络前向传播 -&gt; 损失loss计算 -&gt; 反向传播计算梯度 -&gt; 根据梯度自动调参  **call函数:**可将类的实例对象变为可调用对象 123456class Rapper():    def __call__(self,name,AKA):        print(&amp;quo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-13T13:30:50.000Z">
-<meta property="article:modified_time" content="2022-07-06T09:27:01.410Z">
+<meta property="article:modified_time" content="2022-07-06T09:31:23.639Z">
 <meta property="article:author" content="Ethan">
 <meta property="article:tag" content="前向传播函数">
 <meta property="article:tag" content="forward">
@@ -215,7 +215,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      894 字
+      886 字
     </span>
   
 
@@ -271,14 +271,14 @@
             
             <div class="markdown-body">
               <h3 id="Pytorch-中-“forward”使用"><a href="#Pytorch-中-“forward”使用" class="headerlink" title="Pytorch 中 “forward”使用"></a>Pytorch 中 “forward”使用</h3><p><strong>数据进入网络模型的主要处理流程：</strong>数据集输入 -&gt; 网络前向传播 -&gt; 损失loss计算 -&gt; 反向传播计算梯度 -&gt; 根据梯度自动调参</p>
-<p> **__call__函数:**可将类的实例对象变为可调用对象</p>
+<p> **call函数:**可将类的实例对象变为可调用对象</p>
 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rapper</span>():</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__call__</span>(<span class="hljs-params">self,name,AKA</span>):</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;我是实例对象781号Rapper:&#123;&#125;,AKA:&#123;&#125;&quot;</span> .<span class="hljs-built_in">format</span> (name, AKA))<br> <br>num_781_Rapper = Rapper()<br>num_781_Rapper(<span class="hljs-string">&quot;周延&quot;</span>,<span class="hljs-string">&quot;gai&quot;</span>)<br></code></pre></div></td></tr></table></figure>
 
 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">output:<br>		我是实例对象<span class="hljs-number">781</span>号Rapper:周延,AKA:gai<br></code></pre></div></td></tr></table></figure>
 
 
 
-<p>__call__函数调用forward，当把定义的网络模型model当作函数调用的时候就自动调用定义的网络模型的forward方法。</p>
+<p><strong>call函数</strong>调用forward，当把定义的网络模型model当作函数调用的时候就自动调用定义的网络模型的forward方法。</p>
 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rapper</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__call__</span>(<span class="hljs-params">self, Name</span>):</span><br>        search = self.forward(Name)<br>        <span class="hljs-keyword">return</span> search<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span>(<span class="hljs-params">self, name</span>):</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;信息查询函数 函数被调用了&#x27;</span>)<br>        <span class="hljs-keyword">if</span> name == <span class="hljs-string">&#x27;gai&#x27;</span>:<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;姓名：&#123;&#125;  来自: &#123;&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(name, <span class="hljs-string">&quot;重庆&quot;</span>))<br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;系统未录入此人信息&quot;</span>)<br>        <span class="hljs-keyword">return</span> name<br><br><br>rapper = Rapper()<br>about = rapper(<span class="hljs-string">&#x27;gai&#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;目标人物：&quot;</span>, about)<br></code></pre></div></td></tr></table></figure>
 
 <figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">output:<br>        信息查询函数 函数被调用了<br>        姓名：gai  来自: 重庆<br>        目标人物： gai<br></code></pre></div></td></tr></table></figure>
